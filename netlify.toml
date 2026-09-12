@@ -17,3 +17,13 @@
   from = "/contact-us"
   to = "/get-involved/"
   status = 301
+
+[[redirects]]
+  from = "/support-end-chronic-disease"
+  to = "/donate/"
+  status = 301
+
+[[redirects]]
+  from = "/poll-august2025"
+  to = "/news/"
+  status = 301
