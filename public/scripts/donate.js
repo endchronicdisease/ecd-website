@@ -1,7 +1,7 @@
 (function () {
   var ONCE = [1000, 500, 250, 100, 75, 50, 25];
   var MONTHLY = [100, 50, 40, 25, 20, 15, 10];
-  var ANEDOT = 'https://secure.anedot.com/end-chronic-disease-c3/donate';
+  var ANEDOT = 'https://secure.anedot.com/end-chronic-disease-c3';
 
   var state = { monthly: false, amount: 100, custom: false, customValue: '' };
 

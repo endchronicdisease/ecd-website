@@ -16,6 +16,6 @@
   document.addEventListener('click', function(e){
     if (!nav.contains(e.target) || e.target.closest('#ecdSearchBtn')) setOpen(false);
   });
-  var desktop = window.matchMedia('(min-width:901px)');
+  var desktop = window.matchMedia('(min-width:1181px)');
   desktop.addEventListener('change', function(m){ if (m.matches) setOpen(false); });
 })();

@@ -3,6 +3,7 @@
   if (window.__ecdSearch) return;
   window.__ecdSearch = 1;
   var IX = [
+["News","Op-ed","Close the dementia gap","washington post, letter, dementia, ftd, registry, health data, new york, california","In a letter to the editor in The Washington Post, Kelly McKenna highlights the importance of population-level data in understanding disease causes, risk factors, and potential prevention, as well as how states can help fill critical data gaps. New York has established the nation’s first statewide FTD registry, while California is close to adding FTD to its existing neurodegenerative disease registry.","news","https://www.washingtonpost.com/opinions/2026/09/11/border-security-doesnt-have-destroy-big-bend/"],
 ["About","Page","Chronic disease connects all of us","about,mission,prevention,nonpartisan,501c3,institute","End Chronic Disease Institute is a nonpartisan, nonprofit 501(c)(3) organization working to bring prevention into everyday life.","about"],
 ["About","Section","Chronic disease takes many forms","autoimmune,cancer,diabetes,dementia,asthma,arthritis,copd,lupus,migraine,obesity,hypertension,parkinsons,multiple sclerosis","Across ages, backgrounds, and communities, chronic disease has become a part of life for a majority of Americans.","about"],
 ["About","Data","Chronic disease now affects most adults at every stage of life","194 million,prevalence,lifespan,cdc","More than 194 million U.S. adults live with at least one chronic condition.","about"],

@@ -1,9 +1,17 @@
 /* Shared stylesheet loaded on every page. Page markup is inline-styled, so
-   these rules use attribute selectors on the style attribute and !important to win. */
+   these rules use attribute selectors on the style attribute and !important to win.
+   Breakpoints: 1180px (hamburger nav), 900px (two-column layouts), 600px (single column). */
 
 /* Keyboard focus for inline text links (the mockups carried the style in a style-focus attribute) */
 [style-focus]:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 [style-focus^="background-size"]:focus-visible{background-size:100% 1.5px}
+
+/* Header stays in view while scrolling. The bar spans the full width; its content keeps the 1352px axis.
+   z-index sits below the team bio dialogs (60) and the search overlay (200). */
+.ecd-nav{position:sticky;top:0;z-index:50;max-width:none!important;padding:20px max(80px,calc((100% - 1352px) / 2 + 80px))!important;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+
+/* About: the full-bleed ribbon arcs extend past the viewport at most widths; never let them cause a scrollbar */
+.ecd-ribbons{overflow:hidden}
 
 /* Respect "reduce motion": freeze the hero slideshow, its dots and the logo ticker */
 @media (prefers-reduced-motion:reduce){
@@ -20,8 +28,34 @@
 .ecd-nav-open .ecd-menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .ecd-menu-btn:focus-visible{outline:2px solid #6FA4E2;outline-offset:3px;border-radius:4px}
 
+@media (max-width:1180px){
+  /* Navigation: logo + hamburger, links in a dropdown. The full link row only fits above 1180px. */
+  div.ecd-nav{flex-wrap:nowrap!important;gap:0!important;padding:14px 24px!important}
+  div.ecd-nav > a > img{height:44px!important}
+  .ecd-menu-btn{display:block}
+  div.ecd-nav-links{display:none!important;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start!important;gap:22px!important;padding:10px 24px 30px;background:#ffffff;border-bottom:1px solid #E6E2DA;box-shadow:0 18px 32px -20px rgba(0,0,0,.25)}
+  .ecd-nav-open div.ecd-nav-links{display:flex!important}
+  div.ecd-nav-links > a{font-size:15px!important}
+  div.ecd-nav-links > a[href="/donate/"]{margin-top:6px;padding:16px 28px!important}
+  div.ecd-nav-links > #ecdSearchBtn{margin:0 0 0 -12px!important}
+
+  /* Home: the three stat circles are fixed at 266px; let them shrink with their grid cells */
+  [style*="repeat(3,1fr);gap:56px"] [style*="width:266px;height:266px"]{width:min(266px,100%)!important;height:auto!important;aspect-ratio:1}
+}
+
+@media (max-width:1352px){
+  /* About: the three-factor text blocks are 412px wide, wider than their columns below the 1352px design axis */
+  [style*="min-width:0;width:412px"]{max-width:100%!important}
+}
+
+@media (max-width:1000px){
+  /* Our Work "Be part of this work": text and button pair stack once the pair no longer fits beside the text */
+  [style*="minmax(300px,1fr) max-content"]{grid-template-columns:minmax(0,1fr)!important}
+}
+
 @media (max-width:900px){
   img{max-width:100%}
+  div.ecd-nav{padding:14px 20px!important}
 
   /* Content axis: 80px side padding becomes 24px */
   [style*="px 80px"],[style*=":0 80px"]{padding-left:24px!important;padding-right:24px!important}
@@ -40,7 +74,7 @@
   [style*="max-content minmax(200px,1fr) max-content"]{grid-template-columns:max-content minmax(0,1fr) max-content!important}
   [style*="grid-template-columns:repeat(auto-f"]{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))!important}
 
-  /* Flex rows may wrap */
+  /* Flex rows may wrap (vertical stacks excluded: wrapping a column pushes items into hidden side columns) */
   [style*="display:flex"]:not([style*="width:max-content"]):not([style*="flex-direction:column"]){flex-wrap:wrap!important}
 
   /* Large display numerals */
@@ -51,21 +85,13 @@
   [style*="font:700 43px"]{font-size:clamp(32px,8vw,43px)!important}
   [style*="clamp(126px"]{font-size:clamp(80px,21vw,126px)!important}
 
-  /* Navigation: logo + hamburger, links in a dropdown */
-  div.ecd-nav{position:relative;z-index:60;flex-wrap:nowrap!important;gap:0!important;padding:14px 20px!important}
-  div.ecd-nav > a > img{height:44px!important}
-  .ecd-menu-btn{display:block}
-  div.ecd-nav-links{display:none!important;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start!important;gap:22px!important;padding:10px 24px 30px;background:#ffffff;border-bottom:1px solid #E6E2DA;box-shadow:0 18px 32px -20px rgba(0,0,0,.25)}
-  .ecd-nav-open div.ecd-nav-links{display:flex!important}
-  div.ecd-nav-links > a{font-size:15px!important}
-  div.ecd-nav-links > a[href="/donate/"]{margin-top:6px;padding:16px 28px!important}
-  div.ecd-nav-links > #ecdSearchBtn{margin:0 0 0 -12px!important}
-
   /* About: three-factor comparison flows by column into five fixed rows; stack it instead */
   [style*="grid-auto-flow:column"]{grid-auto-flow:row!important;grid-template-rows:none!important;grid-template-columns:minmax(0,1fr)!important}
   [style*="grid-auto-flow:column"] > div[style*="Coming Soon"]{margin-top:48px}
   [style*="grid-auto-flow:column"] > div[style*="Coming Soon"]:first-child{margin-top:0}
   [style*="Coming Soon"][style*="white-space:nowrap"]{white-space:normal!important}
+  /* The rightmost paint splotch is scaled 9% wider than its cell; clip that spill at the section edge */
+  [style*="max-width:1352px"]:has(.ecd-factors){overflow-x:clip}
 
   /* News: media-inquiries band */
   [style*="left:6.5%;bottom:12%"]{left:24px!important;right:24px!important;bottom:40px!important;width:auto!important;max-width:none!important}
@@ -85,13 +111,14 @@
   [style*="padding:40px 80px 40px 0"]{padding:24px 0 40px!important}
   [style*="padding:40px 80px 40px 0"] > [style*="height:100%"]{height:300px!important}
 
-  /* About: full-bleed ribbon arcs are wider than the phone, so crop them */
-  .ecd-ribbons{overflow:hidden}
+  /* About: ribbon arcs are wider than the phone, so show them at a readable size and crop */
   .ecd-ribbons svg{width:820px!important;height:auto!important;margin-left:calc(50% - 410px)}
 
   /* Homepage mission quote card */
-  [style*="padding:78px 78px 44px"]{padding:44px 24px 36px!important}
+  [style*="padding:78px 78px 44px"]{padding:36px 24px 36px!important}
   [style*="margin:0 0 0 62px"]{margin-left:0!important}
+  /* the large opening quotation mark sits above the text instead of floating over it */
+  [style*="left:78px;top:38px"]{position:static!important;display:block;height:54px;font-size:96px!important;line-height:1!important;margin:0 0 6px -4px}
 
   /* Footer text links: larger touch target without changing the visual spacing */
   .ecd-footgrid a:not([aria-label]){display:inline-block;padding:7px 0;margin:-7px 0}
@@ -116,11 +143,6 @@
   [style*="column-gap:16px;align-items:start"] [style*="height:196px"]{height:150px!important}
   [style*="column-gap:16px;align-items:start"] [style*="height:186px"]{height:142px!important}
   .ecd-factors{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px 16px!important}
-}
-
-@media (max-width:900px){
-  /* The rightmost paint splotch is scaled 9% wider than its cell; clip that spill at the section edge */
-  [style*="max-width:1352px"]:has(.ecd-factors){overflow-x:clip}
   /* Team portraits and donation tiers stay two-up */
   [style*="minmax(230px,1fr)"],[style*="minmax(250px,1fr)"]{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px 16px!important}
   [style*="grid-template-columns"]:has(> #ecdTiers){grid-template-columns:repeat(2,minmax(0,1fr))!important}
