@@ -219,6 +219,7 @@
   .ecd-footgrid > :nth-child(1){order:4}
   .ecd-footgrid > :nth-child(2){order:2}
   .ecd-footgrid > :nth-child(3){order:3}
-  .ecd-footgrid > :nth-child(4){order:1}
-  .ecd-footgrid > :nth-child(4){margin-top:0!important}
+  .ecd-footgrid > :nth-child(4){order:1;margin-top:0!important;max-width:380px}
+  /* the logo's desktop cap-line offset (-17px) would eat into the gap above the brand block */
+  .ecd-footgrid > :nth-child(1) > img{margin-top:0!important}
 }
