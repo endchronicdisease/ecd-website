@@ -1,6 +1,7 @@
 /* Shared stylesheet loaded on every page. Page markup is inline-styled, so
    these rules use attribute selectors on the style attribute and !important to win.
-   Breakpoints: 1180px (hamburger nav), 900px (two-column layouts), 600px (single column). */
+   Tiers: above 1180px the design as drawn; 901 to 1180px "compact desktop" (same layouts,
+   tighter gutters and nav); 900px and below tablet layouts with the hamburger; 600px single column. */
 
 /* Keyboard focus for inline text links (the mockups carried the style in a style-focus attribute) */
 [style-focus]:focus-visible{outline:2px solid currentColor;outline-offset:4px}
@@ -12,6 +13,10 @@
 
 /* About: the full-bleed ribbon arcs extend past the viewport at most widths; never let them cause a scrollbar */
 .ecd-ribbons{overflow:hidden}
+
+/* About: the younger-adults chart's per-year hover boxes carry opacity:.001 inline, which outranks the
+   generated :hover rule unless it is important */
+[class^="ecd-hv-about-"]:hover{opacity:1!important}
 
 /* Respect "reduce motion": freeze the hero slideshow, its dots and the logo ticker */
 @media (prefers-reduced-motion:reduce){
@@ -28,24 +33,56 @@
 .ecd-nav-open .ecd-menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .ecd-menu-btn:focus-visible{outline:2px solid #6FA4E2;outline-offset:3px;border-radius:4px}
 
-@media (max-width:1180px){
-  /* Navigation: logo + hamburger, links in a dropdown. The full link row only fits above 1180px. */
-  div.ecd-nav{flex-wrap:nowrap!important;gap:0!important;padding:14px 24px!important}
-  div.ecd-nav > a > img{height:44px!important}
-  .ecd-menu-btn{display:block}
-  div.ecd-nav-links{display:none!important;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start!important;gap:22px!important;padding:10px 24px 30px;background:#ffffff;border-bottom:1px solid #E6E2DA;box-shadow:0 18px 32px -20px rgba(0,0,0,.25)}
-  .ecd-nav-open div.ecd-nav-links{display:flex!important}
-  div.ecd-nav-links > a{font-size:15px!important}
-  div.ecd-nav-links > a[href="/donate/"]{margin-top:6px;padding:16px 28px!important}
-  div.ecd-nav-links > #ecdSearchBtn{margin:0 0 0 -12px!important}
-
-  /* Home: the three stat circles are fixed at 266px; let them shrink with their grid cells */
-  [style*="repeat(3,1fr);gap:56px"] [style*="width:266px;height:266px"]{width:min(266px,100%)!important;height:auto!important;aspect-ratio:1}
+/* Desktop layouts hold down to 901px: ten factors five across, 90% dots beside their text, four-column footer */
+@media (min-width:901px){
+  .ecd-factors{grid-template-columns:repeat(5,minmax(0,1fr))!important}
+}
+@media (min-width:901px) and (max-width:1179px){
+  .ecd-spend{grid-template-columns:minmax(0,340px) minmax(0,1fr)!important;gap:56px!important;align-items:center!important}
+}
+@media (min-width:1000px) and (max-width:1179px){
+  .ecd-footgrid{grid-template-columns:minmax(0,1.386fr) minmax(0,.7fr) minmax(0,.814fr) minmax(0,1.2fr)!important;column-gap:32px!important}
+}
+/* Two-column footer: Explore and Connect on the first row, brand and contact box beneath */
+@media (min-width:860px) and (max-width:999px){
+  .ecd-footgrid > :nth-child(1){order:3}
+  .ecd-footgrid > :nth-child(2){order:1}
+  .ecd-footgrid > :nth-child(3){order:2}
+  .ecd-footgrid > :nth-child(4){order:4}
 }
 
 @media (max-width:1352px){
   /* About: the three-factor text blocks are 412px wide, wider than their columns below the 1352px design axis */
   [style*="min-width:0;width:412px"]{max-width:100%!important}
+}
+
+@media (max-width:1180px){
+  /* Compact desktop: full navigation with tighter spacing */
+  div.ecd-nav{padding:16px 40px!important}
+  div.ecd-nav > a > img{height:46px!important}
+  div.ecd-nav-links{gap:clamp(12px,2vw,30px)!important;margin-left:28px}
+  div.ecd-nav-links > a{font-size:11.5px!important;letter-spacing:.12em!important}
+  div.ecd-nav-links > a[href="/donate/"]{font-size:13.5px!important;padding:16px 26px!important}
+
+  /* Content axis: 80px gutters become 40px */
+  [style*="px 80px"],[style*=":0 80px"]{padding-left:40px!important;padding-right:40px!important}
+  [style*="padding-left:80px"]{padding-left:40px!important}
+  .ecd-hero2-copy{padding-left:40px!important}
+
+  /* Home: the three stat circles are fixed at 266px; let them shrink with their grid cells */
+  [style*="repeat(3,1fr);gap:56px"] [style*="width:266px;height:266px"]{width:min(266px,100%)!important;height:auto!important;aspect-ratio:1}
+  /* Donation tiles keep to their box */
+  #ecdTiers > button{font-size:17px!important;padding:14px 2px!important;min-width:0}
+  [style*="padding:26px 10px;border-radius:8px"]{font-size:20px!important;padding:20px 6px!important}
+  /* News: three cards per row */
+  [style*="minmax(330px,1fr)"]{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))!important;gap:44px 28px!important}
+  /* Our Work hero: a little more room for the pillar lines */
+  .ecd-hero2{grid-template-columns:44% minmax(0,1fr)!important}
+  .ecd-pline{font-size:16.5px!important}
+  /* Get Involved green band: text column gets its share */
+  [style*="minmax(0,352px) minmax(0,1fr) auto"]{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr) auto!important;gap:40px!important}
+  /* Our Work "Be part of this work" */
+  [style*="minmax(300px,1fr) max-content"]{gap:40px!important}
 }
 
 @media (max-width:1000px){
@@ -55,9 +92,18 @@
 
 @media (max-width:900px){
   img{max-width:100%}
-  div.ecd-nav{padding:14px 20px!important}
 
-  /* Content axis: 80px side padding becomes 24px */
+  /* Navigation: logo + hamburger, links in a dropdown */
+  div.ecd-nav{flex-wrap:nowrap!important;gap:0!important;padding:14px 20px!important}
+  div.ecd-nav > a > img{height:44px!important}
+  .ecd-menu-btn{display:block}
+  div.ecd-nav-links{display:none!important;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start!important;gap:22px!important;margin:0;padding:10px 24px 30px;background:#ffffff;border-bottom:1px solid #E6E2DA;box-shadow:0 18px 32px -20px rgba(0,0,0,.25)}
+  .ecd-nav-open div.ecd-nav-links{display:flex!important}
+  div.ecd-nav-links > a{font-size:15px!important;letter-spacing:.14em!important}
+  div.ecd-nav-links > a[href="/donate/"]{margin-top:6px;font-size:15px!important;padding:16px 28px!important}
+  div.ecd-nav-links > #ecdSearchBtn{margin:0 0 0 -12px!important}
+
+  /* Content axis: gutters become 24px */
   [style*="px 80px"],[style*=":0 80px"]{padding-left:24px!important;padding-right:24px!important}
 
   /* Fixed-width blocks flow with the viewport */
@@ -80,7 +126,7 @@
   /* Large display numerals */
   [style*="font:400 152px"]{font-size:clamp(88px,24vw,152px)!important}
   [style*="font:600 124px"]{font-size:clamp(72px,20vw,124px)!important}
-  [style*="font:400 77px"]{font-size:clamp(48px,12vw,77px)!important}
+  [style*="font:400 86px"]{font-size:clamp(52px,13vw,86px)!important}
   [style*="font:400 54px"]{font-size:clamp(38px,9.5vw,54px)!important}
   [style*="font:700 43px"]{font-size:clamp(32px,8vw,43px)!important}
   [style*="clamp(126px"]{font-size:clamp(80px,21vw,126px)!important}
@@ -103,7 +149,7 @@
   .ecd-hero2-bio{min-height:340px}
 
   /* About: younger-adults chart title sits above the chart instead of overlapping it */
-  [style*="margin:64px 0 -108px"]{margin:40px 0 8px!important;padding-right:0!important}
+  [style*="margin:64px 0 -72px"]{margin:40px 0 8px!important;padding-right:0!important}
 
   /* About: "Prevention creates possibility" two-column band */
   [style*="padding-left:80px"]{padding-left:24px!important;padding-right:24px!important}
@@ -119,6 +165,9 @@
   [style*="margin:0 0 0 62px"]{margin-left:0!important}
   /* the large opening quotation mark sits above the text instead of floating over it */
   [style*="left:78px;top:38px"]{position:static!important;display:block;height:54px;font-size:96px!important;line-height:1!important;margin:0 0 6px -4px}
+
+  /* Get Involved green band stacks */
+  [style*="minmax(0,352px) minmax(0,1fr) auto"]{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}
 
   /* Footer text links: larger touch target without changing the visual spacing */
   .ecd-footgrid a:not([aria-label]){display:inline-block;padding:7px 0;margin:-7px 0}
@@ -146,6 +195,7 @@
   /* Team portraits and donation tiers stay two-up */
   [style*="minmax(230px,1fr)"],[style*="minmax(250px,1fr)"]{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px 16px!important}
   [style*="grid-template-columns"]:has(> #ecdTiers){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #ecdTiers > button{font-size:20px!important;padding:17px 4px!important}
   [style*="display:flex"]:not([style*="width:max-content"]):not(.ecd-nav):not(.ecd-nav-links) > [style*="flex:1"]:not(button):not(a):not(input){flex-basis:100%!important}
   [style*="px 80px"],[style*=":0 80px"]{padding-left:20px!important;padding-right:20px!important}
   [style*="column-gap:"],[style*="gap:"]:not(.ecd-nav-links){column-gap:24px!important}

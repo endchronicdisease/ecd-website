@@ -45,9 +45,11 @@ Edit `public/scripts/news-data.js` and add an object to the top of `DATA` (field
 - Pages are desktop-first (1440px design width) per the approved mockups. Phone and
   tablet layouts come from `src/styles/mobile.css`, one shared stylesheet loaded by
   `Base.astro`: because the page markup is inline-styled, it targets patterns in the
-  style attribute (`[style*="..."]`) with `!important`, at breakpoints of 1180px
-  (hamburger nav, since the full nav only fits above that), 900px (two-column grids)
-  and 600px (single column). The header is sticky at every width. The hamburger menu is
+  style attribute (`[style*="..."]`) with `!important`. Tiers: above 1180px the design
+  as drawn; 901 to 1180px a "compact desktop" tier that keeps every desktop layout but
+  tightens gutters (80px to 40px) and nav spacing, because typical laptop browser
+  windows land here; 900px and below tablet layouts with the hamburger; 600px and below
+  single column. The header is sticky at every width. The hamburger menu is
   `public/scripts/nav.js` plus the `.ecd-nav` / `.ecd-nav-links` hooks on each page's
   header. When adding a new desktop layout pattern, check it at 375px and add a rule
   there if it does not collapse on its own.
