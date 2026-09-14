@@ -27,3 +27,8 @@
   from = "/poll-august2025"
   to = "/news/"
   status = 301
+
+[[redirects]]
+  from = "/test"
+  to = "/"
+  status = 301

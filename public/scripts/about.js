@@ -8,7 +8,8 @@
       var s = t.textContent.trim();
       var m = /font-size:([\d.]+)px/.exec(t.getAttribute('style') || '');
       var size = m ? parseFloat(m[1]) : parseFloat(t.getAttribute('font-size')) || 16;
-      var factor = /^(\d{4}|\d+%)$/.test(s) ? 1.8 : 1.35;
+      if (!/^(\d{4}|\d+%)$/.test(s)) return;
+      var factor = 1.6;
       t.style.fontSize = (size * factor).toFixed(1) + 'px';
     });
   }
