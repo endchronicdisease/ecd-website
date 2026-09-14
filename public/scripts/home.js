@@ -14,7 +14,9 @@
       return /ecdSlide|ecdDot/.test(a.animationName || '');
     });
     function seek(index) {
-      var t = index * (90000 / count);
+      // Land 400ms inside the slide's window: seeking to the exact keyframe boundary
+      // leaves the dot highlight on either side of it depending on the browser.
+      var t = index * (90000 / count) + 400;
       anims.forEach(function (a) { try { a.currentTime = t; } catch (err) {} });
     }
     dots.forEach(function (dot, i) {

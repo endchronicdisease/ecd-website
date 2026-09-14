@@ -182,7 +182,13 @@
   #ecdMontage > [style*="width:658px"]{left:20px!important;right:20px!important;bottom:72px!important;padding:22px 22px!important}
   #ecdMontage > [style*="width:658px"] h1{font-size:30px!important}
   #ecdMontage > [style*="width:658px"] p{font-size:16px!important;margin-top:16px!important}
-  #ecdMontage > [style*="right:52px"]{left:20px!important;right:20px!important;bottom:26px!important;flex-wrap:wrap!important;gap:7px!important}
+  #ecdMontage > [style*="right:52px"]{left:20px!important;right:20px!important;bottom:26px!important;flex-wrap:wrap!important;gap:2px!important}
+  /* Slide dots: distinct, non-overlapping tap targets (the desktop dots overlap by 5px via negative margins) */
+  #ecdMontage [role="button"][style*="mask-image"]{margin:0!important;padding:4px!important;width:13px!important;height:13px!important;-webkit-mask-size:13px 13px!important;mask-size:13px 13px!important;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+
+  /* About: histology band on small screens reads over an even scrim, photo focus shifted left */
+  [style*="object-position:42% 46%"]{object-position:18% 46%!important}
+  [style*="rgba(20,28,38,.88) 0%"]{background:linear-gradient(180deg,rgba(20,28,38,.78) 0%,rgba(20,28,38,.66) 100%)!important}
 }
 
 @media (max-width:600px){
@@ -199,4 +205,20 @@
   [style*="display:flex"]:not([style*="width:max-content"]):not(.ecd-nav):not(.ecd-nav-links) > [style*="flex:1"]:not(button):not(a):not(input){flex-basis:100%!important}
   [style*="px 80px"],[style*=":0 80px"]{padding-left:20px!important;padding-right:20px!important}
   [style*="column-gap:"],[style*="gap:"]:not(.ecd-nav-links){column-gap:24px!important}
+
+  /* Get Involved: the scooter photograph shows beneath the blue panel */
+  [style*="minmax(400px,46fr)"] > div:last-child{min-height:380px}
+  /* "Ways" grids: every stacked block gets its own divider line */
+  [style*="row-gap:44px;margin:36px 0 0"] > div,[style*="column-gap:40px;row-gap:72px"] > div{padding-top:30px!important;border-top:1px solid #DBD6CE!important}
+  [style*="row-gap:44px;margin:36px 0 0"]{row-gap:36px!important}
+  [style*="column-gap:40px;row-gap:72px"]{row-gap:44px!important}
+}
+
+/* Single-column footer: contact box, Explore, Connect, then brand */
+@media (max-width:859px){
+  .ecd-footgrid > :nth-child(1){order:4}
+  .ecd-footgrid > :nth-child(2){order:2}
+  .ecd-footgrid > :nth-child(3){order:3}
+  .ecd-footgrid > :nth-child(4){order:1}
+  .ecd-footgrid > :nth-child(4){margin-top:0!important}
 }
