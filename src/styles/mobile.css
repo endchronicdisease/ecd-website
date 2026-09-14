@@ -15,6 +15,12 @@
    treatment moves from the moving strip onto the logos and the strip itself stays on the GPU */
 [style*="animation:ecdTicker"]{filter:none!important;opacity:1!important;will-change:transform;backface-visibility:hidden}
 [style*="animation:ecdTicker"] img{filter:grayscale(1) contrast(1.06);opacity:.84}
+/* home.js takes over the movement (see the ticker note there); the mask becomes two cheap edge fades */
+.ecd-tape-js{animation:none!important}
+.ecd-tape-wrap{-webkit-mask-image:none!important;mask-image:none!important;position:relative}
+.ecd-tape-wrap::before,.ecd-tape-wrap::after{content:"";position:absolute;top:0;bottom:0;width:64px;z-index:1;pointer-events:none}
+.ecd-tape-wrap::before{left:0;background:linear-gradient(90deg,#ffffff 0%,rgba(255,255,255,0) 100%)}
+.ecd-tape-wrap::after{right:0;background:linear-gradient(270deg,#ffffff 0%,rgba(255,255,255,0) 100%)}
 
 /* About: the full-bleed ribbon arcs extend past the viewport at most widths; never let them cause a scrollbar */
 .ecd-ribbons{overflow:hidden}

@@ -1,4 +1,32 @@
 (function () {
+  // Press ticker. The CSS version animated a ~9000px strip behind a gradient mask,
+  // which real iPhones redraw every frame and periodically stall on. Instead: keep one
+  // set of logos, slide the strip by hand, and recycle each logo to the end as it
+  // leaves the left edge, so the moving element stays small and the loop is seamless.
+  var tape = document.querySelector('[style*="animation:ecdTicker"]');
+  if (tape && tape.children.length >= 2) {
+    var logos = Array.prototype.slice.call(tape.children);
+    logos.slice(logos.length / 2).forEach(function (el) { el.remove(); });
+    tape.classList.add('ecd-tape-js');
+    tape.parentElement.classList.add('ecd-tape-wrap');
+    var x = 0, last = null, pxPerSec = 42;
+    function itemWidth(el) {
+      var cs = getComputedStyle(el);
+      return el.getBoundingClientRect().width + parseFloat(cs.marginLeft) + parseFloat(cs.marginRight);
+    }
+    function frame(now) {
+      if (last !== null) {
+        x -= pxPerSec * Math.min(0.05, (now - last) / 1000);
+        var first = tape.firstElementChild, w = itemWidth(first);
+        while (w > 0 && -x >= w) { x += w; tape.appendChild(first); first = tape.firstElementChild; w = itemWidth(first); }
+        tape.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+      }
+      last = now;
+      requestAnimationFrame(frame);
+    }
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(frame);
+  }
+
   // Hero montage: every slide and dot shares one 90s CSS keyframe cycle.
   // Seeking the whole animation group by currentTime keeps them in lockstep,
   // so a dot click and the random opening slide use the same mechanism.
