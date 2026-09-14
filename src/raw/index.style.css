@@ -49,7 +49,7 @@ a{color:#6FA4E2}a:hover{color:#4d87c9}
 @keyframes ecdDot11{0%{background:#6FA4E2}78.571%{background:#6FA4E2}78.572%{background:#ffffff}85.714%{background:#ffffff}85.715%{background:#6FA4E2}100%{background:#6FA4E2}}
 @keyframes ecdDot12{0%{background:#6FA4E2}85.714%{background:#6FA4E2}85.715%{background:#ffffff}92.857%{background:#ffffff}92.858%{background:#6FA4E2}100%{background:#6FA4E2}}
 @keyframes ecdDot13{0%{background:#6FA4E2}92.857%{background:#6FA4E2}92.858%{background:#ffffff}100%{background:#ffffff}}
-@keyframes ecdTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes ecdTicker{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 
 #ecdSearchOverlay{position:fixed;inset:0;z-index:200;display:none;background:rgba(250,249,247,.97)}
 #ecdSearchOverlay.open{display:block}

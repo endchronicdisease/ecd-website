@@ -11,6 +11,11 @@
    z-index sits below the team bio dialogs (60) and the search overlay (200). */
 .ecd-nav{position:sticky;top:0;z-index:50;max-width:none!important;padding:20px max(80px,calc((100% - 1352px) / 2 + 80px))!important;box-shadow:0 1px 0 rgba(0,0,0,.06)}
 
+/* Press ticker: iOS Safari stalls when a filtered element is animated, so the grayscale/opacity
+   treatment moves from the moving strip onto the logos and the strip itself stays on the GPU */
+[style*="animation:ecdTicker"]{filter:none!important;opacity:1!important;will-change:transform;backface-visibility:hidden}
+[style*="animation:ecdTicker"] img{filter:grayscale(1) contrast(1.06);opacity:.84}
+
 /* About: the full-bleed ribbon arcs extend past the viewport at most widths; never let them cause a scrollbar */
 .ecd-ribbons{overflow:hidden}
 
