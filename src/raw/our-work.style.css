@@ -23,7 +23,7 @@ a:hover{color:#3a5f8f}
 /* tall biology field spanning the full height of the left composition.
    no mask, no gradient, no overlay - natural opacity and contrast throughout. */
 .ecd-hero2-bio{align-self:stretch;margin:0;
-  background-image:url('/assets/photos/opt/paint-palette-bright.jpg');
+  background-image:url('/assets/photos/opt/paint-palette-bright.webp');
   background-size:cover;background-position:38% 48%;pointer-events:none;
   /* bleed to the viewport's right edge: the section is 1352px centred, so the gap is half the remainder */
   margin-right:min(0px,calc((1352px - 100vw) / 2))}
