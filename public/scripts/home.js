@@ -28,8 +28,7 @@
   }
 
   // Hero montage: every slide and dot shares one 90s CSS keyframe cycle.
-  // Seeking the whole animation group by currentTime keeps them in lockstep,
-  // so a dot click and the random opening slide use the same mechanism.
+  // Seeking the whole animation group by currentTime keeps them in lockstep.
   var el = document.getElementById('ecdMontage');
   if (!el || !el.getAnimations) return;
   requestAnimationFrame(function () {
@@ -54,6 +53,7 @@
         if (e.key === 'Enter' || e.key === ' ') go(e);
       });
     });
-    seek(Math.floor(Math.random() * count));
+    // The opening slide is chosen by an inline script right after the montage markup,
+    // so it is set before the first paint and no other slide flashes first.
   });
 })();
