@@ -243,9 +243,8 @@
   .ecd-footgrid > :nth-child(1) > img{margin-top:0!important}
 }
 
-/* News grid: three cards across whenever the width allows, two on tablets, one on phones; summaries clamp to four lines */
+/* News grid: three cards across whenever the width allows, two on tablets, one on phones; summaries use a slightly smaller face on compact screens */
 [style*="display:grid"][style*="minmax(330px,1fr)"][style*="gap:52px 40px"]{grid-template-columns:repeat(3,minmax(0,1fr))!important}
 @media (max-width:900px){[style*="display:grid"][style*="minmax(330px,1fr)"][style*="gap:52px 40px"]{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:40px 24px!important}}
 @media (max-width:600px){[style*="display:grid"][style*="minmax(330px,1fr)"][style*="gap:52px 40px"]{grid-template-columns:minmax(0,1fr)!important}}
-.ecd-card-b{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden}
-@media (max-width:1180px){.ecd-card-b{font-size:15px!important;line-height:1.55!important;-webkit-line-clamp:5}}
+@media (max-width:1180px){.ecd-card-b{font-size:15px!important;line-height:1.55!important}}
