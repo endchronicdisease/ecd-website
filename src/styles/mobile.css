@@ -216,7 +216,7 @@
 
 @media (max-width:600px){
   /* Every remaining multi-column layout becomes a single column */
-  [style*="grid-template-columns"]:not(.ecd-footgrid):not(.ecd-factors):not(:has(> #ecdTiers)):not([style*="repeat(10"]):not([style*="14px minmax"]):not([style*="minmax(230px,1fr)"]):not([style*="minmax(250px,1fr)"]):not([style*="column-gap:16px;align-items:start"]){grid-template-columns:minmax(0,1fr)!important}
+  [style*="grid-template-columns"]:not(.ecd-footgrid):not(.ecd-factors):not(:has(> #ecdTiers)):not([style*="repeat(4,minmax(0,1fr));gap:16px"]):not([style*="repeat(10"]):not([style*="14px minmax"]):not([style*="minmax(230px,1fr)"]):not([style*="minmax(250px,1fr)"]):not([style*="column-gap:16px;align-items:start"]){grid-template-columns:minmax(0,1fr)!important}
   /* Home newsletter mosaic: shorter tiles so three columns fit a phone */
   [style*="column-gap:16px;align-items:start"] [style*="height:196px"]{height:150px!important}
   [style*="column-gap:16px;align-items:start"] [style*="height:186px"]{height:142px!important}
@@ -252,3 +252,5 @@
 @media (max-width:900px){[style*="display:grid"][style*="minmax(330px,1fr)"][style*="gap:52px 40px"]{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:40px 24px!important}}
 @media (max-width:600px){[style*="display:grid"][style*="minmax(330px,1fr)"][style*="gap:52px 40px"]{grid-template-columns:minmax(0,1fr)!important}}
 @media (max-width:1180px){.ecd-card-b{font-size:15px!important;line-height:1.55!important}}
+/* Home donate tiles: two across on phones instead of one long column */
+@media (max-width:600px){[style*="grid-template-columns:repeat(4,minmax(0,1fr));gap:16px"]{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}}
