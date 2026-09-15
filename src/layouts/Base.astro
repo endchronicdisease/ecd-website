@@ -37,6 +37,8 @@ const shareImage = new URL('/assets/og-image.jpg?v=2', siteUrl || Astro.site);
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={shareImage} />
+<link rel="preload" href="/assets/fonts/Graphik-Regular.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/Graphik-Semibold.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=Coming+Soon&display=swap" rel="stylesheet" />

@@ -40,6 +40,7 @@
       }).then(function (r) {
         if (!r.ok) throw new Error('submit failed');
         btn.textContent = 'You’re in!';
+        if (typeof window.gtag === 'function') window.gtag('event', 'newsletter_signup', { method: 'website_form', page_location: location.href });
         input.value = '';
         setTimeout(function () { btn.textContent = originalLabel; btn.disabled = false; }, 4000);
       }).catch(function () {

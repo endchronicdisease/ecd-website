@@ -19,3 +19,16 @@
   var desktop = window.matchMedia('(min-width:901px)');
   desktop.addEventListener('change', function(m){ if (m.matches) setOpen(false); });
 })();
+
+// Analytics: record every click through to the Anedot donation page as a conversion.
+(function () {
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="secure.anedot.com"]') : null;
+    if (!a || typeof window.gtag !== 'function') return;
+    var m = /[?&]amount=(\d+)/.exec(a.href);
+    var params = { link_url: a.href, link_text: (a.textContent || '').trim().slice(0, 60), page_location: location.href };
+    if (m) { params.value = parseInt(m[1], 10); params.currency = 'USD'; }
+    if (/frequency=monthly/.test(a.href)) params.frequency = 'monthly';
+    window.gtag('event', 'donate_click', params);
+  }, true);
+})();
