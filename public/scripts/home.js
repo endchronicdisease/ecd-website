@@ -7,9 +7,14 @@
   if (tape && tape.children.length >= 2) {
     var logos = Array.prototype.slice.call(tape.children);
     logos.slice(logos.length / 2).forEach(function (el) { el.remove(); });
+    // Pick up from wherever the CSS animation has already carried the strip, so taking
+    // over does not snap it back to the start.
+    var x = 0, last = null, pxPerSec = 42;
+    var m = /matrix\(([^)]+)\)/.exec(getComputedStyle(tape).transform || '');
+    if (m) { var tx = parseFloat(m[1].split(',')[4]); if (isFinite(tx) && tx < 0) x = tx; }
     tape.classList.add('ecd-tape-js');
     tape.parentElement.classList.add('ecd-tape-wrap');
-    var x = 0, last = null, pxPerSec = 42;
+    tape.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
     function itemWidth(el) {
       var cs = getComputedStyle(el);
       return el.getBoundingClientRect().width + parseFloat(cs.marginLeft) + parseFloat(cs.marginRight);
