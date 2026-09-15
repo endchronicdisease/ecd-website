@@ -36,7 +36,7 @@
   // Seeking the whole animation group by currentTime keeps them in lockstep.
   var el = document.getElementById('ecdMontage');
   if (!el || !el.getAnimations) return;
-  requestAnimationFrame(function () {
+  (function () {
     var dots = Array.prototype.filter.call(el.querySelectorAll('span'), function (s) {
       return /ecdDot/.test(s.style.animationName || '');
     });
@@ -58,7 +58,23 @@
         if (e.key === 'Enter' || e.key === ' ') go(e);
       });
     });
+    // Touch: swipe left for the next photograph, right for the previous one. Only a
+    // clearly horizontal gesture counts, so vertical scrolling over the hero is unaffected.
+    var slot = 67200 / count, sx = 0, sy = 0, st = 0;
+    function current() { return Math.floor(((anims[0] && anims[0].currentTime) || 0) / slot) % count; }
+    el.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) return;
+      sx = e.touches[0].clientX; sy = e.touches[0].clientY; st = Date.now();
+    }, { passive: true });
+    el.addEventListener('touchend', function (e) {
+      if (!st || e.changedTouches.length !== 1) return;
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy, dt = Date.now() - st;
+      st = 0;
+      if (dt > 800 || Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      seek((current() + (dx < 0 ? 1 : count - 1)) % count);
+    }, { passive: true });
+
     // The opening slide is chosen by an inline script right after the montage markup,
     // so it is set before the first paint and no other slide flashes first.
-  });
+  })();
 })();
