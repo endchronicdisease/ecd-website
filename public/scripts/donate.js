@@ -1,6 +1,6 @@
 (function () {
   var ONCE = [1000, 500, 250, 100, 75, 50, 25];
-  var MONTHLY = [100, 50, 40, 25, 20, 15, 10];
+  var MONTHLY = ONCE; // monthly gifts offer the same amounts as one-time gifts
   var ANEDOT = 'https://secure.anedot.com/end-chronic-disease-c3';
 
   var state = { monthly: false, amount: 100, custom: false, customValue: '' };
@@ -55,12 +55,12 @@
     cta.textContent = state.monthly ? ('Give' + label + ' monthly') : ('Donate' + label);
     var params = [];
     if (amt !== null) params.push('amount=' + amt);
-    if (state.monthly) params.push('recurring=true');
+    if (state.monthly) params.push('frequency=monthly'); // Anedot's URL parameter for a recurring commitment
     cta.href = ANEDOT + (params.length ? '?' + params.join('&') : '');
   }
 
-  if (onceBtn) onceBtn.addEventListener('click', function () { state.monthly = false; state.amount = 100; state.custom = false; render(); });
-  if (monthlyBtn) monthlyBtn.addEventListener('click', function () { state.monthly = true; state.amount = 25; state.custom = false; render(); });
+  if (onceBtn) onceBtn.addEventListener('click', function () { state.monthly = false; render(); });
+  if (monthlyBtn) monthlyBtn.addEventListener('click', function () { state.monthly = true; render(); });
   if (customInput) customInput.addEventListener('input', function (e) { state.customValue = e.target.value; render(); });
 
   render();
