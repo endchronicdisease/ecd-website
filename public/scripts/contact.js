@@ -11,12 +11,14 @@
   var LIMIT = 1000;
 
   // HubSpot: every message becomes a (non-marketing) contact via the Website — Contact Us form;
+  // (no pageUri in the context: HubSpot files API submissions from a page domain it has not
+  // finished registering under spam, and Netlify keeps the page record anyway)
   // ticking the newsletter box also submits to the newsletter form, which sets marketing status.
   var HS = 'https://api.hsforms.com/submissions/v3/integration/submit/50818861/';
   var HUBSPOT_CONTACT = HS + 'a368d23a-ca67-4092-bb75-baf8d1015a5b';
   var HUBSPOT = HS + '13d38552-7b0e-4e33-95d6-02387cb1674d';
   function hubspot(url, fields) {
-    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fields: fields, context: { pageUri: location.href, pageName: document.title } }) });
+    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fields: fields, context: { pageName: document.title } }) });
   }
 
   function count() {

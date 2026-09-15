@@ -28,7 +28,8 @@
       var payload = {
         fields: [{ objectTypeId: '0-1', name: 'email', value: email }],
         context: {
-          pageUri: location.href,
+          // pageUri deliberately omitted: HubSpot marks submissions from a page domain it has
+          // not finished registering as spam
           pageName: document.title,
           hutk: getCookie('hubspotutk')
         }
