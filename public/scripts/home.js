@@ -32,7 +32,7 @@
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(frame);
   }
 
-  // Hero montage: every slide and dot shares one 90s CSS keyframe cycle.
+  // Hero montage: every slide and dot shares one 67.2s CSS keyframe cycle.
   // Seeking the whole animation group by currentTime keeps them in lockstep.
   var el = document.getElementById('ecdMontage');
   if (!el || !el.getAnimations) return;
@@ -48,7 +48,7 @@
     function seek(index) {
       // Land 400ms inside the slide's window: seeking to the exact keyframe boundary
       // leaves the dot highlight on either side of it depending on the browser.
-      var t = index * (90000 / count) + 400;
+      var t = index * (67200 / count) + 400;
       anims.forEach(function (a) { try { a.currentTime = t; } catch (err) {} });
     }
     dots.forEach(function (dot, i) {
