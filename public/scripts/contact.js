@@ -10,8 +10,14 @@
   var counter = document.getElementById('ecdContactCount');
   var LIMIT = 1000;
 
-  // HubSpot newsletter form, shared with the newsletter sign-up blocks.
-  var HUBSPOT = 'https://api.hsforms.com/submissions/v3/integration/submit/50818861/13d38552-7b0e-4e33-95d6-02387cb1674d';
+  // HubSpot: every message becomes a (non-marketing) contact via the Website — Contact Us form;
+  // ticking the newsletter box also submits to the newsletter form, which sets marketing status.
+  var HS = 'https://api.hsforms.com/submissions/v3/integration/submit/50818861/';
+  var HUBSPOT_CONTACT = HS + 'a368d23a-ca67-4092-bb75-baf8d1015a5b';
+  var HUBSPOT = HS + '13d38552-7b0e-4e33-95d6-02387cb1674d';
+  function hubspot(url, fields) {
+    return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ fields: fields, context: { pageUri: location.href, pageName: document.title } }) });
+  }
 
   function count() {
     if (!counter || !message) return;
@@ -60,13 +66,17 @@
     }).then(function (r) {
       if (!r.ok) throw new Error('submit failed');
       if (typeof window.gtag === 'function') window.gtag('event', 'contact_submit', { newsletter: wantsNewsletter ? 'yes' : 'no', page_location: location.href });
-      if (wantsNewsletter) {
-        fetch(HUBSPOT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ fields: [{ objectTypeId: '0-1', name: 'email', value: email.value.trim() }], context: { pageUri: location.href, pageName: document.title } })
-        }).catch(function () {});
-      }
+      var em = email.value.trim();
+      var fields = [
+        { objectTypeId: '0-1', name: 'firstname', value: first.value.trim() },
+        { objectTypeId: '0-1', name: 'lastname', value: last.value.trim() },
+        { objectTypeId: '0-1', name: 'email', value: em },
+        { objectTypeId: '0-1', name: 'message', value: message.value.trim() }
+      ];
+      var org = (form.elements.organization.value || '').trim();
+      if (org) fields.push({ objectTypeId: '0-1', name: 'company', value: org });
+      hubspot(HUBSPOT_CONTACT, fields).catch(function () {});
+      if (wantsNewsletter) hubspot(HUBSPOT, [{ objectTypeId: '0-1', name: 'email', value: em }]).catch(function () {});
       form.reset();
       count();
       say('Thank you, your message is on its way. We will be in touch soon.', true);
