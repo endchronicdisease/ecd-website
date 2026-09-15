@@ -242,7 +242,10 @@
   .ecd-footgrid > :nth-child(1){order:4}
   .ecd-footgrid > :nth-child(2){order:2}
   .ecd-footgrid > :nth-child(3){order:3}
-  .ecd-footgrid > :nth-child(4){order:1;margin-top:0!important;max-width:380px}
+  /* the 4th column is a wrapper (contact box + copyright): let its two children take their own places */
+  .ecd-footgrid > :nth-child(4){display:contents}
+  .ecd-footgrid > :nth-child(4) > div{order:1;margin-top:0!important;max-width:380px}
+  .ecd-footgrid > :nth-child(4) > .ecd-copyright{order:5;margin-top:0}
   /* the logo's desktop cap-line offset (-17px) would eat into the gap above the brand block */
   .ecd-footgrid > :nth-child(1) > img{margin-top:0!important}
 }
