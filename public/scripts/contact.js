@@ -33,15 +33,16 @@
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    var name = form.elements.name, email = form.elements.email;
+    var first = form.elements['first-name'], last = form.elements['last-name'], email = form.elements.email;
     var problems = [];
-    [name, email, message].forEach(function (el) { flag(el, false); });
-    if (!name.value.trim()) { flag(name, true); problems.push(name); }
+    [first, last, email, message].forEach(function (el) { flag(el, false); });
+    if (!first.value.trim()) { flag(first, true); problems.push(first); }
+    if (!last.value.trim()) { flag(last, true); problems.push(last); }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value.trim())) { flag(email, true); problems.push(email); }
     if (!message.value.trim()) { flag(message, true); problems.push(message); }
     if (message.value.length > LIMIT) { flag(message, true); problems.push(message); }
     if (problems.length) {
-      say('Please add your name, a valid email address, and a message.', false);
+      say('Please add your first and last name, a valid email address, and a message.', false);
       problems[0].focus();
       return;
     }
