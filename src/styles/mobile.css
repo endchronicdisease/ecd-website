@@ -1,3 +1,9 @@
+/* Desktop scale: the design was drawn for a 1352px axis and reads large at 100%. Above the tablet
+   breakpoint the whole page renders at 85% (Tara compared it to browser zoom 85%). Media queries
+   still see the real viewport width, so the tiers below are unaffected; JS that measures layout
+   must divide getBoundingClientRect values by this factor (see home.js itemWidth). */
+@media (min-width:901px){html{zoom:.85}}
+
 /* Home link exists only in the hamburger menu */
 .ecd-nav-home{display:none}
 
@@ -202,7 +208,7 @@
 
   /* Homepage hero */
   #ecdMontage{height:min(78vh,640px)!important;min-height:540px}
-  #ecdMontage > [style*="width:658px"]{left:20px!important;right:20px!important;bottom:72px!important;padding:22px 22px!important}
+  #ecdMontage > [style*="width:658px"]{left:20px!important;right:auto!important;width:min(658px,calc(100% - 40px))!important;bottom:72px!important;padding:22px 22px!important}
   #ecdMontage > [style*="width:658px"] h1{font-size:30px!important}
   #ecdMontage > [style*="width:658px"] p{font-size:16px!important;margin-top:16px!important}
   #ecdMontage > [style*="right:52px"]{left:20px!important;right:20px!important;bottom:26px!important;flex-wrap:wrap!important;gap:2px!important}

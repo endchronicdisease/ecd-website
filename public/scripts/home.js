@@ -16,8 +16,11 @@
     tape.parentElement.classList.add('ecd-tape-wrap');
     tape.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
     function itemWidth(el) {
+      // The page renders at zoom .85 on desktop (mobile.css); the rect is in zoomed pixels while
+      // margins and the translate are in layout pixels, so scale the rect back before adding.
       var cs = getComputedStyle(el);
-      return el.getBoundingClientRect().width + parseFloat(cs.marginLeft) + parseFloat(cs.marginRight);
+      var z = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+      return el.getBoundingClientRect().width / z + parseFloat(cs.marginLeft) + parseFloat(cs.marginRight);
     }
     function frame(now) {
       if (last !== null) {
