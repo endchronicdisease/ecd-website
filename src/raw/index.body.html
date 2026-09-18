@@ -1,7 +1,7 @@
 
 
 <div class="ecd-nav" role="navigation" aria-label="Main" style="box-sizing:border-box;max-width:1352px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:20px 80px;background:#ffffff">
-<a href="/" style="display:block;text-decoration:none"><img loading="lazy" src="/assets/logo-full-blue.png" alt="End Chronic Disease" style="height:56px;width:auto;display:block"></a>
+<a href="/" style="display:block;text-decoration:none"><img loading="lazy" src="/assets/logo-full-blue.webp" alt="End Chronic Disease" style="height:56px;width:auto;display:block"></a>
 <div id="ecdNavLinks" class="ecd-nav-links" style="display:flex;align-items:center;gap:38px">
 <a class="ecd-nav-home" href="/" style="font:500 12.5px/1 'Graphik','Hanken Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#757575;text-decoration:none">Home</a>
 <a href="/about/" style="font:500 12.5px/1 'Graphik','Hanken Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#757575;text-decoration:none">About</a>
@@ -57,48 +57,48 @@
 <span role="button" tabindex="0" aria-label="Show photograph 14 of 14" style="display:block;box-sizing:content-box;width:15px;height:15px;padding:6px;margin:-6px;-webkit-mask-image:url(/assets/dot-green-2.webp);mask-image:url(/assets/dot-green-2.webp);-webkit-mask-size:15px 15px;mask-size:15px 15px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;transform:rotate(5deg);background:#6FA4E2;cursor:pointer;animation-name:ecdDot13;animation-duration:67.2s;animation-timing-function:linear;animation-iteration-count:infinite"></span>
 </div>
 </div>
-<script>(function(){var el=document.getElementById("ecdMontage");if(!el)return;var imgs=el.querySelectorAll("img[data-src]");if(imgs.length<2)return;var slides=Array.prototype.slice.call(imgs,1),back=imgs[0];var i=Math.floor(Math.random()*slides.length);function load(img,url){if(!img||!img.getAttribute("data-src"))return;img.src=url||img.getAttribute("data-src");img.removeAttribute("data-src")}var first=slides[i].getAttribute("data-src");slides[i].setAttribute("fetchpriority","high");load(slides[i]);load(back,first);if(el.getAnimations){var t=i*(67200/slides.length)+400;el.getAnimations({subtree:true}).forEach(function(a){if(/ecdSlide|ecdDot/.test(a.animationName||""))try{a.currentTime=t}catch(e){}})}var done=false;function rest(){if(done)return;done=true;for(var k=1;k<slides.length;k++)load(slides[(i+k)%slides.length])}if(document.readyState==="complete")setTimeout(rest,300);else window.addEventListener("load",function(){setTimeout(rest,300)});setTimeout(rest,4000)})();</script>
+<script>(function(){var el=document.getElementById("ecdMontage");if(!el)return;var imgs=el.querySelectorAll("img[data-src]");if(imgs.length<2)return;var slides=Array.prototype.slice.call(imgs,1),back=imgs[0];var i=Math.floor(Math.random()*slides.length);var mob=window.innerWidth<=900;function mURL(u){return mob?u.replace("/photos/opt/","/photos/opt/m/"):u}function load(img,url){if(!img||!img.getAttribute("data-src"))return;img.src=mURL(url||img.getAttribute("data-src"));img.removeAttribute("data-src")}var first=slides[i].getAttribute("data-src");slides[i].setAttribute("fetchpriority","high");load(slides[i]);load(back,first);if(el.getAnimations){var t=i*(67200/slides.length)+400;el.getAnimations({subtree:true}).forEach(function(a){if(/ecdSlide|ecdDot/.test(a.animationName||""))try{a.currentTime=t}catch(e){}})}var done=false;function rest(){if(done)return;done=true;for(var k=1;k<slides.length;k++)load(slides[(i+k)%slides.length])}if(document.readyState==="complete")setTimeout(rest,300);else window.addEventListener("load",function(){setTimeout(rest,300)});setTimeout(rest,4000)})();</script>
 
 <div style="box-sizing:border-box;max-width:1352px;margin:0 auto;display:flex;align-items:center;gap:44px;padding:30px 80px;background:#ffffff;border-bottom:1px solid #E6E2DA;overflow:hidden">
 <div style="flex:none;font:500 16.5px/1 'Graphik','Hanken Grotesk',sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#848484">As seen in</div>
 <div style="flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 90px),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 90px),transparent 100%)">
 <div style="display:flex;width:max-content;align-items:center;filter:grayscale(1) contrast(1.06);opacity:.84;animation:ecdTicker 95s linear infinite">
-<img loading="eager" decoding="async" src="/assets/press/wsj.webp" alt="The Wall Street Journal" style="height:29px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/washingtonpost.webp" alt="The Washington Post" style="height:31px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/nyt.webp" alt="The New York Times" style="height:29px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/nypost.webp" alt="New York Post" style="height:28px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/politico.webp" alt="Politico" style="height:35px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/thehill.webp" alt="The Hill" style="height:41px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/nbcnews.webp" alt="NBC News" style="height:48px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/axios.webp" alt="Axios" style="height:35px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/gooddaydc.webp" alt="Good Day DC" style="height:48px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/cbsnews.webp" alt="CBS News" style="height:34px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/californiapost.webp" alt="California Post" style="height:27px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/ktla5.webp" alt="KTLA 5" style="height:36px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/abcnews.webp" alt="ABC News" style="height:38px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/kqed.webp" alt="KQED" style="height:34px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/washingtonexaminer.webp" alt="Washington Examiner" style="height:28px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/gooddayalabama.webp" alt="Good Day Alabama" style="height:35px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/foxnewsradio.webp" alt="Fox News Radio" style="height:27px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/iheartradio.webp" alt="iHeartRadio" style="height:39px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/wsj.webp" alt="" style="height:29px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/washingtonpost.webp" alt="" style="height:31px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/nyt.webp" alt="" style="height:29px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/nypost.webp" alt="" style="height:28px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/politico.webp" alt="" style="height:35px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/thehill.webp" alt="" style="height:41px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/nbcnews.webp" alt="" style="height:48px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/axios.webp" alt="" style="height:35px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/gooddaydc.webp" alt="" style="height:48px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/cbsnews.webp" alt="" style="height:34px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/californiapost.webp" alt="" style="height:27px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/ktla5.webp" alt="" style="height:36px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/abcnews.webp" alt="" style="height:38px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/kqed.webp" alt="" style="height:34px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/washingtonexaminer.webp" alt="" style="height:28px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/gooddayalabama.webp" alt="" style="height:35px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/foxnewsradio.webp" alt="" style="height:27px;width:auto;display:block;margin:0 42px">
-<img loading="eager" decoding="async" src="/assets/press/iheartradio.webp" alt="" style="height:39px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/wsj.webp" alt="The Wall Street Journal" style="height:29px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/washingtonpost.webp" alt="The Washington Post" style="height:31px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/nyt.webp" alt="The New York Times" style="height:29px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/nypost.webp" alt="New York Post" style="height:28px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/politico.webp" alt="Politico" style="height:35px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/thehill.webp" alt="The Hill" style="height:41px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/nbcnews.webp" alt="NBC News" style="height:48px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/axios.webp" alt="Axios" style="height:35px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/gooddaydc.webp" alt="Good Day DC" style="height:48px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/cbsnews.webp" alt="CBS News" style="height:34px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/californiapost.webp" alt="California Post" style="height:27px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/ktla5.webp" alt="KTLA 5" style="height:36px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/abcnews.webp" alt="ABC News" style="height:38px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/kqed.webp" alt="KQED" style="height:34px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/washingtonexaminer.webp" alt="Washington Examiner" style="height:28px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/gooddayalabama.webp" alt="Good Day Alabama" style="height:35px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/foxnewsradio.webp" alt="Fox News Radio" style="height:27px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/iheartradio.webp" alt="iHeartRadio" style="height:39px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/wsj.webp" alt="" style="height:29px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/washingtonpost.webp" alt="" style="height:31px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/nyt.webp" alt="" style="height:29px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/nypost.webp" alt="" style="height:28px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/politico.webp" alt="" style="height:35px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/thehill.webp" alt="" style="height:41px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/nbcnews.webp" alt="" style="height:48px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/axios.webp" alt="" style="height:35px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/gooddaydc.webp" alt="" style="height:48px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/cbsnews.webp" alt="" style="height:34px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/californiapost.webp" alt="" style="height:27px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/ktla5.webp" alt="" style="height:36px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/abcnews.webp" alt="" style="height:38px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/kqed.webp" alt="" style="height:34px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/washingtonexaminer.webp" alt="" style="height:28px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/gooddayalabama.webp" alt="" style="height:35px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/foxnewsradio.webp" alt="" style="height:27px;width:auto;display:block;margin:0 42px">
+<img loading="eager" fetchpriority="low" decoding="async" src="/assets/press/iheartradio.webp" alt="" style="height:39px;width:auto;display:block;margin:0 42px">
 </div>
 </div>
 </div>
@@ -111,7 +111,7 @@
 <p style="margin:22px 0 0;font:400 18.5px/1.7 'Chronicle Display','Newsreader',Georgia,serif;color:#757575;text-wrap:pretty">While genetics play a role in our health, they don&rsquo;t tell the whole story. What we eat, how we move and sleep, our relationships and experiences, the places where we live, learn, work, and play, the environments we&rsquo;re exposed to, and our access to quality care can all influence our health over time.</p>
 <p style="margin:18px 0 0;font:400 17.5px/1.68 'Chronicle Display','Newsreader',Georgia,serif;color:#757575;text-wrap:pretty">Prevention belongs in each of these places.</p>
 </div>
-<div style="height:356px;margin:10px 0"><div style="width:100%;height:100%;background-image:url(/assets/photos/opt/biology-tissue-dense.webp);background-size:130% auto;background-position:68% 72%;background-repeat:no-repeat"></div></div>
+<div style="height:356px;margin:10px 0"><div data-bg="/assets/photos/opt/biology-tissue-dense.webp" style="width:100%;height:100%;background-size:130% auto;background-position:68% 72%;background-repeat:no-repeat"></div></div>
 </div>
 </div>
 
@@ -123,7 +123,7 @@
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:56px">
 <div style="text-align:center">
 <div style="width:266px;height:266px;margin:0 auto;border-radius:50%;overflow:hidden;position:relative">
-<div style="position:absolute;inset:0;background-image:url(/assets/photos/opt/paint-blue-swirl.webp);background-size:cover;background-position:30% 40%;filter:brightness(1.07)"></div>
+<div data-bg="/assets/photos/opt/paint-blue-swirl.webp" style="position:absolute;inset:0;background-size:cover;background-position:30% 40%;filter:brightness(1.07)"></div>
 <div style="position:absolute;inset:0;background:rgba(46,62,84,.16)"></div>
 <div style="position:absolute;inset:0;background:radial-gradient(ellipse 42% 25% at 50% 50%,rgba(34,28,32,0.2) 0%,rgba(34,28,32,0.124) 38%,rgba(34,28,32,0.048) 62%,rgba(34,28,32,0) 82%)"></div>
 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 86px/1 'Coming Soon',cursive;color:rgba(255,255,255,.95)">76%</div>
@@ -132,7 +132,7 @@
 </div>
 <div style="text-align:center">
 <div style="width:266px;height:266px;margin:0 auto;border-radius:50%;overflow:hidden;position:relative">
-<div style="position:absolute;inset:0;background-image:url(/assets/photos/opt/paint-smear-w.webp);background-size:300% auto;background-position:41% 57%;filter:brightness(1.07)"></div>
+<div data-bg="/assets/photos/opt/paint-smear-w.webp" style="position:absolute;inset:0;background-size:300% auto;background-position:41% 57%;filter:brightness(1.07)"></div>
 <div style="position:absolute;inset:0;background:rgba(78,44,58,.44)"></div>
 <div style="position:absolute;inset:0;background:radial-gradient(ellipse 42% 25% at 50% 50%,rgba(34,28,32,0.3) 0%,rgba(34,28,32,0.186) 38%,rgba(34,28,32,0.072) 62%,rgba(34,28,32,0) 82%)"></div>
 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 86px/1 'Coming Soon',cursive;color:rgba(255,255,255,.95)">40%</div>
@@ -141,7 +141,7 @@
 </div>
 <div style="text-align:center">
 <div style="width:266px;height:266px;margin:0 auto;border-radius:50%;overflow:hidden;position:relative">
-<div style="position:absolute;inset:0;background-image:url(/assets/photos/opt/paint-greenblue.webp);background-size:cover;background-position:50% 50%;filter:brightness(1.07)"></div>
+<div data-bg="/assets/photos/opt/paint-greenblue.webp" style="position:absolute;inset:0;background-size:cover;background-position:50% 50%;filter:brightness(1.07)"></div>
 <div style="position:absolute;inset:0;background:rgba(46,62,84,.18)"></div>
 <div style="position:absolute;inset:0;background:radial-gradient(ellipse 42% 25% at 50% 50%,rgba(34,28,32,0.22) 0%,rgba(34,28,32,0.136) 38%,rgba(34,28,32,0.053) 62%,rgba(34,28,32,0) 82%)"></div>
 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:400 86px/1 'Coming Soon',cursive;color:rgba(255,255,255,.95)">90%</div>
@@ -153,7 +153,7 @@
 </div>
 
 
-<div style="box-sizing:border-box;max-width:1352px;margin:0 auto;position:relative;padding:96px 80px;background-image:url(/assets/photos/opt/paint-greenblue.webp);background-size:cover;background-position:center 40%">
+<div data-bg="/assets/photos/opt/paint-greenblue.webp" style="box-sizing:border-box;max-width:1352px;margin:0 auto;position:relative;padding:96px 80px;background-size:cover;background-position:center 40%">
 <div style="position:relative;max-width:1192px;margin:0 auto;background:#ffffff;border-radius:16px;padding:78px 78px 44px">
 
 <div style="position:absolute;left:78px;top:38px;font:600 124px/1 'Newsreader',Georgia,serif;color:#848484">“</div><p style="margin:0 0 0 62px;font:italic 400 24px/1.55 'Newsreader',Georgia,serif;letter-spacing:-.004em;color:#757575;text-wrap:pretty">We aim to shape an America where fewer people develop preventable chronic disease, where individuals are empowered to improve their health and lead change in their communities, and where every American has the opportunity to live a long and healthy life.</p>

@@ -1,4 +1,28 @@
 (function () {
+  // Below-the-fold background photographs (data-bg) are applied only as their section
+  // approaches the viewport, so they never compete with the hero slide for bandwidth.
+  var els = Array.prototype.slice.call(document.querySelectorAll('[data-bg]'));
+  if (!els.length) return;
+  function apply(el) {
+    if (!el.getAttribute('data-bg')) return;
+    el.style.backgroundImage = 'url(' + el.getAttribute('data-bg') + ')';
+    el.removeAttribute('data-bg');
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { apply(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: '900px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  } else {
+    els.forEach(apply);
+  }
+  // Belt and braces: whatever the observer does, everything is in place after the first
+  // scroll or a few seconds after load.
+  function applyAll() { els.forEach(apply); }
+  window.addEventListener('scroll', applyAll, { once: true, passive: true });
+  window.addEventListener('load', function () { setTimeout(applyAll, 4000); });
+})();
+(function () {
   // Press ticker. The CSS version animated a ~9000px strip behind a gradient mask,
   // which real iPhones redraw every frame and periodically stall on. Instead: keep one
   // set of logos, slide the strip by hand, and recycle each logo to the end as it

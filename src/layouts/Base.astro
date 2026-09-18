@@ -41,9 +41,15 @@ const shareImage = new URL('/assets/og-image.jpg?v=2', siteUrl || Astro.site);
 <meta name="twitter:image" content={shareImage} />
 <link rel="preload" href="/assets/fonts/Graphik-Regular.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/assets/fonts/Graphik-Semibold.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..800&family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&family=Coming+Soon&display=swap" rel="stylesheet" />
+<link rel="preload" href="/assets/fonts/Newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
+<!-- Newsreader (stand-in for Chronicle Display) and Coming Soon are self-hosted latin subsets taken
+     from Google Fonts, so no render-blocking third-party stylesheet is needed. Hanken Grotesk was
+     dropped: Graphik is self-hosted, so the Hanken fallback never rendered. -->
+<style set:html={`
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:200 700;font-display:swap;src:url(/assets/fonts/Newsreader-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Newsreader';font-style:italic;font-weight:200 700;font-display:swap;src:url(/assets/fonts/Newsreader-Italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Coming Soon';font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/ComingSoon-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+`}></style>
 {css.map((c) => <style set:html={c}></style>)}
 <style set:html={mobile}></style>
 <!-- Analytics: Google Analytics 4 and HubSpot tracking.
@@ -65,12 +71,24 @@ const shareImage = new URL('/assets/og-image.jpg?v=2', siteUrl || Astro.site);
     ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-VWQH92XELT';
     document.head.appendChild(ga);
 
-    var hs = document.createElement('script');
-    hs.id = 'hs-script-loader';
-    hs.async = true;
-    hs.defer = true;
-    hs.src = 'https://js-na1.hs-scripts.com/50818861.js';
-    document.head.appendChild(hs);
+    // HubSpot's tracker is the heaviest script on the page and nothing visible depends on it,
+    // so it waits for the first interaction (or a few seconds after load), keeping it out of
+    // the initial render and off the main thread while the page is still settling.
+    var hsLoaded = false;
+    function loadHubSpot() {
+      if (hsLoaded) return;
+      hsLoaded = true;
+      var hs = document.createElement('script');
+      hs.id = 'hs-script-loader';
+      hs.async = true;
+      hs.defer = true;
+      hs.src = 'https://js-na1.hs-scripts.com/50818861.js';
+      document.head.appendChild(hs);
+    }
+    ['pointerdown', 'keydown', 'touchstart', 'scroll'].forEach(function (ev) {
+      window.addEventListener(ev, loadHubSpot, { once: true, passive: true });
+    });
+    window.addEventListener('load', function () { setTimeout(loadHubSpot, 5000); });
   })();
 </script>
 </head>
