@@ -76,7 +76,20 @@
       // Land 400ms inside the slide's window: seeking to the exact keyframe boundary
       // leaves the dot highlight on either side of it depending on the browser.
       var t = index * (67200 / count) + 400;
-      anims.forEach(function (a) { try { a.currentTime = t; } catch (err) {} });
+      var go = function () { anims.forEach(function (a) { try { a.currentTime = t; } catch (err) {} }); };
+      // Slides load two ahead of the running show (see the inline script after the montage), so a
+      // jump to a distant photograph fetches it first and seeks once it has decoded (or after 500ms).
+      if (window.ecdLoadSlide) {
+        var img = window.ecdLoadSlide(index);
+        window.ecdLoadSlide(index + 1);
+        if (img && img.decode && !img.complete) {
+          var done = false, fin = function () { if (done) return; done = true; go(); };
+          img.decode().then(fin, fin);
+          setTimeout(fin, 500);
+          return;
+        }
+      }
+      go();
     }
     dots.forEach(function (dot, i) {
       var go = function (e) { e.preventDefault(); seek(i); };
