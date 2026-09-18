@@ -3,6 +3,19 @@
    still see the real viewport width, so the tiers below are unaffected; JS that measures layout
    must divide getBoundingClientRect values by this factor (see home.js itemWidth). */
 @media (min-width:901px){html{zoom:.85}}
+/* Viewport units ignore zoom, so anything sized or bled with 100vw must use this instead. */
+:root{--ecd-vw:100vw}
+@media (min-width:901px){:root{--ecd-vw:calc(100vw / .85)}}
+/* The page ground is white so the white sections read edge to edge at any window width;
+   the sections themselves keep their 1352px axis. */
+body{background:#ffffff!important}
+/* About: the disease ribbons bleed to both viewport edges (inline margins use 50vw). */
+.ecd-ribbons{margin-left:calc(50% - var(--ecd-vw) / 2)!important;margin-right:calc(50% - var(--ecd-vw) / 2)!important}
+/* Home: the painted mission-quote band bleeds edge to edge (selected as a body child: once home.js sets the
+   background the style attribute is re-serialised with spaces, so [style*=...] would stop matching); its content keeps the 1352px axis (80px gutters, 40px in the compact tier). */
+body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:max(80px,calc(50% - 596px))!important;padding-right:max(80px,calc(50% - 596px))!important}
+@media (max-width:1180px){body > [data-bg$="paint-greenblue.webp"]{padding-left:max(40px,calc(50% - 636px))!important;padding-right:max(40px,calc(50% - 636px))!important}}
+@media (max-width:600px){body > [data-bg$="paint-greenblue.webp"]{padding-left:20px!important;padding-right:20px!important}}
 
 /* Home link exists only in the hamburger menu */
 .ecd-nav-home{display:none}

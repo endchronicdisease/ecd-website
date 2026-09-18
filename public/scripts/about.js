@@ -21,6 +21,7 @@
   // drive the loop from that, keeping each ribbon's speed unchanged.
   function tuneRibbons() {
     document.querySelectorAll('.ecd-ribbons svg').forEach(function (svg) {
+      var changed = false;
       svg.querySelectorAll('textPath').forEach(function (tp) {
         var anim = tp.querySelector('animate');
         var text = tp.parentNode;
@@ -47,6 +48,10 @@
           }
         }
         if (!period) return;
+        var prev = parseFloat(tp.getAttribute('data-period') || '0');
+        if (Math.abs(prev - period) < 0.5) return;
+        tp.setAttribute('data-period', period.toFixed(2));
+        changed = true;
         var from = parseFloat(anim.getAttribute('from')) || 0;
         var to = parseFloat(anim.getAttribute('to')) || 0;
         var oldDist = Math.abs(to - from);
@@ -57,11 +62,18 @@
         if (from === 0) { anim.setAttribute('to', '-' + f); } else { anim.setAttribute('from', '-' + f); tp.setAttribute('startOffset', '-' + f); }
         anim.setAttribute('dur', (period / speed).toFixed(2) + 's');
       });
+      if (!changed) return;
       try { svg.setCurrentTime(0); } catch (e) {}
       svg.querySelectorAll('animate').forEach(function (a) { try { a.beginElement(); } catch (e) {} });
       try { svg.unpauseAnimations(); } catch (e) {}
     });
   }
-  var ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+  // The ribbon text is Graphik 600; ask for it explicitly, because document.fonts.ready can
+  // resolve before a face that nothing on the page has requested yet starts loading, and a
+  // measurement taken in the fallback font is what produces the jump at each loop. A later
+  // font arrival re-measures, but only restarts the loop if the period actually changed.
+  var fonts = document.fonts;
+  var ready = fonts && fonts.load ? fonts.load("600 15.3px Graphik").then(function () { return fonts.ready; }) : Promise.resolve();
   ready.then(tuneRibbons, tuneRibbons);
+  if (fonts && fonts.addEventListener) fonts.addEventListener('loadingdone', tuneRibbons);
 })();

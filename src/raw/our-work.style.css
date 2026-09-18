@@ -26,7 +26,7 @@ a:hover{color:#3a5f8f}
   background-image:url('/assets/photos/opt/paint-palette-bright.webp');
   background-size:cover;background-position:38% 48%;pointer-events:none;
   /* bleed to the viewport's right edge: the section is 1352px centred, so the gap is half the remainder */
-  margin-right:min(0px,calc((1352px - 100vw) / 2))}
+  margin-right:min(0px,calc((1352px - var(--ecd-vw,100vw)) / 2))}
 /* each pillar reads as one unit: name with its descriptor close beneath */
 .ecd-stack{margin:44px 0 0;display:flex;flex-direction:column;gap:26px}
 .ecd-unit{min-width:0;max-width:600px}

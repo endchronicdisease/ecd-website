@@ -4,9 +4,10 @@
   var els = Array.prototype.slice.call(document.querySelectorAll('[data-bg]'));
   if (!els.length) return;
   function apply(el) {
-    if (!el.getAttribute('data-bg')) return;
+    // data-bg stays on the element (CSS selects on it); data-bg-done marks it as applied.
+    if (el.hasAttribute('data-bg-done')) return;
     el.style.backgroundImage = 'url(' + el.getAttribute('data-bg') + ')';
-    el.removeAttribute('data-bg');
+    el.setAttribute('data-bg-done', '');
   }
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
