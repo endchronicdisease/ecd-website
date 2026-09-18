@@ -69,7 +69,11 @@
     last = now;
     if (rafOn) requestAnimationFrame(frame);
   }
+  function revealRibbons() {
+    document.querySelectorAll('.ecd-ribbons').forEach(function (el) { el.classList.add('ecd-ribbons-ready'); });
+  }
   function tuneRibbons() {
+    revealRibbons();
     document.querySelectorAll('.ecd-ribbons svg').forEach(function (svg) {
       svg.querySelectorAll('textPath').forEach(function (tp) {
         var text = tp.parentNode, unit = repeatUnit(tp);
@@ -106,5 +110,7 @@
   var fonts = document.fonts;
   var ready = fonts && fonts.load ? fonts.load("600 15.3px Graphik").then(function () { return fonts.ready; }) : Promise.resolve();
   ready.then(tuneRibbons, tuneRibbons);
+  // Never leave the ribbons blank: if the font is very slow, show the text anyway after 3s.
+  setTimeout(revealRibbons, 3000);
   if (fonts && fonts.addEventListener) fonts.addEventListener('loadingdone', tuneRibbons);
 })();

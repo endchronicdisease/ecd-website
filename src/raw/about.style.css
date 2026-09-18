@@ -36,3 +36,8 @@ a:hover{color:#3a5f8f}
 .ecd-sr-ex{display:block;margin:6px 0 0;font:400 16.5px/1.62 'Chronicle Display','Newsreader',Georgia,serif;color:#757575}
 #ecdSearchBtn:focus-visible,#ecdSearchClose:focus-visible,#ecdSearchInput:focus-visible{outline:2px solid #6FA4E2;outline-offset:3px}
 @media (min-width:1180px){.ecd-spend{grid-template-columns:380px minmax(0,1fr)!important;gap:132px!important;align-items:center!important}}
+
+/* Ribbon text stays hidden until its web font has loaded (about.js reveals it), so it never appears in the
+   fallback face and then reflows into Graphik, which read as the words jumping. */
+.ecd-ribbons text{visibility:hidden}
+.ecd-ribbons.ecd-ribbons-ready text{visibility:visible}
