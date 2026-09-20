@@ -188,7 +188,7 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
 
   /* News: media-inquiries band */
   [style*="left:6.5%;bottom:12%"]{left:24px!important;right:24px!important;bottom:40px!important;width:auto!important;max-width:none!important}
-  [style*="radial-gradient(32% 30% at 15% 74%"]{background:linear-gradient(180deg,rgba(18,22,28,.1) 0%,rgba(18,22,28,.82) 55%)!important}
+  [style*="radial-gradient(32% 30% at 15% 74%"]{background:linear-gradient(180deg,rgba(18,22,28,0) 0%,rgba(18,22,28,.06) 38%,rgba(18,22,28,.42) 62%,rgba(18,22,28,.72) 100%)!important}
 
   /* Our Work hero: copy above the palette photograph */
   .ecd-hero2{grid-template-columns:minmax(0,1fr)!important;min-height:0!important}
@@ -269,7 +269,8 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
   /* the 4th column is a wrapper (contact box + copyright): let its two children take their own places */
   .ecd-footgrid > :nth-child(4){display:contents}
   .ecd-footgrid > :nth-child(4) > div{order:1;margin-top:0!important;max-width:380px}
-  .ecd-footgrid > :nth-child(4) > .ecd-copyright{order:5;margin-top:0}
+  /* the grid already leaves 44px above the copyright; pull it up so ~28px separates it from the social buttons */
+  .ecd-footgrid > :nth-child(4) > .ecd-copyright{order:5;margin-top:-16px!important}
   /* the logo's desktop cap-line offset (-17px) would eat into the gap above the brand block */
   .ecd-footgrid > :nth-child(1) > img{margin-top:0!important}
 }
