@@ -314,3 +314,6 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
   [style*="padding:29px 80px 26px"]{padding-bottom:30px!important}
   [style*="padding:29px 80px 26px"] [style*="minmax(0,1fr) minmax(0,1fr);gap:64px"]{row-gap:30px!important}
 }
+
+/* Home newsletter section on phones: less space between the sign-up copy and the mosaic. */
+@media (max-width:600px){[style*="minmax(0,.9fr) minmax(0,1.1fr);gap:72px"]{row-gap:28px!important}}
