@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Motion check</title>
+<style>body{margin:0;padding:24px;font:17px/1.5 -apple-system,system-ui,sans-serif;color:#333}h1{font-size:20px}code{background:#f2f2f2;padding:2px 6px;border-radius:4px}li{margin:8px 0}#box{width:60px;height:60px;background:#6FA4E2;border-radius:8px;margin:12px 0;animation:slide 2s linear infinite}@keyframes slide{from{transform:translateX(0)}to{transform:translateX(200px)}}</style></head>
+<body><h1>End Chronic Disease motion check</h1><p>Please screenshot this page and send it to us.</p><ul id="out"></ul><div id="box"></div><p>The blue square above should slide right continuously. Counter: <b id="c">0</b></p>
+<script>
+var o=document.getElementById('out');function add(k,v){var li=document.createElement('li');li.innerHTML=k+': <code>'+v+'</code>';o.appendChild(li)}
+add('Browser',navigator.userAgent);
+add('prefers-reduced-motion',window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches?'REDUCE (browser reports reduce motion)':'no-preference');
+add('JavaScript','running');
+var n=0,last=null,li=document.createElement('li');li.innerHTML='requestAnimationFrame: <code id="raf">waiting…</code>';o.appendChild(li);
+function f(t){n++;document.getElementById('c').textContent=n;if(n===60){document.getElementById('raf').textContent='fires ('+Math.round(60000/(t-last))+' fps)'}if(n===1)last=t;requestAnimationFrame(f)}requestAnimationFrame(f);
+setTimeout(function(){if(n<5)document.getElementById('raf').textContent='NOT FIRING ('+n+' frames in 3s)'},3000);
+try{var s=document.createElementNS('http://www.w3.org/2000/svg','svg');add('SVG SMIL supported',(typeof s.beginElement==='function'||'SVGAnimateElement' in window)?'yes':'no')}catch(e){add('SVG',e.message)}
+add('fonts.load available',document.fonts&&document.fonts.load?'yes':'no');
+if(document.fonts&&document.fonts.load){document.fonts.load('600 16px Graphik').then(function(){add('fonts.load result','resolved')},function(e){add('fonts.load result','rejected: '+e)})}
+</script></body></html>
