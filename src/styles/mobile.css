@@ -284,7 +284,7 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
 /* Contact form: intro above the form on tablets, single-column fields on phones */
 @media (max-width:900px){.ecd-contact{grid-template-columns:minmax(0,1fr)!important;gap:36px!important}}
 @media (max-width:600px){.ecd-contact-form{grid-template-columns:minmax(0,1fr)!important;gap:18px!important}}
-.ecd-contact-form input:focus-visible,.ecd-contact-form textarea:focus-visible{border-color:#6FA4E2!important;box-shadow:0 0 0 3px rgba(111,164,226,.25)}
+.ecd-contact-form input:focus-visible,.ecd-contact-form textarea:focus-visible{border-color:#67A081!important;box-shadow:0 0 0 3px rgba(103,160,129,.25)}
 
 /* Home "What we do" on phones reads like the Our Work pillar stack: a short coloured rule above each
    name, 26px between units, and the descriptor close beneath its name. */
