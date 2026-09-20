@@ -209,7 +209,7 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
 
   /* Homepage mission quote card */
   [style*="padding:78px 78px 44px"]{padding:36px 24px 36px!important}
-  [style*="margin:0 0 0 62px"]{margin-left:0!important}
+  [style*="margin:0 0 0 62px"],[style*="margin:26px 0 0 62px"]{margin-left:0!important}
   /* the large opening quotation mark sits above the text instead of floating over it */
   [style*="left:78px;top:38px"]{position:static!important;display:block;height:54px;font-size:96px!important;line-height:1!important;margin:0 0 6px -4px}
 
@@ -295,4 +295,16 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
   [style*="repeat(3"][style*="column-gap:24px;margin:18px 0 0"] > div:nth-child(2)::before{background:#96BFA8}
   [style*="repeat(3"][style*="column-gap:24px;margin:18px 0 0"] [style*="font:400 54px"]{font-size:34px!important;line-height:1.02!important;letter-spacing:-.008em!important}
   [style*="repeat(3"][style*="column-gap:24px;margin:18px 0 0"] .ecd-pillar-desc{margin-top:5px!important;line-height:1.55!important}
+}
+
+/* Home stat circles on phones: the circle is full size (266px) in a single column, so the numeral can be much
+   larger than the desktop 76px without touching the rim. */
+@media (max-width:600px){[style*="repeat(3,1fr);gap:56px"] [style*="font:600 76px"]{font-size:104px!important;letter-spacing:-.035em!important}}
+
+/* Our Work "national footprint" on phones: heading and paragraphs, then the map, then the green button. */
+@media (max-width:600px){
+  [style*="repeat(auto-fit,minmax(340px,1fr));gap:56px"]:has(> iframe){row-gap:0!important}
+  [style*="repeat(auto-fit,minmax(340px,1fr));gap:56px"]:has(> iframe) > div:first-child{display:contents}
+  [style*="repeat(auto-fit,minmax(340px,1fr));gap:56px"]:has(> iframe) > div:first-child > a{order:1;margin-top:30px!important}
+  [style*="repeat(auto-fit,minmax(340px,1fr));gap:56px"]:has(> iframe) > iframe{margin-top:28px}
 }
