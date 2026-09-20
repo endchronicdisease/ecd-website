@@ -14,18 +14,21 @@
     });
   }
 
-  // Disease ribbons. Each ribbon's text is one list repeated several times along a path, and
-  // the loop is seamless only if the text slides by exactly one repetition before wrapping.
-  // The markup's SMIL <animate> carries hand-set distances that drift from the rendered width
-  // once the web font loads, and restarting the animation with corrected values made the
-  // ribbons visibly snap back to the start. So, once the ribbon font is available:
-  //  1. measure one repetition from the rendered glyph advances plus the spacer nudges;
-  //  2. take over from SMIL at the ribbon's current position and drive startOffset from
-  //     requestAnimationFrame at the same speed, wrapping by that exact period.
-  // Nothing restarts, so the hand-off and every wrap are invisible.
+  // Disease ribbons. Each ribbon's text is one list repeated along a path. The obvious loop
+  // (slide by one repetition, then jump back) is never quite seamless: the browser's rendered
+  // advance per repetition differs from anything the DOM can measure by a few tenths of a unit,
+  // and the difference changes with window size, so every wrap showed as a tick. Instead the
+  // ribbons never wrap while anyone can see them:
+  //  - the text is extended ahead of the motion by cloning one repetition, which leaves every
+  //    glyph already on screen exactly where it is;
+  //  - a repetition is removed from behind the motion (which shifts the whole string by one
+  //    period and is the only step that could show) only while the ribbons are scrolled out of
+  //    view, or, failing that, when the text has grown to its cap after many minutes in view;
+  //  - each ribbon starts at a random point in its list so visitors see different names first.
+  // Once the ribbon font is available the script takes over from the markup's SMIL animation,
+  // keeping each ribbon's direction and speed.
+  var REP_CAP = 10, RUNWAY = 5; // max repetitions kept; repetitions kept ahead of the motion
   function repeatUnit(tp) {
-    // Shortest prefix (in characters) that repeats to make the whole string, and the index of
-    // the last child node that completes it (the boundary falls on a spacer tspan).
     var str = tp.textContent, p = 0;
     for (var q = 1; q <= str.length / 2; q++) {
       if (str.length % q !== 0) continue;
@@ -37,15 +40,13 @@
     var nodes = tp.childNodes, seen = 0;
     for (var i = 0; i < nodes.length; i++) {
       seen += nodes[i].textContent.length;
-      if (seen === p) return { chars: p, lastNode: i };
+      if (seen === p) return { chars: p, lastNode: i, reps: str.length / p };
       if (seen > p) break;
     }
-    return { chars: p, lastNode: -1 };
+    return null;
   }
   function measurePeriod(text, tp, unit) {
-    // Glyph advances of one repetition plus the dx nudges on the spacer tspans. Checked against
-    // the browser's own layout: glyph positions one period apart match to within 0.001 units,
-    // whereas an ink-to-ink width measured on straight text is about 0.35 units off on the path.
+    // Glyph advances of one repetition plus the spacer nudges; close enough for bookkeeping.
     var period = text.getSubStringLength(0, unit.chars), seen = 0;
     for (var n = 0; n < tp.childNodes.length && seen < unit.chars; n++) {
       var node = tp.childNodes[n];
@@ -54,15 +55,36 @@
     }
     return period;
   }
-  var ribbons = [], rafOn = false, last = null;
+  function appendRep(r) { r.unit.forEach(function (n) { r.tp.insertBefore(n.cloneNode(true), null); }); r.reps++; }
+  function prependRep(r) {
+    var first = r.tp.firstChild;
+    r.unit.forEach(function (n) { r.tp.insertBefore(n.cloneNode(true), first); });
+    r.reps++; r.offset -= r.period;
+  }
+  function dropFront(r) { for (var i = 0; i < r.unit.length; i++) r.tp.removeChild(r.tp.firstChild); r.reps--; r.offset += r.period; }
+  function dropBack(r) { for (var i = 0; i < r.unit.length; i++) r.tp.removeChild(r.tp.lastChild); r.reps--; }
+  var ribbons = [], rafOn = false, last = null, inView = true;
   function frame(now) {
     if (last !== null) {
       var dt = Math.min(0.1, (now - last) / 1000);
       ribbons.forEach(function (r) {
         r.offset += r.dir * r.speed * dt;
-        // keep the offset within (-period, 0]: identical picture either side of the wrap
-        while (r.offset <= -r.period) r.offset += r.period;
-        while (r.offset > 0) r.offset -= r.period;
+        var P = r.period, end = r.offset + r.reps * P; // arc position where the text ends
+        if (r.dir < 0) {
+          // Moving toward the start: grow the tail (free) to keep RUNWAY repetitions ahead; shed
+          // the head out of view, or, at the cap, only once the runway is nearly used up.
+          if (r.offset <= -2 * P && !inView) dropFront(r);
+          else if (end < r.pathLen + RUNWAY * P) {
+            if (r.reps < REP_CAP) appendRep(r);
+            else if (r.offset <= -2 * P) dropFront(r);
+          }
+        } else {
+          // Moving toward the end: keep repetitions queued before the path (prepending shifts
+          // the string, so do it out of view or when nearly out of text), trim the tail freely.
+          if (r.offset > -P && (!inView || r.offset > -0.2 * P)) prependRep(r);
+          else if (r.offset > -RUNWAY * P && !inView && r.reps < REP_CAP) prependRep(r);
+          if (end > r.pathLen + 2 * P && r.reps > 3) dropBack(r);
+        }
         r.tp.setAttribute('startOffset', r.offset.toFixed(3));
       });
     }
@@ -73,7 +95,6 @@
     document.querySelectorAll('.ecd-ribbons').forEach(function (el) { el.classList.add('ecd-ribbons-ready'); });
   }
   function tuneRibbons() {
-    revealRibbons();
     document.querySelectorAll('.ecd-ribbons svg').forEach(function (svg) {
       svg.querySelectorAll('textPath').forEach(function (tp) {
         var text = tp.parentNode, unit = repeatUnit(tp);
@@ -81,35 +102,45 @@
         var period = measurePeriod(text, tp, unit);
         if (!period || !isFinite(period)) return;
         var r = ribbons.filter(function (x) { return x.tp === tp; })[0];
-        if (r) {
-          // Font arrived later than expected: adopt the new period. The offset stays where it
-          // is, so nothing moves; only the wrap point changes.
-          r.period = period;
-          return;
-        }
+        if (r) { r.period = period; return; } // a later font: only the bookkeeping changes
         var anim = tp.querySelector('animate');
         var from = anim ? parseFloat(anim.getAttribute('from')) || 0 : 0;
         var to = anim ? parseFloat(anim.getAttribute('to')) || 0 : -period;
         var dur = anim ? parseFloat(anim.getAttribute('dur')) || 100 : 100;
-        var speed = Math.abs(to - from) / dur || 9;
-        // Current position under SMIL, then take over from exactly there.
-        var offset = tp.startOffset && tp.startOffset.animVal ? tp.startOffset.animVal.value : parseFloat(tp.getAttribute('startOffset')) || 0;
+        var href = tp.getAttribute('href') || tp.getAttributeNS('http://www.w3.org/1999/xlink', 'href') || '';
+        var path = href ? svg.querySelector(href) : null;
+        var pathLen = path && path.getTotalLength ? path.getTotalLength() : 1300;
         if (anim) anim.remove();
-        ribbons.push({ tp: tp, dir: to < from ? -1 : 1, speed: speed, period: period, offset: offset });
-        tp.setAttribute('startOffset', offset.toFixed(3));
+        r = {
+          tp: tp, dir: to < from ? -1 : 1, speed: Math.abs(to - from) / dur || 9, period: period,
+          pathLen: pathLen, reps: unit.reps,
+          unit: Array.prototype.slice.call(tp.childNodes, 0, unit.lastNode + 1).map(function (n) { return n.cloneNode(true); }),
+          // Random start: somewhere within the first repetition. The text is still hidden at
+          // this point (it is revealed below), so nothing visibly jumps.
+          offset: -Math.random() * period
+        };
+        if (r.dir > 0) while (r.offset > -RUNWAY * r.period) prependRep(r);
+        tp.setAttribute('startOffset', r.offset.toFixed(3));
+        ribbons.push(r);
       });
     });
+    revealRibbons();
     if (ribbons.length && !rafOn && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       rafOn = true;
       requestAnimationFrame(frame);
     }
   }
   document.addEventListener('visibilitychange', function () { if (!document.hidden) last = null; });
+  if ('IntersectionObserver' in window) {
+    var host = document.querySelector('.ecd-ribbons');
+    if (host) new IntersectionObserver(function (entries) { inView = entries[0].isIntersecting; }, { rootMargin: '80px 0px' }).observe(host);
+  }
   // Ask for the ribbon face explicitly: document.fonts.ready can resolve before a face that
   // nothing has requested yet starts loading, and a measurement in the fallback font is wrong.
   var fonts = document.fonts;
   var ready = fonts && fonts.load ? fonts.load("600 15.3px Graphik").then(function () { return fonts.ready; }) : Promise.resolve();
   ready.then(tuneRibbons, tuneRibbons);
+  if (fonts && fonts.addEventListener) fonts.addEventListener('loadingdone', tuneRibbons);
   // Never leave the ribbons blank: if the font is very slow, show the text anyway after 3s.
   setTimeout(revealRibbons, 3000);
   if (fonts && fonts.addEventListener) fonts.addEventListener('loadingdone', tuneRibbons);
