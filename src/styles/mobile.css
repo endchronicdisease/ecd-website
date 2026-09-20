@@ -56,7 +56,12 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
 
 /* Respect "reduce motion": freeze the hero slideshow, its dots and the logo ticker */
 @media (prefers-reduced-motion:reduce){
-  [style*="animation-name:"],[style*="animation:"]{animation-play-state:paused!important}
+  /* Everything that moves across the screen stops. The homepage hero only cross-fades (no spatial
+     motion), so it keeps rotating; the About ribbons and the logo marquee are handled in their scripts. */
+  [style*="animation-name:"]:not(#ecdMontage *),[style*="animation:"]:not(#ecdMontage *){animation-play-state:paused!important}
+  /* Logo strip: no marquee, but the row can be swiped */
+  .ecd-tape-wrap{overflow-x:auto!important;-webkit-overflow-scrolling:touch;-webkit-mask-image:none!important;mask-image:none!important}
+  .ecd-tape-wrap::before,.ecd-tape-wrap::after{display:none}
 }
 
 .ecd-menu-btn{display:none;position:relative;width:44px;height:44px;margin:-6px -8px -6px 0;padding:0;background:none;border:0;cursor:pointer;color:#757575}
