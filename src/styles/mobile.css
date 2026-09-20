@@ -299,7 +299,7 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
 
 /* Home stat circles on phones: the circle is full size (266px) in a single column, so the numeral can be much
    larger than the desktop 76px without touching the rim. */
-@media (max-width:600px){[style*="repeat(3,1fr);gap:56px"] [style*="font:600 76px"]{font-size:104px!important;letter-spacing:-.035em!important}}
+@media (max-width:600px){[style*="repeat(3,1fr);gap:56px"] [style*="font:600 76px"]{font-size:76px!important;letter-spacing:-.03em!important}}
 
 /* Our Work "national footprint" on phones: heading and paragraphs, then the map, then the green button. */
 @media (max-width:600px){
@@ -307,4 +307,10 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
   [style*="repeat(auto-fit,minmax(340px,1fr));gap:56px"]:has(> iframe) > div:first-child{display:contents}
   [style*="repeat(auto-fit,minmax(340px,1fr));gap:56px"]:has(> iframe) > div:first-child > a{order:1;margin-top:30px!important}
   [style*="repeat(auto-fit,minmax(340px,1fr));gap:56px"]:has(> iframe) > iframe{margin-top:28px}
+}
+
+/* Home "The bigger picture" on phones: the same breathing room above and below the histology photo. */
+@media (max-width:600px){
+  [style*="padding:29px 80px 26px"]{padding-bottom:30px!important}
+  [style*="padding:29px 80px 26px"] [style*="minmax(0,1fr) minmax(0,1fr);gap:64px"]{row-gap:30px!important}
 }
