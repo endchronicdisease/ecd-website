@@ -14,7 +14,8 @@
       'Los Angeles Daily News':'California','Sacramento Bee':'California','Fox 5 DC':'Washington, DC',
       'WUSA 9':'Washington, DC','CBS 6 Albany':'New York','City & State New York':'New York','New York Post':'New York',
       'KCTV 5':'Missouri','WHAS 11':'Indiana','KTNV':'Nevada','WAND News':'Illinois','Good Day Alabama':'Alabama',
-      'Rutland Herald':'Vermont','Champions for Youth':'Virginia','Spectrum News':'New York'
+      'Rutland Herald':'Vermont','Champions for Youth':'Virginia','Spectrum News':'New York',
+      'EdSource':'California','The Vicki McKenna Show':'Wisconsin'
     };
     var nationalDefault = 'National';
     var VERB = {TV:'Watch on', Testimony:'Watch on', Podcast:'Listen on', Radio:'Listen on', Article:'Read in', 'Op-ed':'Read in', Poll:'Read'};
