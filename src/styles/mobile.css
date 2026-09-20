@@ -171,9 +171,9 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
   [style*="display:flex"]:not([style*="width:max-content"]):not([style*="flex-direction:column"]){flex-wrap:wrap!important}
 
   /* Large display numerals */
-  [style*="font:400 152px"]{font-size:clamp(88px,24vw,152px)!important}
+  [style*="font:600 136px"]{font-size:clamp(80px,21vw,136px)!important}
   [style*="font:600 124px"]{font-size:clamp(72px,20vw,124px)!important}
-  [style*="font:400 86px"]{font-size:clamp(52px,13vw,86px)!important}
+  [style*="font:600 76px"]{font-size:clamp(46px,11.5vw,76px)!important}
   [style*="font:400 54px"]{font-size:clamp(38px,9.5vw,54px)!important}
   [style*="font:700 43px"]{font-size:clamp(32px,8vw,43px)!important}
   [style*="clamp(126px"]{font-size:clamp(80px,21vw,126px)!important}
