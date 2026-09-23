@@ -15,7 +15,8 @@
       'WUSA 9':'Washington, DC','CBS 6 Albany':'New York','City & State New York':'New York','New York Post':'New York',
       'KCTV 5':'Missouri','WHAS 11':'Indiana','KTNV':'Nevada','WAND News':'Illinois','Good Day Alabama':'Alabama',
       'Rutland Herald':'Vermont','Champions for Youth':'Virginia','Spectrum News':'New York',
-      'EdSource':'California','The Vicki McKenna Show':'Wisconsin'
+      'EdSource':'California','The Vicki McKenna Show':'Wisconsin',
+      'KQED':'California','NBC Palm Springs':'California'
     };
     var nationalDefault = 'National';
     var VERB = {TV:'Watch on', Testimony:'Watch on', Podcast:'Listen on', Radio:'Listen on', Article:'Read in', 'Op-ed':'Read in', Poll:'Read'};
