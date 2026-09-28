@@ -130,7 +130,7 @@
           '<span style="font:400 14.5px/1.45 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#757575;white-space:nowrap"><span aria-hidden="true" style="color:#B4AFA6;margin:0 5px">|</span>' + esc(it.date) + '</span>\n' +
           '</span>\n' +
           '<span class="ecd-card-t" style="display:block;margin:10px 0 0;font:600 21px/1.26 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:-.014em;color:#757575;text-wrap:pretty">' + esc(it.title) + '</span>\n' +
-          '<span class="ecd-card-b" style="display:block;margin:10px 0 0;font:400 17px/1.6 \'Chronicle Display\',\'Newsreader\',Georgia,serif;color:#757575;text-wrap:pretty">' + esc(it.blurb) + '</span>\n' +
+          '<span class="ecd-card-b" style="display:block;margin:10px 0 0;font:400 17px/1.6 \'Chronicle Display\',\'Newsreader\',Georgia,serif;color:#757575">' + esc(it.blurb) + '</span>\n' +
           '</a>';
       }).join('\n');
 
