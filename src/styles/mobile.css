@@ -158,6 +158,8 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
 
   /* Multi-column grids collapse: 3-5 columns become 2 */
   [style*="grid-template-columns:repeat(3"],[style*="grid-template-columns:repeat(4"],[style*="grid-template-columns:repeat(5"]:not(.ecd-factors){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  /* Home stat circles: when the three collapse to two columns, centre the third beneath the pair */
+  [style*="repeat(3,1fr);gap:56px"] > :nth-child(3){grid-column:1 / -1;justify-self:center;width:calc(50% - 28px)}
   /* About: 194M+ block and lifespan bars stack below 900px */
   [style*="minmax(0,1.02fr) minmax(0,.98fr)"]{grid-template-columns:minmax(0,1fr)!important;gap:40px!important}
   /* Home: the three pillars and the newsletter photo mosaic stay three-up (two-up orphans the third) */
