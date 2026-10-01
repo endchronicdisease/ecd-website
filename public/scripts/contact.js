@@ -25,18 +25,18 @@
     if (!counter || !message) return;
     var n = message.value.length;
     counter.textContent = n.toLocaleString('en-US') + ' / ' + LIMIT.toLocaleString('en-US');
-    counter.style.color = n >= LIMIT ? '#c96a5a' : '#848484';
+    counter.style.color = n >= LIMIT ? '#C26469' : '#848484';
   }
   if (message) { message.addEventListener('input', count); count(); }
 
   function flag(el, on) {
     el.setAttribute('aria-invalid', on ? 'true' : 'false');
-    el.style.borderColor = on ? '#c96a5a' : '#DBD6CE';
+    el.style.borderColor = on ? '#C26469' : '#DBD6CE';
   }
   function say(text, ok) {
     if (!status) return;
     status.textContent = text;
-    status.style.color = ok ? '#67A081' : '#c96a5a';
+    status.style.color = ok ? '#67A081' : '#C26469';
   }
 
   form.addEventListener('submit', function (e) {

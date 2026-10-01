@@ -19,7 +19,7 @@
       var email = (input.value || '').trim();
       if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
         input.focus();
-        input.style.outline = '2px solid #c96a5a';
+        input.style.outline = '2px solid #C26469';
         setTimeout(function () { input.style.outline = 'none'; }, 1800);
         return;
       }
