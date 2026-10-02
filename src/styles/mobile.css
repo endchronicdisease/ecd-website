@@ -242,6 +242,8 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
 
 @media (max-width:600px){
   /* Every remaining multi-column layout becomes a single column */
+  /* Home stat circles: single column on phones, so the third circle is a full-width item again */
+  [style*="repeat(3,1fr);gap:56px"] > :nth-child(3){width:auto;justify-self:stretch}
   [style*="grid-template-columns"]:not(.ecd-footgrid):not(.ecd-factors):not(:has(> #ecdTiers)):not([style*="repeat(4,minmax(0,1fr));gap:16px"]):not([style*="repeat(10"]):not([style*="14px minmax"]):not([style*="minmax(230px,1fr)"]):not([style*="minmax(250px,1fr)"]):not([style*="column-gap:16px;align-items:start"]){grid-template-columns:minmax(0,1fr)!important}
   /* Home newsletter mosaic: shorter tiles so three columns fit a phone */
   [style*="column-gap:16px;align-items:start"] [style*="height:196px"]{height:150px!important}
