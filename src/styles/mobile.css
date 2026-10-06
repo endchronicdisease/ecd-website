@@ -275,6 +275,7 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
   .ecd-footgrid > :nth-child(4) > div{order:1;margin-top:0!important;max-width:380px}
   /* the grid already leaves 44px above the copyright; pull it up so ~28px separates it from the social buttons */
   .ecd-footgrid > :nth-child(4) > .ecd-copyright{order:5;margin-top:-16px!important}
+  .ecd-footgrid > :nth-child(4) > .ecd-candid{order:6;margin-top:-22px!important}
   /* the logo's desktop cap-line offset (-17px) would eat into the gap above the brand block */
   .ecd-footgrid > :nth-child(1) > img{margin-top:0!important}
 }
