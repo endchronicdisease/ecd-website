@@ -1,8 +1,37 @@
 ---
 import Base from '../layouts/Base.astro';
-import body from '../raw/team.body.html?raw';
+import rawBody from '../raw/team.body.html?raw';
 import style from '../raw/team.style.css?raw';
 import extra from '../raw/team.extra.css?raw';
+
+// Structured data: one Person entry per team card, read from the card markup
+// at build time so it never drifts from what the page shows.
+const SITE = 'https://www.endchronicdisease.org';
+const unesc = (s) => s.replace(/&rsquo;/g, '’').replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/<[^>]+>/g, '').trim();
+const people = [];
+const cardRe = /<button type="button" data-ecd-open="([^"]+)"[\s\S]*?<img[^>]*src="([^"]+)"[^>]*>[\s\S]*?<h3[^>]*>([\s\S]*?)<\/h3>\s*<div[^>]*>([\s\S]*?)<\/div>/g;
+let m;
+while ((m = cardRe.exec(rawBody))) people.push({ id: m[1], image: SITE + m[2], name: unesc(m[3]), title: unesc(m[4]) });
+if (people.length < 10) throw new Error('team.astro: expected the team cards, found ' + people.length);
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'End Chronic Disease team and advisors',
+  url: SITE + '/team/',
+  itemListElement: people.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Person',
+      name: p.name,
+      jobTitle: p.title,
+      image: p.image,
+      affiliation: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+      url: SITE + '/team/#' + p.id,
+    },
+  })),
+};
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
 ---
 <Base title='Team | End Chronic Disease' description='Meet the team and advisors behind End Chronic Disease.' css={[style, extra]} scripts={["/scripts/team.js"]}>
   <Fragment set:html={body} />

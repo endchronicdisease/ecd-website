@@ -122,7 +122,7 @@
       elItems.innerHTML = filtered.map(function (d) {
         var it = {title: d.t, outlet: d.o, kind: d.k, date: d.d, url: d.u, img: CDN + d.i, blurb: d.b, cta: ctaFor(d), zoom: d.z ? 'scale(1.05) translateY(1.5%)' : 'none', filter: finish(d.x), fit: d.f ? 'contain' : 'cover'};
         return '<a class="ecd-card" href="' + esc(it.url) + '" target="_blank" rel="noopener" style="display:block;text-decoration:none">\n' +
-          '<span style="display:block;background:#E6E2DA;border-radius:12px;overflow:hidden;aspect-ratio:16/10"><img loading="lazy" src="' + esc(it.img) + '" alt="" style="width:100%;height:100%;object-fit:' + it.fit + ';display:block;transform:' + it.zoom + ';filter:' + it.filter + '"></span>\n' +
+          '<span style="display:block;background:#E6E2DA;border-radius:12px;overflow:hidden;aspect-ratio:16/10"><img loading="lazy" src="' + esc(it.img) + '" alt="' + esc(it.outlet + ': ' + it.title) + '" style="width:100%;height:100%;object-fit:' + it.fit + ';display:block;transform:' + it.zoom + ';filter:' + it.filter + '"></span>\n' +
           '<span style="display:block;margin:18px 0 0;line-height:1.45">\n' +
           '<span style="font:600 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6FA4E2">' + esc(it.kind) + '</span>\n' +
           '<span aria-hidden="true" style="font:400 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#B4AFA6;margin:0 5px">|</span>\n' +

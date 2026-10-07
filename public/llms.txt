@@ -1,0 +1,28 @@
+# End Chronic Disease
+
+> End Chronic Disease Institute, Inc. is a nonpartisan, federally registered 501(c)(3) nonprofit (EIN 99-3548449) working to bring chronic disease prevention into everyday life in the United States through education, advocacy, and public engagement.
+
+Chronic disease is the leading cause of illness, death, and disability in America. About 76% of U.S. adults and 40% of U.S. children live with a chronic condition, and roughly 90% of U.S. health care spending goes to chronic illness. Many chronic diseases can be prevented or delayed. End Chronic Disease (ECD) focuses on the everyday factors that shape health: nutrition and food access, physical activity and recess, sleep, stress, screen use, environmental exposures, social connection, and access to care.
+
+ECD's work includes preventive health education in schools (sponsor of California SB 1133, the Ready to Learn, Ready for Health Act), advocacy on ultra-processed foods and food labeling (California AB 1264 and AB 2244), neurodegenerative disease data and registries (California SB 1047 on frontotemporal dementia), recess and unstructured play, and state-level resolutions such as Utah HCR 11. CEO and co-founder: Kelly McKenna. Based in the United States; English-language site.
+
+## Pages
+
+- [Home](https://www.endchronicdisease.org/): Mission, key statistics, what we do, featured work.
+- [About](https://www.endchronicdisease.org/about/): How daily life shapes health across the lifespan; the factors ECD focuses on.
+- [Our Work](https://www.endchronicdisease.org/our-work/): Education, advocacy, and inspiration programs; bills and resolutions ECD has sponsored or supported.
+- [Team](https://www.endchronicdisease.org/team/): Leadership and advisors, including physicians, researchers, and public health experts.
+- [News](https://www.endchronicdisease.org/news/): Press coverage, TV and radio interviews, op-eds, and podcasts featuring ECD, filterable by topic, type, outlet, and location.
+- [News RSS feed](https://www.endchronicdisease.org/news.xml): Machine-readable list of the same coverage.
+- [Get Involved](https://www.endchronicdisease.org/get-involved/): Newsletter sign-up and contact form, including media inquiries.
+- [Donate](https://www.endchronicdisease.org/donate/): Tax-deductible giving, processed by Anedot.
+
+## Contact and identity
+
+- Email: info@endchronicdisease.org
+- Candid profile: https://app.candid.org/profile/16600056/end-chronic-disease-institute-inc-99-3548449/
+- Social: https://www.instagram.com/end.chronic.disease/, https://www.linkedin.com/company/end-chronic-disease/, https://www.facebook.com/p/End-Chronic-Disease-61563103162677/, https://x.com/EChronicDisease
+
+## Use
+
+All content on this site is public information about chronic disease prevention and U.S. health policy. Crawling, indexing, summarizing, and citing with attribution to End Chronic Disease are welcome. The sitemap is at https://www.endchronicdisease.org/sitemap-index.xml.
