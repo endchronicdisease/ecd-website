@@ -1,8 +1,42 @@
 ---
+import fs from 'node:fs';
+import vm from 'node:vm';
 import Base from '../layouts/Base.astro';
-import body from '../raw/news.body.html?raw';
+import rawBody from '../raw/news.body.html?raw';
 import style from '../raw/news.style.css?raw';
 import extra from '../raw/news.extra.css?raw';
+
+// Pre-render the news cards at build time so the stories exist in the HTML for
+// crawlers that do not run JavaScript (most AI crawlers, feed readers, link
+// previews). The markup below mirrors the card template in /scripts/news.js,
+// which re-renders the same list on load and drives the filters.
+const src = fs.readFileSync(new URL('../../public/scripts/news-data.js', import.meta.url), 'utf8');
+const sandbox = { window: {} };
+vm.runInNewContext(src, sandbox);
+const { CDN, DATA } = sandbox.window.ECD_NEWS;
+const BASE_FINISH = 'brightness(1.015) contrast(.972) saturate(.985)';
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const finish = (x) => (x ? x + ' ' + BASE_FINISH : BASE_FINISH);
+const cards = DATA.map((d) => {
+  const img = CDN + d.i, zoom = d.z ? 'scale(1.05) translateY(1.5%)' : 'none', fit = d.f ? 'contain' : 'cover';
+  return '<a class="ecd-card" href="' + esc(d.u) + '" target="_blank" rel="noopener" style="display:block;text-decoration:none">\n' +
+    '<span style="display:block;background:#E6E2DA;border-radius:12px;overflow:hidden;aspect-ratio:16/10"><img loading="lazy" src="' + esc(img) + '" alt="" style="width:100%;height:100%;object-fit:' + fit + ';display:block;transform:' + zoom + ';filter:' + finish(d.x) + '"></span>\n' +
+    '<span style="display:block;margin:18px 0 0;line-height:1.45">\n' +
+    '<span style="font:600 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6FA4E2">' + esc(d.k) + '</span>\n' +
+    '<span aria-hidden="true" style="font:400 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#B4AFA6;margin:0 5px">|</span>\n' +
+    '<span style="font:500 14.5px/1.45 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#6B6763">' + esc(d.o) + '</span>\n' +
+    '<span style="font:400 14.5px/1.45 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#757575;white-space:nowrap"><span aria-hidden="true" style="color:#B4AFA6;margin:0 5px">|</span>' + esc(d.d) + '</span>\n' +
+    '</span>\n' +
+    '<span class="ecd-card-t" style="display:block;margin:10px 0 0;font:600 21px/1.26 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:-.014em;color:#757575;text-wrap:pretty">' + esc(d.t) + '</span>\n' +
+    '<span class="ecd-card-b" style="display:block;margin:10px 0 0;font:400 17px/1.6 \'Chronicle Display\',\'Newsreader\',Georgia,serif;color:#757575">' + esc(d.b) + '</span>\n' +
+    '</a>';
+}).join('\n');
+const itemsTag = '<span id="ecdNewsItems" style="display:contents"></span>';
+const summaryTag = /(<div id="ecdNewsSummary"[^>]*>)<\/div>/;
+if (!rawBody.includes(itemsTag) || !summaryTag.test(rawBody)) throw new Error('news.body.html placeholders changed; update news.astro');
+const body = rawBody
+  .replace(itemsTag, '<span id="ecdNewsItems" style="display:contents">\n' + cards + '\n</span>')
+  .replace(summaryTag, '$1' + DATA.length + ' stories</div>');
 ---
 <Base title='News | End Chronic Disease' description='Press coverage, interviews, and commentary from End Chronic Disease.' css={[style, extra]} scripts={["/scripts/news-data.js", "/scripts/news.js"]}>
   <Fragment set:html={body} />

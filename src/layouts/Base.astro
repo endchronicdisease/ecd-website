@@ -39,6 +39,29 @@ const shareImage = new URL('/assets/og-image.jpg?v=2', siteUrl || Astro.site);
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={shareImage} />
+<!-- Structured data: tells search engines and AI systems who publishes this site. -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: 'End Chronic Disease',
+  legalName: 'End Chronic Disease Institute, Inc.',
+  alternateName: 'ECD',
+  url: 'https://www.endchronicdisease.org/',
+  logo: 'https://www.endchronicdisease.org/assets/logo-full-green.png',
+  image: shareImage.href,
+  description: 'End Chronic Disease Institute is a nonpartisan, nonprofit 501(c)(3) organization working to bring prevention into everyday life.',
+  nonprofitStatus: 'Nonprofit501c3',
+  taxID: '99-3548449',
+  email: 'info@endchronicdisease.org',
+  areaServed: 'US',
+  sameAs: [
+    'https://www.instagram.com/end.chronic.disease/',
+    'https://www.linkedin.com/company/end-chronic-disease/',
+    'https://www.facebook.com/p/End-Chronic-Disease-61563103162677/',
+    'https://x.com/EChronicDisease',
+    'https://app.candid.org/profile/16600056/end-chronic-disease-institute-inc-99-3548449/'
+  ]
+})}></script>
 <!-- No font preloads on purpose. With the fonts preloaded, Chrome (headless and windowed, mobile
      emulation, 150ms latency) held the first paint for a further 1-2 seconds in roughly two runs out
      of three; with the fonts discovered from @font-face instead, the first paint landed at ~300ms in
