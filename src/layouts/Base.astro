@@ -1,6 +1,8 @@
 ---
 import mobile from '../styles/mobile.css?raw';
-const { title, description, css = [], scripts = [] } = Astro.props;
+const { title, description, css = [], scripts = [], shareTitle } = Astro.props;
+// Title used by link previews (iMessage, Slack, social). Defaults to the page title.
+const ogTitle = shareTitle || title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 // Netlify sets URL to the site's primary address at build time. Until the
 // custom domain is attached that is the netlify.app preview address, and we
@@ -26,7 +28,7 @@ const shareImage = new URL('/assets/og-image.jpg?v=2', siteUrl || Astro.site);
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<meta property="og:title" content={title} />
+<meta property="og:title" content={ogTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonical} />
@@ -36,7 +38,7 @@ const shareImage = new URL('/assets/og-image.jpg?v=2', siteUrl || Astro.site);
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Children drawing with chalk on a painted mural wall" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
+<meta name="twitter:title" content={ogTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={shareImage} />
 <link rel="alternate" type="application/rss+xml" title="End Chronic Disease in the news" href="/news.xml" />
