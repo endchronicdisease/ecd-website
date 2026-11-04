@@ -13,9 +13,9 @@ body{background:#ffffff!important}
 .ecd-ribbons{margin-left:calc(50% - var(--ecd-vw) / 2)!important;margin-right:calc(50% - var(--ecd-vw) / 2)!important}
 /* Home: the painted mission-quote band bleeds edge to edge (selected as a body child: once home.js sets the
    background the style attribute is re-serialised with spaces, so [style*=...] would stop matching); its content keeps the 1352px axis (80px gutters, 40px in the compact tier). */
-body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:max(80px,calc(50% - 596px))!important;padding-right:max(80px,calc(50% - 596px))!important}
-@media (max-width:1180px){body > [data-bg$="paint-greenblue.webp"]{padding-left:max(40px,calc(50% - 636px))!important;padding-right:max(40px,calc(50% - 636px))!important}}
-@media (max-width:600px){body > [data-bg$="paint-greenblue.webp"]{padding-left:20px!important;padding-right:20px!important}}
+:is(body, main) > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:max(80px,calc(50% - 596px))!important;padding-right:max(80px,calc(50% - 596px))!important}
+@media (max-width:1180px){:is(body, main) > [data-bg$="paint-greenblue.webp"]{padding-left:max(40px,calc(50% - 636px))!important;padding-right:max(40px,calc(50% - 636px))!important}}
+@media (max-width:600px){:is(body, main) > [data-bg$="paint-greenblue.webp"]{padding-left:20px!important;padding-right:20px!important}}
 
 /* Home link exists only in the hamburger menu */
 .ecd-nav-home{display:none}

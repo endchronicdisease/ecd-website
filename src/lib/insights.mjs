@@ -98,10 +98,10 @@ export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
 export function card(it) {
   return '<a class="ecd-card" href="' + esc(it.url) + '" style="display:block;text-decoration:none">\n' +
     '<span style="display:block;background:#E6E2DA;border-radius:12px;overflow:hidden;aspect-ratio:16/10"><img loading="lazy" src="' + esc(it.image) + '" alt="' + esc(it.title) + '" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(1.015) contrast(.972) saturate(.985)"></span>\n' +
-    '<span style="display:block;margin:18px 0 0;line-height:1.45">' +
+    '<div style="margin:18px 0 0;line-height:1.45">' +
     '<span style="font:600 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6FA4E2">' + esc(it.kind || 'Spotlight') + '</span>' +
-    '<span style="font:400 14.5px/1.45 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#757575;white-space:nowrap"><span aria-hidden="true" style="color:#B4AFA6;margin:0 5px">|</span>' + esc(it.month) + '</span></span>\n' +
-    '<span class="ecd-card-t" style="display:block;margin:10px 0 0;font:600 21px/1.26 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:-.014em;color:#757575;text-wrap:pretty">' + esc(it.title) + '</span>\n' +
+    '<span style="font:400 14.5px/1.45 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#757575;white-space:nowrap"><span aria-hidden="true" style="color:#B4AFA6;margin:0 5px">|</span>' + esc(it.month) + '</span></div>\n' +
+    '<h2 class="ecd-card-t" style="margin:10px 0 0;font:600 21px/1.26 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:-.014em;color:#757575;text-wrap:pretty">' + esc(it.title) + '</h2>\n' +
     '<span class="ecd-card-b" style="display:block;margin:10px 0 0;font:400 17px/1.6 \'Chronicle Display\',\'Newsreader\',Georgia,serif;color:#757575">' + esc(it.blurb) + '</span>\n' +
     '</a>';
 }
