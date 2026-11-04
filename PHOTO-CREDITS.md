@@ -1,0 +1,144 @@
+# Photo credits: Insights section
+
+Every image used on /insights/ and its article pages, with where it came from. Keep this file current when a photo is added or swapped.
+
+Licence notes:
+- Unsplash images were downloaded while signed in to ECD’s Unsplash+ account; the Unsplash licence covers commercial web use without attribution.
+- Adobe Stock images are licensed under ECD’s Adobe Stock subscription; check **License history** in the account for the asset ID.
+- Webflow library items are assets from the old site and newsletter: TV broadcast stills used only as click-to-play video posters, publisher screenshots used as link previews, and ECD’s own photos.
+
+Items marked **CONFIRM** have no licence record yet (3 as of 2026-11-04).
+
+## By article
+
+### Americans are trying to eat healthier. The data tells a more complicated story.
+`/insights/food-and-health-survey-2026/`
+
+- `explainer-food-health-survey-2026.webp` (card): Getty Images via Unsplash+, ID hcyVSEtoX2E
+
+### Calories in, calories out? What a new ultra-processed food study found.
+`/insights/ultra-processed-foods-study/`
+
+- `explainer-upf-study.webp` (card and hero): Elena Leya, Unsplash ID 31D8jOXzQQo (free licence)
+
+### What Amish communities can teach us about chronic disease prevention
+`/insights/amish-communities-chronic-disease-prevention/`
+
+- `explainer-amish-buggy.webp` (card and hero): George Sheldon, Adobe Stock 379648220, licensed under ECD’s Adobe Stock subscription (confirmed 2026-11-04)
+
+### California update: two End Chronic Disease-backed bills signed into law
+`/insights/california-bills-signed-2026/`
+
+- `edsource-california-capitol.webp` (card): Leo_Visions, Unsplash ID o-wwQMSZbyY (free licence)
+- `6a7628b22d330f9ec6f392b0-fox40-webflow.webp` (in article): FOX40 Sacramento broadcast still (Webflow media library), used as the click-to-play video poster
+- `examiner-football-helmets-sideline.webp` (in article): Dani Adkins, Unsplash ID civXaE08gKE (free licence)
+
+### Back-to-school season brings renewed attention to student cellphone and screen use
+`/insights/back-to-school-screen-use/`
+
+- `explainer-students-phones-outside.webp` (card and hero): Getty Images via Unsplash+, ID xQHXLEfMJg0
+- `6aa1dff5d1e7abfd63bdae07-img-6055.webp` (in article): FOX 5 DC broadcast still (Webflow media library), used as the click-to-play video poster
+
+### Why did taxi and ambulance drivers have the lowest share of Alzheimer’s deaths?
+`/insights/taxi-ambulance-drivers-alzheimers/`
+
+- `explainer-taxi-sign.webp` (card and hero): Fellipe Ditadi, Unsplash ID 1Ln7_sX-qzE
+- `explainer-alzheimers-drivers-chart.webp` (in article): ECD newsletter graphic, data from Patel et al., BMJ 2024
+
+### Volume on the recess conversation amplifies as parents and policymakers push for more play
+`/insights/recess-momentum-2026/`
+
+- `explainer-hopscotch-chalk.webp` (card and hero): Getty Images via Unsplash+, ID tg5Dt3CpeYA
+- `6a682bd475b10031e70f7ad4-wsj-lte-edit-zoom.webp` (in article): Screenshot of Kelly McKenna’s letter in the Wall Street Journal (Webflow media library), used as a link preview
+- `6a67ae033420187bc27b4152-martha-kelly-fox.webp` (in article): Fox News photo of Kelly McKenna with Martha MacCallum (Webflow media library), used as a link preview
+
+### Alabama schools report great progress and cultural shifts after one year of phone-free classrooms
+`/insights/alabama-phone-free-classrooms/`
+
+- `explainer-classroom-hands-raised.webp` (card and hero): Getty Images via Unsplash+, ID MBeNWoPoGDw
+- `6a5ed7762ade0877ee53f1fd-picture1.webp` (in article): FOX 6 Good Day Alabama broadcast still (Webflow media library), used as the click-to-play video poster
+
+### California neurodegenerative disease registry bill moves forward; new momentum on dementia research, prevention, and early detection
+`/insights/dementia-registry-research-2026/`
+
+- `6a82818e554e93b61122c1eb-vecteezy-ai-generated-medical-x-ray-image-of-the-human-brain-close-up-41041981-2.webp` (card): Vecteezy image carried over from the Webflow media library (newsletter asset)
+
+### Play, passion, literature, arts: can these help fight chronic disease?
+`/insights/arts-play-chronic-disease/`
+
+- `explainer-arts-health.webp` (card): Jessica Pamp, Unsplash ID JNTSoyb_bbw (free licence)
+
+### Journalism spotlight: Staten Island investigates its local cancer crisis
+`/insights/staten-island-cancer-investigation/`
+
+- `explainer-staten-island-ferry.webp` (card and hero): David Jones, Unsplash ID Yb2IPAgthno (free licence)
+- `explainer-staten-island-cancer-chart.webp` (in article): ECD newsletter graphic, data from the New York State Cancer Registry via the Staten Island Advance
+
+### AAP calls for universal school meals nationwide
+`/insights/aap-universal-school-meals/`
+
+- `explainer-school-meals.webp` (card and hero): Supplied by Tara from the newsletter. No match in a reverse image search; origin not recorded. **CONFIRM**
+
+### Illinois advances statewide classroom cellphone restrictions; New York celebrates success from bell-to-bell bans
+`/insights/illinois-cellphone-restrictions/`
+
+- `explainer-classroom-discussion.webp` (card and hero): Getty Images via Unsplash+, ID WZCGk4EDYLQ
+- `explainer-cellphone-policy-map.webp` (in article): Ballotpedia map of statewide school cellphone policies, credited in the figure caption
+- `6a28772f178b355c59a80dfd-wusa9.webp` (in article): WUSA9 broadcast still (Webflow media library), used as the click-to-play video poster
+
+### Groundbreaking “food is medicine” study reduces hospitalizations among Medicaid recipients by 31%
+`/insights/food-is-medicine-medicaid-study/`
+
+- `explainer-vegetable-basket.webp` (card and hero): Jordan Gonzalez, Unsplash ID Lm4tHMAD3Rk
+- `explainer-food-is-medicine-graphic.webp` (in article): ECD newsletter graphic, data from Hager et al., Nature Medicine 2026
+
+### End Chronic Disease continues to elevate recess as a public health priority
+`/insights/recess-public-health-priority/`
+
+- `explainer-climbing-net.webp` (card and hero): trongnguyen, Adobe Stock 388983215, licensed under ECD’s Adobe Stock subscription (confirmed 2026-11-04)
+- `6a37f7fe62107ddfa9f79912-picture3.webp` (in article): Screenshot of the Washington Examiner op-ed (Webflow media library), used as a link preview
+- `6a37f740907d3c6af16ace74-picture2.webp` (in article): Screenshot of The 74 op-ed (Webflow media library), used as a link preview
+
+### Journalism spotlight: “The number of people with Parkinson’s is exploding. Are chemicals to blame?”
+`/insights/parkinsons-chemical-exposure-journalism/`
+
+- `6a8282459d6c4574bf484d8e-vecteezy-a-man-stands-in-a-green-field-with-trees-as-he-uses-a-83986436.webp` (card and hero): Vecteezy image carried over from the Webflow media library (newsletter asset)
+
+### Mike Mooney joins Fox & Friends to discuss his Parkinson’s battle
+`/insights/mike-mooney-fox-friends-paraquat/`
+
+- `6a185513d3521b59039b37c3-fox-and-friends-mike.webp` (card and hero): Fox & Friends broadcast still (Webflow media library), used as the click-to-play video poster
+
+### Bipartisan Vermont bill to phase out paraquat marks a major public health milestone
+`/insights/vermont-paraquat-ban/`
+
+- `explainer-vermont-paraquat-corn.webp` (card and hero): Stock image also sold as Adobe Stock 1756379754 and Shutterstock 2690642515. Supplied by Tara from the newsletter; confirm the licence in Adobe Stock history. **CONFIRM**
+
+### Los Angeles Unified School District announces sweeping plan to reduce classroom screen time
+`/insights/lausd-classroom-screen-time/`
+
+- `explainer-classroom-laptops.webp` (card and hero): Frank Flores, Unsplash ID ZWoBkLsbUuc
+- `6a033384a09895ee9cc54b98-img-1770.webp` (in article): KTLA 5 broadcast still (Webflow media library), used as the click-to-play video poster
+
+### AAP issues first updated recess guidance in more than a decade as the national recess debate intensifies
+`/insights/aap-recess-guidance-2026/`
+
+- `6a87386b959aca797c9cf9c1-recess-kids-16x9.webp` (card and hero): Newsletter photo of children at recess (Webflow media library), used as the click-to-play video poster; origin not recorded and no reverse-image match. **CONFIRM**
+
+### Kansas governor vetoes recess bill
+`/insights/kansas-recess-veto/`
+
+- `explainer-recess-slide.webp` (card and hero): Getty Images via Unsplash+, ID S7XH0cDwNp0
+- `6a03849d1ddab4292d78ac24-img-2700.webp` (in article): KCTV 5 broadcast still (Webflow media library), used as the click-to-play video poster
+
+### Texas launches $60 million rural health prevention initiative
+`/insights/texas-rural-health-initiative/`
+
+- `explainer-farmers-market-tomatoes.webp` (card and hero): Getty Images via Unsplash+, ID V-DCbF4bLRs
+
+### Kelly McKenna introduces Arthur Brooks at national youth health summit sponsored by End Chronic Disease
+`/insights/champions-for-youth-summit-2026/`
+
+- `explainer-cfy-stage.webp` (card and hero): ECD’s own photo from the 2026 Champions for Youth Summit
+- `explainer-cfy-brooks.webp` (in article): ECD’s own photo from the 2026 Champions for Youth Summit
+- `explainer-cfy-booth.webp` (in article): ECD’s own photo from the 2026 Champions for Youth Summit
