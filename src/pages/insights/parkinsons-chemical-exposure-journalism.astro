@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-parkinsons.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Journalism spotlight: The number of people with Parkinson\u2019s is exploding. Are chemicals to blame?',
+  description: 'Student reporters at the University of Florida examine the evidence linking pesticides and industrial chemicals to Parkinson\u2019s disease, the world\u2019s fastest-growing neurological disorder.',
+  datePublished: '2026-07-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/parkinsons-chemical-exposure-journalism/',
+  image: SITE + '/assets/photos/news/6a8282459d6c4574bf484d8e-vecteezy-a-man-stands-in-a-green-field-with-trees-as-he-uses-a-83986436.webp',
+  about: ['Parkinson\u2019s disease', 'pesticides', 'environmental exposures', 'investigative journalism'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Journalism spotlight: The number of people with Parkinson’s is exploding. Are chemicals to blame? | End Chronic Disease' shareTitle='Journalism spotlight: The number of people with Parkinson’s is exploding. Are chemicals to blame?' description='Student reporters at the University of Florida examine the evidence linking pesticides and industrial chemicals to Parkinson’s disease, the world’s fastest-growing neurological disorder.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

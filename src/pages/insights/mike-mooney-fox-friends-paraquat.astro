@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-mooney.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Mike Mooney joins Fox & Friends to discuss his Parkinson\u2019s battle',
+  description: 'After Vermont became the first state to ban paraquat, a former landscaper diagnosed with Parkinson\u2019s at 49 took his story national, and the EPA announced a roundtable on the herbicide.',
+  datePublished: '2026-07-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/mike-mooney-fox-friends-paraquat/',
+  image: SITE + '/assets/photos/news/6a185513d3521b59039b37c3-fox-and-friends-mike.webp',
+  about: ['paraquat', 'Parkinson\u2019s disease', 'pesticides', 'Vermont'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Mike Mooney joins Fox & Friends to discuss his Parkinson’s battle | End Chronic Disease' shareTitle='Mike Mooney joins Fox & Friends to discuss his Parkinson’s battle' description='After Vermont became the first state to ban paraquat, a former landscaper diagnosed with Parkinson’s at 49 took his story national, and the EPA announced a roundtable on the herbicide.' css={[style]} scripts={["/scripts/video.js"]}>
+  <Fragment set:html={body} />
+</Base>

@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-alzheimers-drivers.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Why did taxi and ambulance drivers have the lowest share of Alzheimer\u2019s deaths?',
+  description: 'A study of nearly 9 million Americans found the lowest proportions of Alzheimer\u2019s deaths among taxi and ambulance drivers. What research on spatial navigation and the brain does and does not tell us.',
+  datePublished: '2026-10-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/taxi-ambulance-drivers-alzheimers/',
+  image: SITE + '/assets/photos/news/explainer-taxi-sign.webp',
+  about: ['Alzheimer\u2019s disease', 'spatial navigation', 'hippocampus', 'neurodegenerative disease'],
+  citation: { '@type': 'ScholarlyArticle', headline: 'Alzheimer\u2019s disease mortality among taxi and ambulance drivers: population based cross sectional study', url: 'https://doi.org/10.1136/bmj-2024-082194', datePublished: '2024-12-17', isPartOf: { '@type': 'Periodical', name: 'BMJ' } } };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Why did taxi and ambulance drivers have the lowest share of Alzheimer’s deaths? | End Chronic Disease' shareTitle='Why did taxi and ambulance drivers have the lowest share of Alzheimer’s deaths?' description='A study of nearly 9 million Americans found the lowest proportions of Alzheimer’s deaths among taxi and ambulance drivers. What research on spatial navigation and the brain does and does not tell us.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

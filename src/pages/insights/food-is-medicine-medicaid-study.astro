@@ -1,0 +1,20 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-food-is-medicine.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Groundbreaking \u201cfood is medicine\u201d study reduces hospitalizations among Medicaid recipients by 31%',
+  description: 'Medically tailored meals cut hospital visits, emergency visits, and costs for Medicaid patients with chronic conditions, and savings covered 98% of meal costs.',
+  datePublished: '2026-07-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/food-is-medicine-medicaid-study/',
+  image: SITE + '/assets/photos/news/explainer-vegetable-basket.webp',
+  about: ['food is medicine', 'medically tailored meals', 'Medicaid', 'nutrition'],
+  citation: { '@type': 'ScholarlyArticle', headline: 'Medically tailored meals receipt and healthcare utilization and costs in Massachusetts\u2019 Medicaid demonstration', url: 'https://www.nature.com/articles/s41591-026-04407-5', datePublished: '2026-06-02', isPartOf: { '@type': 'Periodical', name: 'Nature Medicine' } } };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Groundbreaking “food is medicine” study reduces hospitalizations among Medicaid recipients by 31% | End Chronic Disease' shareTitle='Groundbreaking “food is medicine” study reduces hospitalizations among Medicaid recipients by 31%' description='Medically tailored meals cut hospital visits, emergency visits, and costs for Medicaid patients with chronic conditions, and savings covered 98% of meal costs.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

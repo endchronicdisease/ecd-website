@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-school-meals.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'AAP calls for universal school meals nationwide',
+  description: 'The American Academy of Pediatrics supports universal school meals as a tool to improve child health, reduce food insecurity, and support academic success.',
+  datePublished: '2026-07-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/aap-universal-school-meals/',
+  image: SITE + '/assets/photos/news/explainer-school-meals.webp',
+  about: ['school meals', 'child nutrition', 'food insecurity', 'American Academy of Pediatrics'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='AAP calls for universal school meals nationwide | End Chronic Disease' shareTitle='AAP calls for universal school meals nationwide' description='The American Academy of Pediatrics supports universal school meals as a tool to improve child health, reduce food insecurity, and support academic success.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-california-bills.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'California update: two End Chronic Disease-backed bills signed into law',
+  description: 'SB 1133 brings nutrition, sleep, and physical activity into California health education; SB 1047 adds frontotemporal degeneration to the state disease registry.',
+  datePublished: '2026-10-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/california-bills-signed-2026/',
+  image: SITE + '/assets/photos/news/edsource-california-capitol.webp',
+  about: ['California SB 1133', 'California SB 1047', 'health education', 'frontotemporal degeneration', 'disease registries'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='California update: two End Chronic Disease-backed bills signed into law | End Chronic Disease' shareTitle='California update: two End Chronic Disease-backed bills signed into law' description='SB 1133 brings nutrition, sleep, and physical activity into California health education; SB 1047 adds frontotemporal degeneration to the state disease registry.' css={[style]} scripts={["/scripts/video.js"]}>
+  <Fragment set:html={body} />
+</Base>

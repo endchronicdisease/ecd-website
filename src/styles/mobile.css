@@ -325,3 +325,6 @@ body > [data-bg$="paint-greenblue.webp"]{max-width:none!important;padding-left:m
 
 /* Home newsletter section on phones: less space between the sign-up copy and the mosaic. */
 @media (max-width:600px){[style*="minmax(0,.9fr) minmax(0,1.1fr);gap:72px"]{row-gap:28px!important}}
+
+/* Research explainers: single column below the tablet tier, no sticky sidebar */
+@media (max-width:900px){article [style*="minmax(0,760px) minmax(260px,1fr)"]{grid-template-columns:minmax(0,1fr)!important}article aside{position:static!important}}

@@ -5,16 +5,16 @@ import { loadNews, rfcDate, esc } from '../lib/news.mjs';
 export function GET() {
   const { CDN, DATA } = loadNews();
   const SITE = 'https://www.endchronicdisease.org';
-  const items = DATA.map((d) => `    <item>
+  const items = DATA.map((d) => { const link = d.u.charAt(0) === '/' ? SITE + d.u : d.u; return `    <item>
       <title>${esc(d.t)}</title>
-      <link>${esc(d.u)}</link>
-      <guid isPermaLink="true">${esc(d.u)}</guid>
+      <link>${esc(link)}</link>
+      <guid isPermaLink="true">${esc(link)}</guid>
       <description>${esc(d.b)}</description>
       <pubDate>${rfcDate(d.d)}</pubDate>
       <source url="${SITE}/news.xml">${esc(d.o)}</source>
 ${d.g.map((g) => `      <category>${esc(g)}</category>`).join('\n')}
       <enclosure url="${SITE}${CDN}${esc(d.i)}" type="image/webp" length="0" />
-    </item>`).join('\n');
+    </item>`; }).join('\n');
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>

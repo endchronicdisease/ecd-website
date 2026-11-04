@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-cfy-summit.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Kelly McKenna introduces Arthur Brooks at national youth health summit sponsored by End Chronic Disease',
+  description: 'At the Champions for Youth Summit in Reston, Virginia, Kelly McKenna on how daily behavior and environment shape chronic disease risk, ahead of Dr. Arthur C. Brooks\u2019s keynote.',
+  datePublished: '2026-05-25', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/champions-for-youth-summit-2026/',
+  image: SITE + '/assets/photos/news/explainer-cfy-stage.webp',
+  about: ['Champions for Youth Summit', 'Arthur Brooks', 'youth health', 'prevention'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Kelly McKenna introduces Arthur Brooks at national youth health summit | End Chronic Disease' shareTitle='Kelly McKenna introduces Arthur Brooks at national youth health summit sponsored by End Chronic Disease' description='At the Champions for Youth Summit in Reston, Virginia, Kelly McKenna on how daily behavior and environment shape chronic disease risk, ahead of Dr. Arthur C. Brooks’s keynote.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

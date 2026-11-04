@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-illinois-phones.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Illinois advances statewide classroom cellphone restrictions; New York celebrates success from bell-to-bell bans as evidence mounts on screen time harms',
+  description: 'States across the political spectrum are limiting phones in class, early results from New York are encouraging, and new research ties screen time to what teens eat.',
+  datePublished: '2026-07-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/illinois-cellphone-restrictions/',
+  image: SITE + '/assets/photos/news/explainer-classroom-discussion.webp',
+  about: ['screen time', 'phone-free schools', 'Illinois SB 2427', 'New York'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Illinois advances statewide classroom cellphone restrictions as evidence mounts on screen time harms | End Chronic Disease' shareTitle='Illinois advances statewide classroom cellphone restrictions; New York celebrates success from bell-to-bell bans' description='States across the political spectrum are limiting phones in class, early results from New York are encouraging, and new research ties screen time to what teens eat.' css={[style]} scripts={["/scripts/video.js"]}>
+  <Fragment set:html={body} />
+</Base>

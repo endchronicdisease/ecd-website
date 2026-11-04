@@ -14,6 +14,7 @@ ECD's work includes preventive health education in schools (sponsor of Californi
 - [Team](https://www.endchronicdisease.org/team/): Leadership and advisors, including physicians, researchers, and public health experts.
 - [News](https://www.endchronicdisease.org/news/): Press coverage, TV and radio interviews, op-eds, and podcasts featuring ECD, filterable by topic, type, outlet, and location.
 - [News RSS feed](https://www.endchronicdisease.org/news.xml): Machine-readable list of the same coverage.
+- [Insights](https://www.endchronicdisease.org/insights/): Research explainers and spotlights written by ECD on studies, policy, journalism, and events; feed at https://www.endchronicdisease.org/insights.xml.
 - [Get Involved](https://www.endchronicdisease.org/get-involved/): Newsletter sign-up and contact form, including media inquiries.
 - [Donate](https://www.endchronicdisease.org/donate/): Tax-deductible giving, processed by Anedot.
 

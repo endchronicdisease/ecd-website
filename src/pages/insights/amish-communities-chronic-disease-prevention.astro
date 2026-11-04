@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-amish.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'What Amish communities can teach us about chronic disease prevention',
+  description: 'Major studies have found markedly lower rates of diabetes, hypertension, and cancer among Amish adults. Many of the daily habits behind those numbers are the ones health authorities now recommend.',
+  datePublished: '2026-10-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/amish-communities-chronic-disease-prevention/',
+  image: SITE + '/assets/photos/news/explainer-amish-buggy.webp',
+  about: ['Amish', 'chronic disease prevention', 'diabetes', 'physical activity', 'ultra-processed foods'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='What Amish communities can teach us about chronic disease prevention | End Chronic Disease' shareTitle='What Amish communities can teach us about chronic disease prevention' description='Major studies have found markedly lower rates of diabetes, hypertension, and cancer among Amish adults. Many of the daily habits behind those numbers are the ones health authorities now recommend.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

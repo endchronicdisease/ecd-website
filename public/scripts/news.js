@@ -19,7 +19,7 @@
       'KQED':'California','NBC Palm Springs':'California'
     };
     var nationalDefault = 'National';
-    var VERB = {TV:'Watch on', Testimony:'Watch on', Podcast:'Listen on', Radio:'Listen on', Article:'Read in', 'Op-ed':'Read in', Poll:'Read'};
+    var VERB = {TV:'Watch on', Testimony:'Watch on', Podcast:'Listen on', Radio:'Listen on', Article:'Read in', 'Op-ed':'Read in', Poll:'Read', Explainer:'Read'};
     var THE = ['New York Post','Sacramento Bee','Wall Street Journal','Washington Examiner'];
     // Shared editorial finish for card thumbnails: ~5% perceptual lift, no colour cast.
     var BASE_FINISH = 'brightness(1.015) contrast(.972) saturate(.985)';
@@ -29,6 +29,7 @@
     function locsOf(d) { return [LOC[d.o] || nationalDefault].concat(d.L || []); }
     function kindsOf(d) { return [d.k].concat(d.K || []); }
     function ctaFor(d) {
+      if (d.k === 'Explainer') return 'Read the explainer';
       return d.o === 'End Chronic Disease' ? 'View poll'
         : (VERB[d.k] || 'Read in') + ' ' + (THE.indexOf(d.o) >= 0 ? 'the ' + d.o : d.o);
     }
@@ -121,8 +122,10 @@
 
       elItems.innerHTML = filtered.map(function (d) {
         var it = {title: d.t, outlet: d.o, kind: d.k, date: d.d, url: d.u, img: CDN + d.i, blurb: d.b, cta: ctaFor(d), zoom: d.z ? 'scale(1.05) translateY(1.5%)' : 'none', filter: finish(d.x), fit: d.f ? 'contain' : 'cover'};
-        return '<a class="ecd-card" href="' + esc(it.url) + '" target="_blank" rel="noopener" style="display:block;text-decoration:none">\n' +
-          '<span style="display:block;background:#E6E2DA;border-radius:12px;overflow:hidden;aspect-ratio:16/10"><img loading="lazy" src="' + esc(it.img) + '" alt="' + esc(it.outlet + ': ' + it.title) + '" style="width:100%;height:100%;object-fit:' + it.fit + ';display:block;transform:' + it.zoom + ';filter:' + it.filter + '"></span>\n' +
+        var internal = it.url.charAt(0) === '/';
+        var badge = d.k === 'Explainer' ? '<span style="position:absolute;left:12px;top:12px;padding:7px 11px;border-radius:999px;background:#67A081;color:#ffffff;font:600 11.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:.12em;text-transform:uppercase">From ECD</span>' : '';
+        return '<a class="ecd-card" href="' + esc(it.url) + '"' + (internal ? '' : ' target="_blank" rel="noopener"') + ' style="display:block;text-decoration:none">\n' +
+          '<span style="display:block;position:relative;background:#E6E2DA;border-radius:12px;overflow:hidden;aspect-ratio:16/10"><img loading="lazy" src="' + esc(it.img) + '" alt="' + esc(it.outlet + ': ' + it.title) + '" style="width:100%;height:100%;object-fit:' + it.fit + ';display:block;transform:' + it.zoom + ';filter:' + it.filter + '">' + badge + '</span>\n' +
           '<span style="display:block;margin:18px 0 0;line-height:1.45">\n' +
           '<span style="font:600 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6FA4E2">' + esc(it.kind) + '</span>\n' +
           '<span aria-hidden="true" style="font:400 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#B4AFA6;margin:0 5px">|</span>\n' +

@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-recess-priority.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'End Chronic Disease continues to elevate recess as a public health priority',
+  description: 'Only 10 states require a minimum amount of daily recess for elementary students. New AAP guidance says recess should be protected and never withheld.',
+  datePublished: '2026-07-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/recess-public-health-priority/',
+  image: SITE + '/assets/photos/news/explainer-climbing-net.webp',
+  about: ['recess', 'physical activity', 'school policy', 'American Academy of Pediatrics'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='End Chronic Disease continues to elevate recess as a public health priority | End Chronic Disease' shareTitle='End Chronic Disease continues to elevate recess as a public health priority' description='Only 10 states require a minimum amount of daily recess for elementary students. New AAP guidance says recess should be protected and never withheld.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

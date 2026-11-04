@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-arts-health.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Play, passion, literature, arts: can these help fight chronic disease?',
+  description: 'A growing body of research is examining the role that creativity, culture, play, and meaningful activity may have in supporting health and preventing chronic disease.',
+  datePublished: '2026-08-04', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/arts-play-chronic-disease/',
+  image: SITE + '/assets/photos/news/explainer-arts-health.webp',
+  about: ['arts and health', 'social prescribing', 'mental health', 'Parkinson\u2019s disease'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Play, passion, literature, arts: can these help fight chronic disease? | End Chronic Disease' shareTitle='Play, passion, literature, arts: can these help fight chronic disease?' description='A growing body of research is examining the role that creativity, culture, play, and meaningful activity may have in supporting health and preventing chronic disease.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

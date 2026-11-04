@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-screen-use.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Back-to-school season brings renewed attention to student cellphone and screen use',
+  description: 'From the HHS Live Real Life Symposium to phone-free classrooms in New York and Arkansas, what families, schools, and policymakers are doing about student screen use.',
+  datePublished: '2026-10-02', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/back-to-school-screen-use/',
+  image: SITE + '/assets/photos/news/explainer-students-phones-outside.webp',
+  about: ['screen time', 'phone-free schools', 'children', 'Live Real Life'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Back-to-school season brings renewed attention to student cellphone and screen use | End Chronic Disease' shareTitle='Back-to-school season brings renewed attention to student cellphone and screen use' description='From the HHS Live Real Life Symposium to phone-free classrooms in New York and Arkansas, what families, schools, and policymakers are doing about student screen use.' css={[style]} scripts={["/scripts/video.js"]}>
+  <Fragment set:html={body} />
+</Base>

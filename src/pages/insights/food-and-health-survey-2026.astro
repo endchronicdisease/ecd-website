@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-food-health-survey.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Americans are trying to eat healthier. The data tells a more complicated story.',
+  description: 'What the 2026 IFIC Food and Health Survey says about convenience, effort, affordability and the state of prevention in America.',
+  datePublished: '2026-10-21',
+  dateModified: '2026-10-21',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/food-and-health-survey-2026/',
+  about: ['food choices', 'nutrition', 'food affordability', 'chronic disease prevention'],
+  citation: { '@type': 'Report', name: '2026 IFIC Food & Health Survey: A Focus on Food & Nutrition', url: 'https://ific.org/research/2026-ific-food-health-survey-dietary-guidance-processed-food/', publisher: { '@type': 'Organization', name: 'International Food Information Council' } },
+};
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Americans are trying to eat healthier. The data tells a more complicated story. | End Chronic Disease' shareTitle='Americans are trying to eat healthier. The data tells a more complicated story.' description='For the first time in 21 years, convenience outranked healthfulness as a reason Americans choose food. End Chronic Disease looks at what the 2026 Food and Health Survey says about the state of prevention.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

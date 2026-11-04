@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-texas-rural.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Texas launches $60 million rural health prevention initiative',
+  description: 'Wellness centers, farmers markets, free screenings, and after-hours clinics for rural hospital districts, the first installment of about $1.4 billion in federal rural health funding to Texas.',
+  datePublished: '2026-05-25', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/texas-rural-health-initiative/',
+  image: SITE + '/assets/photos/news/explainer-farmers-market-tomatoes.webp',
+  about: ['rural health', 'Texas', 'chronic disease prevention', 'Texas SB 25'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Texas launches $60 million rural health prevention initiative | End Chronic Disease' shareTitle='Texas launches $60 million rural health prevention initiative' description='Wellness centers, farmers markets, free screenings, and after-hours clinics for rural hospital districts, the first installment of about $1.4 billion in federal rural health funding to Texas.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

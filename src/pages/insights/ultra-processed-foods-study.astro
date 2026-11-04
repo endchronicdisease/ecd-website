@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-upf-study.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Calories in, calories out? A new study suggests the body is keeping a different score',
+  description: 'A plain-language explainer of the October 2026 Nature Metabolism study comparing nutritionally matched ultra-processed and unprocessed meals.',
+  datePublished: '2026-10-21',
+  dateModified: '2026-10-21',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/ultra-processed-foods-study/',
+  about: ['ultra-processed foods', 'metabolism', 'insulin', 'chronic disease prevention'],
+  citation: { '@type': 'ScholarlyArticle', headline: 'Metabolic and neural responses to ultraprocessed foods: a randomized, controlled, crossover study', url: 'https://doi.org/10.1038/s42255-026-01619-4', datePublished: '2026-10-05', isPartOf: { '@type': 'Periodical', name: 'Nature Metabolism' } },
+};
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Calories in, calories out? What a new ultra-processed food study found | End Chronic Disease' shareTitle='Calories in, calories out? What a new ultra-processed food study found.' description='Researchers matched two meals on calories and nutrients. One was ultra-processed. The body still responded differently. End Chronic Disease explains what the study found, what it did not, and why it matters.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

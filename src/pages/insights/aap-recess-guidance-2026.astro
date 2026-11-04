@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-aap-recess.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article', headline: 'AAP issues first updated recess guidance in more than a decade as the national recess debate intensifies', description: 'Pediatricians say recess is essential for physical health, not just learning. Only 10 states require a daily minimum, and the picture is moving in both directions.',
+  datePublished: '2026-05-25', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/aap-recess-guidance-2026/', image: SITE + '/assets/photos/news/6a87386b959aca797c9cf9c1-recess-kids-16x9.webp', about: ['recess', 'American Academy of Pediatrics', 'physical activity', 'school policy'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='AAP issues first updated recess guidance in more than a decade as the national recess debate intensifies | End Chronic Disease' shareTitle='AAP issues first updated recess guidance in more than a decade as the national recess debate intensifies' description='Pediatricians say recess is essential for physical health, not just learning. Only 10 states require a daily minimum, and the picture is moving in both directions.' css={[style]} scripts={["/scripts/video.js"]}>
+  <Fragment set:html={body} />
+</Base>

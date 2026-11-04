@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-vermont-paraquat.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Bipartisan Vermont bill to phase out paraquat marks a major public health milestone',
+  description: 'Vermont is the first state to pass a ban on paraquat, the herbicide linked to Parkinson\u2019s disease. More than 70 countries have already done so without losing crop yields.',
+  datePublished: '2026-05-25', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/vermont-paraquat-ban/',
+  image: SITE + '/assets/photos/news/explainer-vermont-paraquat-corn.webp',
+  about: ['paraquat', 'Parkinson\u2019s disease', 'pesticides', 'Vermont'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Bipartisan Vermont bill to phase out paraquat marks a major public health milestone | End Chronic Disease' shareTitle='Bipartisan Vermont bill to phase out paraquat marks a major public health milestone' description='Vermont is the first state to pass a ban on paraquat, the herbicide linked to Parkinson’s disease. More than 70 countries have already done so without losing crop yields.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+import { INSIGHTS, card } from '../../lib/insights.mjs';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Insights from End Chronic Disease', url: SITE + '/insights/',
+  description: 'Research explainers and spotlights from End Chronic Disease: what new studies found, and the policy moves, journalism, and events shaping prevention.',
+  hasPart: INSIGHTS.map((it) => ({ '@type': 'Article', headline: it.title, url: SITE + it.url, datePublished: it.date, image: SITE + it.image })) };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody.replace('<!--INSIGHTS_CARDS-->', INSIGHTS.map(card).join('\n'));
+---
+<Base title='Insights | End Chronic Disease' description='Research explainers and spotlights from End Chronic Disease: what new studies found, and the policy moves, journalism, and events shaping prevention.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

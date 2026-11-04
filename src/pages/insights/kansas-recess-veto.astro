@@ -1,0 +1,15 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-kansas-veto.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article', headline: 'Kansas governor vetoes recess bill', description: 'HB 2763 would have guaranteed 30 minutes of daily recess for Kansas elementary students and passed both chambers with bipartisan majorities. Governor Laura Kelly vetoed it.',
+  datePublished: '2026-05-25', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/kansas-recess-veto/', image: SITE + '/assets/photos/news/explainer-recess-slide.webp', about: ['recess', 'Kansas', 'physical activity', 'school policy'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Kansas governor vetoes recess bill | End Chronic Disease' shareTitle='Kansas governor vetoes recess bill' description='HB 2763 would have guaranteed 30 minutes of daily recess for Kansas elementary students and passed both chambers with bipartisan majorities. Governor Laura Kelly vetoed it.' css={[style]} scripts={["/scripts/video.js"]}>
+  <Fragment set:html={body} />
+</Base>

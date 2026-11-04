@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-staten-island.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Journalism spotlight: Staten Island investigates its local cancer crisis',
+  description: 'Staten Island has the highest overall cancer rate of New York City\u2019s five boroughs, about 21% above the city average, and no comprehensive study explains why. A new investigative series is asking the question.',
+  datePublished: '2026-08-04', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/staten-island-cancer-investigation/',
+  image: SITE + '/assets/photos/news/explainer-staten-island-ferry.webp',
+  about: ['cancer', 'Staten Island', 'environmental exposures', 'investigative journalism'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Journalism spotlight: Staten Island investigates its local cancer crisis | End Chronic Disease' shareTitle='Journalism spotlight: Staten Island investigates its local cancer crisis' description='Staten Island has the highest overall cancer rate of New York City’s five boroughs, about 21% above the city average, and no comprehensive study explains why.' css={[style]}>
+  <Fragment set:html={body} />
+</Base>

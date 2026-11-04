@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-alabama-phones.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Alabama schools report great progress and cultural shifts after one year of phone-free classrooms',
+  description: 'Schools that went phone-free report stronger engagement, more conversations at lunch, better discipline, and less cheating.',
+  datePublished: '2026-08-04', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/alabama-phone-free-classrooms/',
+  image: SITE + '/assets/photos/news/explainer-classroom-hands-raised.webp',
+  about: ['screen time', 'phone-free schools', 'Alabama', 'children'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Alabama schools report great progress and cultural shifts after one year of phone-free classrooms | End Chronic Disease' shareTitle='Alabama schools report great progress and cultural shifts after one year of phone-free classrooms' description='Schools that went phone-free report stronger engagement, more conversations at lunch, better discipline, and less cheating.' css={[style]} scripts={["/scripts/video.js"]}>
+  <Fragment set:html={body} />
+</Base>

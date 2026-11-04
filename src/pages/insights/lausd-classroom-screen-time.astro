@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import rawBody from '../../raw/insights-lausd.body.html?raw';
+import style from '../../raw/news.style.css?raw';
+const SITE = 'https://www.endchronicdisease.org';
+const ld = { '@context': 'https://schema.org', '@type': 'Article',
+  headline: 'Los Angeles Unified School District announces sweeping plan to reduce classroom screen time',
+  description: 'The nation\u2019s second-largest school district voted unanimously to limit screens in class. What the policy would do, and how it fits a wider push in California and beyond.',
+  datePublished: '2026-05-25', dateModified: '2026-10-22',
+  author: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/' },
+  publisher: { '@type': 'Organization', name: 'End Chronic Disease', url: SITE + '/', logo: { '@type': 'ImageObject', url: SITE + '/assets/logo-full-green.png' } },
+  mainEntityOfPage: SITE + '/insights/lausd-classroom-screen-time/',
+  image: SITE + '/assets/photos/news/explainer-classroom-laptops.webp',
+  about: ['screen time', 'LAUSD', 'California AB 1644', 'California AB 2071', 'digital wellness'] };
+const body = '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>\n' + rawBody;
+---
+<Base title='Los Angeles Unified School District announces sweeping plan to reduce classroom screen time | End Chronic Disease' shareTitle='Los Angeles Unified School District announces sweeping plan to reduce classroom screen time' description='The nation’s second-largest school district voted unanimously to limit screens in class. What the policy would do, and how it fits a wider push in California and beyond.' css={[style]} scripts={["/scripts/video.js"]}>
+  <Fragment set:html={body} />
+</Base>
