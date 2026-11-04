@@ -8,7 +8,7 @@ Licence notes:
 - Vecteezy images are licensed under ECD’s Vecteezy Pro account; check **License History** there for the asset ID.
 - Webflow library items are assets from the old site and newsletter: TV broadcast stills used only as click-to-play video posters, publisher screenshots used as link previews, and ECD’s own photos.
 
-Items marked **CONFIRM** have no licence record yet: 2 on the News page as of 2026-11-04 (the Washington Post thumbnail and the farmland photo). **REVIEW** marks a licensed image that is AI-generated.
+Items marked **CONFIRM** have no licence record yet: 1 on the News page as of 2026-11-04 (the Washington Post thumbnail). **REVIEW** marks a licensed image that is AI-generated.
 
 ## By article
 
@@ -158,7 +158,7 @@ Card images on `/news/`, one per story, in page order. Broadcast stills and publ
 - `6a37f7fe62107ddfa9f79912-picture3.webp`: Pediatricians declared recess a health necessity; states should treat it that way (Washington Examiner, Jun 2026). Screenshot of Kelly McKenna’s Washington Examiner op-ed (Webflow media library)
 - `6a37f740907d3c6af16ace74-picture2.webp`: How a student health bill got tangled in Kansas politics (The 74, Jun 2026). Screenshot of Kara Jones’s op-ed in The 74 (Webflow media library)
 - `6a28772f178b355c59a80dfd-wusa9.webp`: Sharing screen time tips for summer break (WUSA 9, May 2026). WUSA9 broadcast still (Webflow media library)
-- `6a39a0755651db385b7afa8a-aerial-farmland.webp`: Vermont praised for becoming the first state to ban paraquat (Rutland Herald, May 2026). Stock photo sold as Adobe Stock 455880394, Shutterstock 2038640252, and Alamy 441435129. Not in the Adobe licence history; no licence record found. **CONFIRM**
+- `6a39a0755651db385b7afa8a-aerial-farmland.webp`: Vermont praised for becoming the first state to ban paraquat (Rutland Herald, May 2026). Adobe Stock 455880394, Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-11-04 (licensed by Tara after the audit)
 - `6a03849d1ddab4292d78ac24-img-2700.webp`: Kansas governor vetoes daily recess bill (KCTV 5, Apr 2026). KCTV 5 broadcast still (Webflow media library)
 - `6a2874fc72951659b2a0f7d0-vecteezy-children-jumping-on-hopscotch-game-on-school-playground-79029065.webp`: The debate over mandating recess (Ballotpedia, Apr 2026). Vecteezy 79029065, Pro Standard licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2026-06-09
 - `6a033384a09895ee9cc54b98-img-1770.webp`: How screen time limits protect students against chronic disease (KTLA 5, Mar 2026). KTLA 5 broadcast still (Webflow media library)
