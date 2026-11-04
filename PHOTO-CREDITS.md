@@ -8,7 +8,7 @@ Licence notes:
 - Vecteezy images are licensed under ECD’s Vecteezy Pro account; check **License History** there for the asset ID.
 - Webflow library items are assets from the old site and newsletter: TV broadcast stills used only as click-to-play video posters, publisher screenshots used as link previews, and ECD’s own photos.
 
-Items marked **CONFIRM** have no licence record yet: 2 on the News page as of 2026-11-04. **REVIEW** marks a licensed image that is AI-generated.
+Items marked **CONFIRM** have no licence record yet: 1 on the News page as of 2026-11-04 (the City & State photo). **REVIEW** marks a licensed image that is AI-generated.
 
 ## By article
 
@@ -205,4 +205,4 @@ Card images on `/news/`, one per story, in page order. Broadcast stills and publ
 - `68929ed4bf49e746889a49a8-vecteezy-a-group-of-diverse-students-eagerly-raise-their-hands-in-a-28142210.webp`: National Review highlights state wins on nutrition and education (National Review, Aug 2025). Vecteezy 28142210, Pro licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2025-08-05
 - `6892be46eca362b9c61ef64c-picture15.webp`: Kelly McKenna on diet and autoimmune disease (Bruce Cook Show, Aug 2025). Bruce Cook Show podcast artwork (Webflow media library)
 - `690d499f678201a48725b77f-vecteezy-eight-colored-pencils-on-teal-wood-background-69646987.webp`: Americans overwhelmingly support preventive health policy concepts (End Chronic Disease, Aug 2025). Vecteezy 69646987, Pro licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2025-11-06
-- `6892b7f0a6c1b1958a63401e-vecteezy-human-brain-tree-with-flowers-self-care-and-mental-health-22907001.webp`: How the ketogenic diet can improve mental health (New York Post, Dec 2024). Vecteezy 22907001. Not in the Vecteezy licence history as of 2026-11-04; license it there or replace it. **CONFIRM**
+- `nypost-keto-mental-health.webp`: How the ketogenic diet can improve mental health (New York Post, Dec 2024). master1305, Adobe Stock 1658226912, photo (not AI), Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-11-04. Replaced a delisted, unlicensed AI illustration (Vecteezy 22907001) on 2026-11-04.
