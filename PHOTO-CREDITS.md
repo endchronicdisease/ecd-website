@@ -4,7 +4,7 @@ Every image used on /insights/ and its article pages, with where it came from. K
 
 Licence notes:
 - Unsplash images were downloaded while signed in to ECD’s Unsplash+ account; the Unsplash licence covers commercial web use without attribution.
-- Adobe Stock images are licensed under ECD’s Adobe Stock subscription; check **License history** in the account for the asset ID.
+- Adobe Stock images are licensed under ECD’s Adobe Stock subscription; check **License history** in Kelly McKenna’s account (Dashboard > License History) for the asset ID.
 - Webflow library items are assets from the old site and newsletter: TV broadcast stills used only as click-to-play video posters, publisher screenshots used as link previews, and ECD’s own photos.
 
 Items marked **CONFIRM** have no licence record yet (3 as of 2026-11-04).
@@ -24,7 +24,7 @@ Items marked **CONFIRM** have no licence record yet (3 as of 2026-11-04).
 ### What Amish communities can teach us about chronic disease prevention
 `/insights/amish-communities-chronic-disease-prevention/`
 
-- `explainer-amish-buggy.webp` (card and hero): George Sheldon, Adobe Stock 379648220, licensed under ECD’s Adobe Stock subscription (confirmed 2026-11-04)
+- `explainer-amish-buggy.webp` (card and hero): George Sheldon, Adobe Stock 379648220, Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-08-17 (verified 2026-11-04)
 
 ### California update: two End Chronic Disease-backed bills signed into law
 `/insights/california-bills-signed-2026/`
@@ -95,7 +95,7 @@ Items marked **CONFIRM** have no licence record yet (3 as of 2026-11-04).
 ### End Chronic Disease continues to elevate recess as a public health priority
 `/insights/recess-public-health-priority/`
 
-- `explainer-climbing-net.webp` (card and hero): trongnguyen, Adobe Stock 388983215, licensed under ECD’s Adobe Stock subscription (confirmed 2026-11-04)
+- `explainer-climbing-net.webp` (card and hero): trongnguyen, Adobe Stock 388983215, Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-09-07 (verified 2026-11-04)
 - `6a37f7fe62107ddfa9f79912-picture3.webp` (in article): Screenshot of the Washington Examiner op-ed (Webflow media library), used as a link preview
 - `6a37f740907d3c6af16ace74-picture2.webp` (in article): Screenshot of The 74 op-ed (Webflow media library), used as a link preview
 
@@ -112,7 +112,7 @@ Items marked **CONFIRM** have no licence record yet (3 as of 2026-11-04).
 ### Bipartisan Vermont bill to phase out paraquat marks a major public health milestone
 `/insights/vermont-paraquat-ban/`
 
-- `explainer-vermont-paraquat-corn.webp` (card and hero): Stock image also sold as Adobe Stock 1756379754 and Shutterstock 2690642515. Supplied by Tara from the newsletter; confirm the licence in Adobe Stock history. **CONFIRM**
+- `explainer-vermont-paraquat-corn.webp` (card and hero): Stock image sold as Adobe Stock 1756379754 and Shutterstock 2690642515. Supplied by Tara from the newsletter. Not in the Adobe Stock licence history as of 2026-11-04 (all 73 licences checked); license it there or replace it. **CONFIRM**
 
 ### Los Angeles Unified School District announces sweeping plan to reduce classroom screen time
 `/insights/lausd-classroom-screen-time/`
