@@ -17,6 +17,7 @@ ECD's work includes preventive health education in schools (sponsor of Californi
 - [Insights](https://www.endchronicdisease.org/insights/): Research explainers and spotlights written by ECD on studies, policy, journalism, and events; feed at https://www.endchronicdisease.org/insights.xml.
 - [Get Involved](https://www.endchronicdisease.org/get-involved/): Newsletter sign-up and contact form, including media inquiries.
 - [Donate](https://www.endchronicdisease.org/donate/): Tax-deductible giving, processed by Anedot.
+- [Privacy Policy](https://www.endchronicdisease.org/privacy/): How the site collects and uses information; effective November 4, 2026.
 
 ## Contact and identity
 

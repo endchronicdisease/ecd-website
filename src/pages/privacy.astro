@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import body from '../raw/privacy.body.html?raw';
+import style from '../raw/404.style.css?raw';
+import extra from '../raw/404.extra.css?raw';
+---
+<Base title='Privacy Policy | End Chronic Disease' description='How End Chronic Disease Institute, Inc. collects, uses, and protects information on www.endchronicdisease.org. Effective November 4, 2026.' css={[style, extra]}>
+  <Fragment set:html={body} />
+</Base>
