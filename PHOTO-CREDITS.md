@@ -148,6 +148,7 @@ Every image has a recorded source and licence as of 2026-11-04. Mark any future 
 
 Card images on `/news/`, one per story, in page order. Broadcast stills and publisher page screenshots show coverage ECD appeared in; they are used only as small link-preview cards pointing to the source.
 
+- `bewell-kelly-podcast.webp`: Why childhood chronic disease is on the rise and what we can do about it (Be Well by Kelly, Nov 2026). Podcast episode photo supplied by Tara, source Be Well by Kelly; used as a link preview to the episode.
 - `washington-post-ripple-recess-hopscotch.webp`: Why recess matters (The Washington Post, Sep 2026). Getty Images via Unsplash+, ID tg5Dt3CpeYA (same photo as the Insights recess momentum hero)
 - `city-journal-in-defense-of-recess.webp`: In defense of recess (City Journal, Sep 2026). Screenshot of the City Journal article page, used as a link preview to the op-ed
 - `nbc-palm-springs-ab-2244.webp`: California moves to label foods that are not ultra-processed (NBC Palm Springs, Sep 2026). NBC Palm Springs broadcast still of ECD’s segment
