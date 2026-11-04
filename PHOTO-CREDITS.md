@@ -7,7 +7,7 @@ Licence notes:
 - Adobe Stock images are licensed under ECD’s Adobe Stock subscription; check **License history** in Kelly McKenna’s account (Dashboard > License History) for the asset ID.
 - Webflow library items are assets from the old site and newsletter: TV broadcast stills used only as click-to-play video posters, publisher screenshots used as link previews, and ECD’s own photos.
 
-Items marked **CONFIRM** have no licence record yet (3 as of 2026-11-04).
+Items marked **CONFIRM** have no licence record yet (2 as of 2026-11-04).
 
 ## By article
 
@@ -112,7 +112,7 @@ Items marked **CONFIRM** have no licence record yet (3 as of 2026-11-04).
 ### Bipartisan Vermont bill to phase out paraquat marks a major public health milestone
 `/insights/vermont-paraquat-ban/`
 
-- `explainer-vermont-paraquat-corn.webp` (card and hero): Stock image sold as Adobe Stock 1756379754 and Shutterstock 2690642515. Supplied by Tara from the newsletter. Not in the Adobe Stock licence history as of 2026-11-04 (all 73 licences checked); license it there or replace it. **CONFIRM**
+- `explainer-vermont-paraquat-corn.webp` (card and hero): oticki, Adobe Stock 1756379754, Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-11-04 (verified 2026-11-04)
 
 ### Los Angeles Unified School District announces sweeping plan to reduce classroom screen time
 `/insights/lausd-classroom-screen-time/`
