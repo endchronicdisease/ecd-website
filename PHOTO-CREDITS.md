@@ -7,7 +7,7 @@ Licence notes:
 - Adobe Stock images are licensed under ECD’s Adobe Stock subscription; check **License history** in Kelly McKenna’s account (Dashboard > License History) for the asset ID.
 - Webflow library items are assets from the old site and newsletter: TV broadcast stills used only as click-to-play video posters, publisher screenshots used as link previews, and ECD’s own photos.
 
-Items marked **CONFIRM** have no licence record yet (2 as of 2026-11-04).
+All items have a recorded source and licence as of 2026-11-04. Mark any future unknown with **CONFIRM**.
 
 ## By article
 
@@ -77,7 +77,7 @@ Items marked **CONFIRM** have no licence record yet (2 as of 2026-11-04).
 ### AAP calls for universal school meals nationwide
 `/insights/aap-universal-school-meals/`
 
-- `explainer-school-meals.webp` (card and hero): Supplied by Tara from the newsletter. No match in a reverse image search; origin not recorded. **CONFIRM**
+- `explainer-school-lunch.webp` (card and hero): Monkey Business, Adobe Stock 112287248, photo (not AI), Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-11-04. Replaced an unsourced newsletter image on 2026-11-04.
 
 ### Illinois advances statewide classroom cellphone restrictions; New York celebrates success from bell-to-bell bans
 `/insights/illinois-cellphone-restrictions/`
@@ -123,7 +123,7 @@ Items marked **CONFIRM** have no licence record yet (2 as of 2026-11-04).
 ### AAP issues first updated recess guidance in more than a decade as the national recess debate intensifies
 `/insights/aap-recess-guidance-2026/`
 
-- `6a87386b959aca797c9cf9c1-recess-kids-16x9.webp` (card and hero): Newsletter photo of children at recess (Webflow media library), used as the click-to-play video poster; origin not recorded and no reverse-image match. **CONFIRM**
+- `explainer-recess-play.webp` (card and hero): JackF, Adobe Stock 537656463, photo (not AI), Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-11-04, used as the click-to-play video poster. Replaced an unsourced newsletter image on 2026-11-04.
 
 ### Kansas governor vetoes recess bill
 `/insights/kansas-recess-veto/`
