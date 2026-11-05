@@ -60,7 +60,7 @@
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(frame);
   }
 
-  // Hero montage: every slide and dot shares one 67.2s CSS keyframe cycle.
+  // Hero montage: every slide and dot shares one 57.6s CSS keyframe cycle.
   // Seeking the whole animation group by currentTime keeps them in lockstep.
   var el = document.getElementById('ecdMontage');
   if (!el || !el.getAnimations) return;
@@ -76,7 +76,7 @@
     function seek(index) {
       // Land 400ms inside the slide's window: seeking to the exact keyframe boundary
       // leaves the dot highlight on either side of it depending on the browser.
-      var t = index * (67200 / count) + 400;
+      var t = index * (57600 / count) + 400;
       var go = function () { anims.forEach(function (a) { try { a.currentTime = t; } catch (err) {} }); };
       // Slides load two ahead of the running show (see the inline script after the montage), so a
       // jump to a distant photograph fetches it first and seeks once it has decoded (or after 500ms).
@@ -101,7 +101,7 @@
     });
     // Touch: swipe left for the next photograph, right for the previous one. Only a
     // clearly horizontal gesture counts, so vertical scrolling over the hero is unaffected.
-    var slot = 67200 / count, sx = 0, sy = 0, st = 0;
+    var slot = 57600 / count, sx = 0, sy = 0, st = 0;
     function current() { return Math.floor(((anims[0] && anims[0].currentTime) || 0) / slot) % count; }
     el.addEventListener('touchstart', function (e) {
       if (e.touches.length !== 1) return;
