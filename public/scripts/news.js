@@ -127,11 +127,11 @@
         return '<a class="ecd-card" href="' + esc(it.url) + '"' + (internal ? '' : ' target="_blank" rel="noopener"') + ' style="display:block;text-decoration:none">\n' +
           '<span style="display:block;position:relative;background:#E6E2DA;border-radius:12px;overflow:hidden;aspect-ratio:16/10"><img loading="lazy" src="' + esc(it.img) + '" alt="' + esc(it.outlet + ': ' + it.title) + '" style="width:100%;height:100%;object-fit:' + it.fit + ';display:block;transform:' + it.zoom + ';filter:' + it.filter + '">' + badge + '</span>\n' +
           '<div style="margin:18px 0 0;line-height:1.45">\n' +
-          '<span style="font:600 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6FA4E2">' + esc(it.kind) + '</div>\n' +
+          '<span style="font:600 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6FA4E2">' + esc(it.kind) + '</span>\n' +
           '<span aria-hidden="true" style="font:400 14.5px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#B4AFA6;margin:0 5px">|</span>\n' +
           '<span style="font:500 14.5px/1.45 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:.09em;text-transform:uppercase;color:#6B6763">' + esc(it.outlet) + '</span>\n' +
-          '<span style="font:400 14.5px/1.45 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#757575;white-space:nowrap"><span aria-hidden="true" style="color:#B4AFA6;margin:0 5px">|</span>' + esc(it.date) + '</span>\n' +
-          '</span>\n' +
+          '<span style="font:400 14.5px/1.45 \'Graphik\',\'Hanken Grotesk\',sans-serif;color:#757575;white-space:nowrap"><span aria-hidden="true" style="color:#B4AFA6;margin:0 5px">|</span>' + esc(it.date) + '</div>\n' +
+          '</div>\n' +
           '<h2 class="ecd-card-t" style="margin:10px 0 0;font:600 21px/1.26 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:-.014em;color:#757575;text-wrap:pretty">' + esc(it.title) + '</h2>\n' +
           '<span class="ecd-card-b" style="display:block;margin:10px 0 0;font:400 17px/1.6 \'Chronicle Display\',\'Newsreader\',Georgia,serif;color:#757575">' + esc(it.blurb) + '</span>\n' +
           '</a>';
