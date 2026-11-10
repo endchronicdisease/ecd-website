@@ -28,6 +28,22 @@ body{background:#ffffff!important}
    Tiers: above 1180px the design as drawn; 901 to 1180px "compact desktop" (same layouts,
    tighter gutters and nav); 900px and below tablet layouts with the hamburger; 600px single column. */
 
+/* Pause controls for content that moves on its own (WCAG 2.2.2 Pause, Stop, Hide): the home hero
+   slideshow, the press logo ticker and the About ribbons each get one. data-paused drives the icon. */
+.ecd-pause{flex:none;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;padding:0;border:0;border-radius:50%;background:none;color:#757575;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.ecd-pause[hidden]{display:none}
+.ecd-pause svg{display:block;width:12px;height:12px;fill:currentColor}
+.ecd-pause .ecd-ic-play,.ecd-pause[data-paused="true"] .ecd-ic-pause{display:none}
+.ecd-pause[data-paused="true"] .ecd-ic-play{display:block}
+.ecd-pause:hover{color:#4a4a4a}
+.ecd-pause:focus-visible{outline:2px solid #3A5F8F;outline-offset:2px}
+.ecd-pause-hero{margin-right:10px;background:rgba(24,28,33,.59);color:#ffffff}
+.ecd-pause-hero:hover{color:#ffffff;background:rgba(24,28,33,.78)}
+.ecd-pause-hero:focus-visible{outline-color:#ffffff}
+#ecdMontage.ecd-paused *{animation-play-state:paused!important}
+/* Donate: the custom amount field has no outline of its own, so its box shows keyboard focus */
+#ecdCustomWrap > div:focus-within{border-color:#3A5F8F!important;box-shadow:0 0 0 2px #ffffff}
+
 /* Keyboard focus for inline text links (the mockups carried the style in a style-focus attribute) */
 [style-focus]:focus-visible{outline:2px solid currentColor;outline-offset:4px}
 [style-focus^="background-size"]:focus-visible{background-size:100% 1.5px}
@@ -72,7 +88,7 @@ body{background:#ffffff!important}
 .ecd-nav-open .ecd-menu-btn span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .ecd-nav-open .ecd-menu-btn span:nth-child(2){opacity:0}
 .ecd-nav-open .ecd-menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.ecd-menu-btn:focus-visible{outline:2px solid #6FA4E2;outline-offset:3px;border-radius:4px}
+.ecd-menu-btn:focus-visible{outline:2px solid #3A5F8F;outline-offset:3px;border-radius:4px}
 
 /* Desktop layouts hold down to 901px: ten factors five across, 90% dots beside their text, four-column footer */
 @media (min-width:901px){

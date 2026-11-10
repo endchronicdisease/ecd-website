@@ -28,12 +28,15 @@
     b.type = 'button';
     b.style.cssText = "cursor:pointer;text-align:center;padding:17px 4px;border-radius:8px;font:600 20px/1 'Graphik','Hanken Grotesk',sans-serif;letter-spacing:-.01em;background:" + (on ? '#ffffff' : 'transparent') + ';color:' + (on ? '#3a5f8f' : '#ffffff') + ';border:1.5px solid ' + (on ? '#ffffff' : 'rgba(255,255,255,.7)');
     b.textContent = label;
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
     b.addEventListener('click', onClick);
     return b;
   }
 
   function render() {
     var list = state.monthly ? MONTHLY : ONCE;
+    // The amount buttons are rebuilt on every change; remember which one had keyboard focus.
+    var focused = Array.prototype.indexOf.call(tiersEl.children, document.activeElement);
     tiersEl.textContent = '';
     list.forEach(function (n) {
       tiersEl.appendChild(tierButton(fmt(n), !state.custom && n === state.amount, function () {
@@ -45,7 +48,11 @@
       if (customInput) customInput.focus();
     }));
 
+    if (focused >= 0 && tiersEl.children[focused]) tiersEl.children[focused].focus();
+
     if (customWrap) customWrap.hidden = !state.custom;
+    if (onceBtn) onceBtn.setAttribute('aria-pressed', state.monthly ? 'false' : 'true');
+    if (monthlyBtn) monthlyBtn.setAttribute('aria-pressed', state.monthly ? 'true' : 'false');
 
     if (onceBtn) { onceBtn.style.background = state.monthly ? 'transparent' : '#ffffff'; onceBtn.style.color = state.monthly ? '#ffffff' : '#3a5f8f'; }
     if (monthlyBtn) { monthlyBtn.style.background = state.monthly ? '#ffffff' : 'transparent'; monthlyBtn.style.color = state.monthly ? '#3a5f8f' : '#ffffff'; }

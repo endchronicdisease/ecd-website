@@ -63,9 +63,9 @@
   }
   function dropFront(r) { for (var i = 0; i < r.unit.length; i++) r.tp.removeChild(r.tp.firstChild); r.reps--; r.offset += r.period; }
   function dropBack(r) { for (var i = 0; i < r.unit.length; i++) r.tp.removeChild(r.tp.lastChild); r.reps--; }
-  var ribbons = [], rafOn = false, last = null, inView = true;
+  var ribbons = [], rafOn = false, last = null, inView = true, paused = false;
   function frame(now) {
-    if (last !== null) {
+    if (last !== null && !paused) {
       var dt = Math.min(0.1, (now - last) / 1000);
       ribbons.forEach(function (r) {
         r.offset += r.dir * r.speed * dt;
@@ -128,6 +128,16 @@
     if (ribbons.length && !rafOn && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       rafOn = true;
       requestAnimationFrame(frame);
+      // Pause control: only shown when the ribbons are actually moving.
+      var pauseBtn = document.getElementById('ecdRibbonPause');
+      if (pauseBtn) {
+        pauseBtn.hidden = false;
+        pauseBtn.addEventListener('click', function () {
+          paused = !paused;
+          pauseBtn.setAttribute('data-paused', paused ? 'true' : 'false');
+          pauseBtn.setAttribute('aria-label', paused ? 'Play the moving list of conditions' : 'Pause the moving list of conditions');
+        });
+      }
     }
   }
   document.addEventListener('visibilitychange', function () { if (!document.hidden) last = null; });

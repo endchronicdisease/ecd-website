@@ -32,6 +32,16 @@
     el.addEventListener('click', function (e) { e.stopPropagation(); });
   });
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeAll();
+    if (e.key === 'Escape') { closeAll(); return; }
+    if (e.key !== 'Tab') return;
+    // Keep keyboard focus inside the open bio instead of letting it reach the page behind.
+    var modal = document.querySelector('[data-ecd-modal]:not([hidden])');
+    if (!modal) return;
+    var items = Array.prototype.filter.call(modal.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])'), function (n) { return n.offsetParent !== null; });
+    if (!items.length) { e.preventDefault(); return; }
+    var first = items[0], lastItem = items[items.length - 1], active = document.activeElement;
+    if (!modal.contains(active) || active === modal) { e.preventDefault(); (e.shiftKey ? lastItem : first).focus(); }
+    else if (e.shiftKey && active === first) { e.preventDefault(); lastItem.focus(); }
+    else if (!e.shiftKey && active === lastItem) { e.preventDefault(); first.focus(); }
   });
 })();

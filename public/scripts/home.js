@@ -34,7 +34,7 @@
     logos.slice(logos.length / 2).forEach(function (el) { el.remove(); });
     // Pick up from wherever the CSS animation has already carried the strip, so taking
     // over does not snap it back to the start.
-    var x = 0, last = null, pxPerSec = 42;
+    var x = 0, last = null, pxPerSec = 42, paused = false;
     var m = /matrix\(([^)]+)\)/.exec(getComputedStyle(tape).transform || '');
     if (m) { var tx = parseFloat(m[1].split(',')[4]); if (isFinite(tx) && tx < 0) x = tx; }
     tape.classList.add('ecd-tape-js');
@@ -48,7 +48,7 @@
       return el.getBoundingClientRect().width / z + parseFloat(cs.marginLeft) + parseFloat(cs.marginRight);
     }
     function frame(now) {
-      if (last !== null) {
+      if (last !== null && !paused) {
         x -= pxPerSec * Math.min(0.05, (now - last) / 1000);
         var first = tape.firstElementChild, w = itemWidth(first);
         while (w > 0 && -x >= w) { x += w; tape.appendChild(first); first = tape.firstElementChild; w = itemWidth(first); }
@@ -57,12 +57,32 @@
       last = now;
       requestAnimationFrame(frame);
     }
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(frame);
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      requestAnimationFrame(frame);
+      // Pause control: only shown when the strip is actually moving.
+      var tickerPause = document.getElementById('ecdTickerPause');
+      if (tickerPause) {
+        tickerPause.hidden = false;
+        tickerPause.addEventListener('click', function () {
+          paused = !paused;
+          tickerPause.setAttribute('data-paused', paused ? 'true' : 'false');
+          tickerPause.setAttribute('aria-label', paused ? 'Play the scrolling press logos' : 'Pause the scrolling press logos');
+        });
+      }
+    }
   }
 
   // Hero montage: every slide and dot shares one 57.6s CSS keyframe cycle.
   // Seeking the whole animation group by currentTime keeps them in lockstep.
   var el = document.getElementById('ecdMontage');
+  // Pause control: freezes every slide and dot animation in place (the dots still jump to a photo).
+  var montagePause = document.getElementById('ecdMontagePause');
+  if (el && montagePause) montagePause.addEventListener('click', function () {
+    var p = !el.classList.contains('ecd-paused');
+    el.classList.toggle('ecd-paused', p);
+    montagePause.setAttribute('data-paused', p ? 'true' : 'false');
+    montagePause.setAttribute('aria-label', p ? 'Play the photo slideshow' : 'Pause the photo slideshow');
+  });
   if (!el || !el.getAnimations) return;
   (function () {
     var dots = Array.prototype.filter.call(el.querySelectorAll('span'), function (s) {
