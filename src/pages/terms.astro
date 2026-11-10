@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import body from '../raw/terms.body.html?raw';
+import style from '../raw/404.style.css?raw';
+import extra from '../raw/404.extra.css?raw';
+---
+<Base title='Terms of Service | End Chronic Disease' description='The terms that govern use of www.endchronicdisease.org and the services of End Chronic Disease Institute, Inc. Last updated November 6, 2026.' css={[style, extra]}>
+  <Fragment set:html={body} />
+</Base>
