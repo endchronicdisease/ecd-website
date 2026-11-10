@@ -6,7 +6,9 @@
   function apply(el) {
     // data-bg stays on the element (CSS selects on it); data-bg-done marks it as applied.
     if (el.hasAttribute('data-bg-done')) return;
-    el.style.backgroundImage = 'url(' + el.getAttribute('data-bg') + ')';
+    // Phones and tablets take the smaller file when the element names one (data-bg-m).
+    var small = window.innerWidth <= 900 && el.getAttribute('data-bg-m');
+    el.style.backgroundImage = 'url(' + (small || el.getAttribute('data-bg')) + ')';
     el.setAttribute('data-bg-done', '');
   }
   if ('IntersectionObserver' in window) {
