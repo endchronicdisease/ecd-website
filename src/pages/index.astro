@@ -3,7 +3,18 @@ import Base from '../layouts/Base.astro';
 import body from '../raw/index.body.html?raw';
 import style from '../raw/index.style.css?raw';
 import extra from '../raw/index.extra.css?raw';
+
+// Hero speed: the opening photograph is random, so the browser cannot find it by scanning the HTML.
+// This script sits at the very top of <head>, before the styles, picks the photograph and preloads it
+// so the request leaves with the first packet. The montage script in the body reads window.__ecdHero
+// and shows the same one. Slide file names are read from the body so the two can never drift apart.
+const slideNames = [...body.matchAll(/<img data-src="\/assets\/photos\/opt\/([^"]+)"/g)].map((m) => m[1]).slice(1);
+if (slideNames.length < 2) throw new Error('index.astro: hero slides not found in index.body.html');
+const headFirst = '<script>(function(){var s=' + JSON.stringify(slideNames) + ',i=Math.floor(Math.random()*s.length),w=window.innerWidth||9999;' +
+  'if(screen.width&&screen.width<600)w=Math.min(w,screen.width);var m=w<=900,u="/assets/photos/opt/"+(m?"m/":"")+s[i];' +
+  'window.__ecdHero={i:i,m:m,u:u};var l=document.createElement("link");l.rel="preload";l.as="image";l.href=u;' +
+  'l.setAttribute("fetchpriority","high");document.head.appendChild(l)})();</script>';
 ---
-<Base title='End Chronic Disease | Prevention for Everyday Life' shareTitle='End Chronic Disease' description='End Chronic Disease Institute is a nonpartisan, nonprofit 501(c)(3) organization working to bring prevention into everyday life.' css={[style, extra]} scripts={["/scripts/home.js", "/scripts/newsletter.js"]}>
+<Base title='End Chronic Disease | Prevention for Everyday Life' shareTitle='End Chronic Disease' description='End Chronic Disease Institute is a nonpartisan, nonprofit 501(c)(3) organization working to bring prevention into everyday life.' css={[style, extra]} headFirst={headFirst} deferFonts scripts={["/scripts/home.js", "/scripts/newsletter.js"]}>
   <Fragment set:html={body} />
 </Base>
