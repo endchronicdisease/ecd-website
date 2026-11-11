@@ -8,10 +8,20 @@
       var s = t.textContent.trim();
       var m = /font-size:([\d.]+)px/.exec(t.getAttribute('style') || '');
       var size = m ? parseFloat(m[1]) : parseFloat(t.getAttribute('font-size')) || 16;
-      if (!/^(\d{4}|\d+%)$/.test(s)) return;
+      if (!/^(\d{4}|\d+%)$/.test(s)) {
+        // The series descriptions beside the end values would be about 5px tall here: hide them
+        // in the drawing and state them in a legend under it instead.
+        if (size <= 16) t.style.display = 'none';
+        return;
+      }
       var factor = 1.6;
       t.style.fontSize = (size * factor).toFixed(1) + 'px';
     });
+    var legend = document.createElement('div');
+    legend.setAttribute('style', "display:flex;flex-wrap:wrap;gap:6px 20px;margin:12px 0 0;font:400 13px/1.4 'Graphik','Hanken Grotesk',sans-serif;color:#757575");
+    var dot = function (c) { return '<span aria-hidden="true" style="display:inline-block;width:10px;height:10px;margin-right:7px;border-radius:50%;background:' + c + '"></span>'; };
+    legend.innerHTML = '<span>' + dot('#6FA4E2') + 'At least one selected chronic condition</span><span>' + dot('#67A081') + 'Multiple selected chronic conditions</span>';
+    chart.parentNode.insertBefore(legend, chart.nextSibling);
   }
 
   // Disease ribbons. Each ribbon's text is one list repeated along a path. The obvious loop

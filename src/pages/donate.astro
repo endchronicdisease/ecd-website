@@ -3,7 +3,20 @@ import Base from '../layouts/Base.astro';
 import body from '../raw/donate.body.html?raw';
 import style from '../raw/donate.style.css?raw';
 import extra from '../raw/donate.extra.css?raw';
+import fs from 'node:fs';
+
+// The amount buttons are drawn by /scripts/donate.js; empty until it ran, the panel grew and pushed the
+// page down. The same buttons, in the default state (one-time, $100), are written into the HTML here from
+// the script's own amount list, and the script redraws identical ones when it loads.
+const js = fs.readFileSync(new URL('../../public/scripts/donate.js', import.meta.url), 'utf8');
+const amounts = (/var ONCE = \[([\d,\s]+)\]/.exec(js) || [, ''])[1].split(',').map((n) => parseInt(n, 10)).filter(Boolean);
+const tier = (label, on) => '<button type="button" aria-pressed="' + on + '" style="cursor:pointer;text-align:center;padding:17px 4px;border-radius:8px;font:600 20px/1 \'Graphik\',\'Hanken Grotesk\',sans-serif;letter-spacing:-.01em;background:' +
+  (on ? '#ffffff' : 'transparent') + ';color:' + (on ? '#3a5f8f' : '#ffffff') + ';border:1.5px solid ' + (on ? '#ffffff' : 'rgba(255,255,255,.7)') + '">' + label + '</button>';
+const tiers = amounts.map((n) => tier('$' + n.toLocaleString('en-US'), n === 100)).join('') + tier('Other', false);
+const slot = '<span id="ecdTiers" style="display:contents"></span>';
+if (amounts.length && !body.includes(slot)) throw new Error('donate.body.html: #ecdTiers placeholder changed; update donate.astro');
+const page = amounts.length ? body.replace(slot, '<span id="ecdTiers" style="display:contents">' + tiers + '</span>') : body;
 ---
 <Base title='Donate | End Chronic Disease' description='Support End Chronic Disease Institute, a 501(c)(3) nonprofit. Gifts are tax-deductible.' css={[style, extra]} scripts={["/scripts/donate.js"]}>
-  <Fragment set:html={body} />
+  <Fragment set:html={page} />
 </Base>

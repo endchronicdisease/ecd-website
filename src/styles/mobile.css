@@ -260,7 +260,7 @@ body{background:#ffffff!important}
   /* Every remaining multi-column layout becomes a single column */
   /* Home stat circles: single column on phones, so the third circle is a full-width item again */
   [style*="repeat(3,1fr);gap:56px"] > :nth-child(3){width:auto;justify-self:stretch}
-  [style*="grid-template-columns"]:not(.ecd-footgrid):not(.ecd-factors):not(:has(> #ecdTiers)):not([style*="repeat(4,minmax(0,1fr));gap:16px"]):not([style*="repeat(10"]):not([style*="14px minmax"]):not([style*="minmax(230px,1fr)"]):not([style*="minmax(250px,1fr)"]):not([style*="column-gap:16px;align-items:start"]){grid-template-columns:minmax(0,1fr)!important}
+  [style*="grid-template-columns"]:not(.ecd-footgrid):not(.ecd-factors):not(:has(> #ecdTiers)):not([style*="repeat(4,minmax(0,1fr));gap:16px"]):not([style*="repeat(10"]):not([style*="14px minmax"]):not([style*="minmax(230px,1fr)"]):not([style*="minmax(250px,1fr)"]):not([style*="column-gap:16px;align-items:start"]):not([style*="max-content minmax(200px,1fr) max-content"]){grid-template-columns:minmax(0,1fr)!important}
   /* Home newsletter mosaic: shorter tiles so three columns fit a phone */
   [style*="column-gap:16px;align-items:start"] [style*="height:196px"]{height:150px!important}
   [style*="column-gap:16px;align-items:start"] [style*="height:186px"]{height:142px!important}
@@ -344,3 +344,27 @@ body{background:#ffffff!important}
 
 /* Research explainers: single column below the tablet tier, no sticky sidebar */
 @media (max-width:900px){article [style*="minmax(0,760px) minmax(260px,1fr)"]{grid-template-columns:minmax(0,1fr)!important}article aside{position:static!important}}
+
+/* ---- Phone polish from the pre-submission QA sweep ---- */
+@media (max-width:600px){
+  /* About hero: the text panel spans the content width like the home hero (it was a narrow, off-centre
+     box that outgrew the photo on 320px screens) */
+  [style*="padding:0 88px 74px 42.5px"]{padding:0 20px 28px!important}
+  [style*="padding:0 88px 74px 42.5px"] > [style*="width:666px"]{padding:22px!important}
+  [style*="padding:0 88px 74px 42.5px"] h1{font-size:30px!important}
+  [style*="padding:0 88px 74px 42.5px"] p{font-size:16px!important;margin-top:16px!important}
+  /* About, "Across the lifespan": label and percentage share a line, the brush bar runs underneath */
+  [style*="max-content minmax(200px,1fr) max-content"]{grid-template-columns:minmax(0,1fr) max-content!important;grid-auto-flow:row dense;row-gap:12px!important}
+  [style*="max-content minmax(200px,1fr) max-content"] > [style*="height:34px"]{grid-column:1/-1}
+  /* About chart: title centred over its date range; the footnote lines up with the page text */
+  [style*="margin:64px 0 -72px"]{padding-right:0!important}
+  [style*="margin:64px 0 -72px"] [style*="font:400 18.5px/1.25"]{text-align:center}
+  [style*="margin:26px 0 0 7.17%"]{margin-left:0!important}
+  /* Contact form: the newsletter checkbox keeps its desktop distance from its label */
+  .ecd-contact-form label[style*="display:flex"]{column-gap:12px!important}
+  /* Our Work: space between the issue list and the photo once the two columns stack */
+  [style*="minmax(0,.42fr) minmax(0,.58fr);gap:0 52px"]{row-gap:32px!important}
+  /* Buttons whose label wraps onto two lines: centred, with room between the lines */
+  a[style*="font:700 15px/1 "][style*="border-radius:8px"]:not(.ecd-nav-links > a){text-align:center;line-height:1.3!important}
+}
+

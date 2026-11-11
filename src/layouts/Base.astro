@@ -1,17 +1,29 @@
 ---
 import mobile from '../styles/mobile.css?raw';
 const { title, description, css = [], scripts = [], shareTitle, headFirst = '', deferFonts = false } = Astro.props;
+// Fallback metrics: while a web font is still downloading the text is drawn in a system font. Georgia
+// is about 8% wider than Newsreader, so every paragraph re-wrapped when the real font arrived and the
+// page jumped. The local() faces below redefine the fallbacks ("Georgia", and "Hanken Grotesk", which
+// sits second in every sans stack and is not otherwise loaded) at a matched size, measured against the
+// site's own text, so lines break in the same places before and after the swap. They cost no download.
+// If the licensed Chronicle Display files are installed, re-measure the Georgia figures.
 // Web fonts. Normally they are declared straight away. With deferFonts (the home page) every
 // @font-face rule, including the ones in the page's own stylesheet, moves into one style element
 // that starts switched off, so on a first visit the fonts do not share a slow connection with the
 // hero photograph; the script next to it switches it on (see below).
 const BASE_FONTS = `@font-face{font-family:'Newsreader';font-style:normal;font-weight:200 700;font-display:swap;src:url(/assets/fonts/Newsreader-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'Newsreader';font-style:italic;font-weight:200 700;font-display:swap;src:url(/assets/fonts/Newsreader-Italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Coming Soon';font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/ComingSoon-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}`;
+@font-face{font-family:'Coming Soon';font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/ComingSoon-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Georgia';font-style:normal;font-weight:400;src:local('Georgia');size-adjust:91.6%}
+@font-face{font-family:'Georgia';font-style:normal;font-weight:700;src:local('Georgia Bold'),local('Georgia-Bold');size-adjust:91.6%}
+@font-face{font-family:'Georgia';font-style:italic;font-weight:400;src:local('Georgia Italic'),local('Georgia-Italic');size-adjust:82.8%}
+@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:400;src:local('Arial'),local('ArialMT'),local('Helvetica');size-adjust:104.7%}
+@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:500;src:local('Arial'),local('ArialMT'),local('Helvetica');size-adjust:97.9%}
+@font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:700;src:local('Arial Bold'),local('Arial-BoldMT'),local('Helvetica Bold'),local('Helvetica-Bold')}`;
 const FONT_RULE = /@font-face\{[^}]*\}\s*/g;
 const allFontRules = deferFonts ? (BASE_FONTS + '\n' + css.join('\n')).match(FONT_RULE) || [] : [];
 // The hero headline and its bold line are set in Graphik Semibold, so that one face is never held back.
-const URGENT_FONT = /Graphik-Semibold/;
+const URGENT_FONT = /Graphik-Semibold|local\(/;   // local() fallback faces cost nothing and must be active from the start
 const urgentFontCss = allFontRules.filter((r) => URGENT_FONT.test(r)).join('');
 const fontCss = deferFonts ? allFontRules.filter((r) => !URGENT_FONT.test(r)).join('') : BASE_FONTS;
 const pageCss = deferFonts ? css.map((c) => c.replace(FONT_RULE, '')) : css;

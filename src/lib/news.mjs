@@ -9,6 +9,24 @@ export function loadNews() {
   vm.runInNewContext(src, sandbox);
   return sandbox.window.ECD_NEWS;
 }
+// The topic chips and the three dropdowns are drawn by /scripts/news.js. Left empty in the HTML they
+// appear only after the script runs and push the page down. This runs that same script at build time
+// against stub elements and returns what it draws in its default state, so the page ships with the
+// controls already in place and the script's own first render changes nothing. If the script ever
+// needs something the stubs lack, this returns null and the page falls back to drawing them on load.
+export function prerenderNewsControls() {
+  try {
+    const src = fs.readFileSync(new URL('../../public/scripts/news.js', import.meta.url), 'utf8');
+    const els = {};
+    const stub = (id) => els[id] || (els[id] = { id, innerHTML: '', textContent: '', value: '', addEventListener() {}, getAttribute() { return null; }, hasAttribute() { return false; } });
+    const document = { readyState: 'complete', getElementById: stub, addEventListener() {} };
+    vm.runInNewContext(src, { window: { ECD_NEWS: loadNews() }, document });
+    const out = { chips: els.ecdNewsChips.innerHTML, type: els.ecdNewsType.innerHTML, outlet: els.ecdNewsOutlet.innerHTML, place: els.ecdNewsPlace.innerHTML };
+    return out.chips && out.type && out.outlet && out.place ? out : null;
+  } catch (e) {
+    return null;
+  }
+}
 // 'Sep 2026' -> '2026-09' (display dates carry month precision only)
 export function isoMonth(d) {
   const m = /^([A-Z][a-z]{2}) (\d{4})$/.exec(d || '');

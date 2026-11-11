@@ -67,6 +67,17 @@
     fillSelect(elOutlet, outletOptions);
     fillSelect(elPlace, placeOptions);
 
+    // Links such as /news/?topic=Recess open the page already filtered. Unknown values are ignored.
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var wanted = params.getAll('topic').filter(function (t) { return topics.indexOf(t) >= 0; });
+      if (wanted.length) state.topic = wanted;
+      var po = params.get('outlet'); if (po && outletOptions.indexOf(po) >= 0) state.outlet = po;
+      var py = params.get('type'); if (py && typeOptions.indexOf(py) >= 0) state.type = py;
+      var pp = params.get('place'); if (pp && placeOptions.indexOf(pp) >= 0) state.place = pp;
+      var pq = params.get('q'); if (pq) state.q = pq;
+    } catch (e) {}
+
     function render() {
       var type = state.type, outlet = state.outlet, place = state.place, q = state.q;
       var terms = q.trim().toLowerCase().split(/\s+/).filter(Boolean);

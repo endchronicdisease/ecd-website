@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import rawBody from '../raw/news.body.html?raw';
 import style from '../raw/news.style.css?raw';
 import extra from '../raw/news.extra.css?raw';
-import { loadNews, isoMonth, esc } from '../lib/news.mjs';
+import { loadNews, isoMonth, esc, prerenderNewsControls } from '../lib/news.mjs';
 
 // Pre-render the news cards at build time so the stories exist in the HTML for
 // crawlers that do not run JavaScript (most AI crawlers, feed readers, link
@@ -58,7 +58,21 @@ const ldScript = '<script type="application/ld+json">' + JSON.stringify(ld).repl
 const itemsTag = '<span id="ecdNewsItems" style="display:contents"></span>';
 const summaryTag = /(<div id="ecdNewsSummary"[^>]*>)<\/div>/;
 if (!rawBody.includes(itemsTag) || !summaryTag.test(rawBody)) throw new Error('news.body.html placeholders changed; update news.astro');
-const body = ldScript + rawBody
+// Controls pre-rendered so they do not pop in (and shift the page) when the script loads.
+const controls = prerenderNewsControls();
+const fill = (html, id, inner) => {
+  const re = new RegExp('(<(?:span|select) id="' + id + '"[^>]*>)\\s*(</(?:span|select)>)');
+  if (!re.test(html)) throw new Error('news.body.html: #' + id + ' placeholder changed; update news.astro');
+  return html.replace(re, (m, open, close) => open + inner + close);
+};
+let withControls = rawBody;
+if (controls) {
+  withControls = fill(withControls, 'ecdNewsChips', controls.chips);
+  withControls = fill(withControls, 'ecdNewsType', controls.type);
+  withControls = fill(withControls, 'ecdNewsOutlet', controls.outlet);
+  withControls = fill(withControls, 'ecdNewsPlace', controls.place);
+}
+const body = ldScript + withControls
   .replace(itemsTag, '<span id="ecdNewsItems" style="display:contents">\n' + cards + '\n</span>')
   .replace(summaryTag, '$1' + DATA.length + ' stories</div>');
 ---
