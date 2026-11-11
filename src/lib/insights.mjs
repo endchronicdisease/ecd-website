@@ -13,7 +13,7 @@ export const INSIGHTS = [
     url: '/insights/amish-communities-chronic-disease-prevention/', image: '/assets/photos/news/explainer-amish-buggy.webp',
     date: '2026-10-02', month: 'Oct 2026', topics: ['Nutrition', 'Physical activity', 'Mental health'],
     blurb: 'Several major studies have found markedly lower rates of diabetes, hypertension, and cancer among Amish adults. Kelly McKenna looks at the daily habits behind the numbers.' },
-  { title: 'California update: two End Chronic Disease-backed bills signed into law',
+  { title: 'California update: two bills backed by End Chronic Disease’s affiliated 501(c)(4) signed into law',
     url: '/insights/california-bills-signed-2026/', image: '/assets/photos/news/edsource-california-capitol.webp',
     date: '2026-10-02', month: 'Oct 2026', topics: ['Policy', 'Health education', 'Neurodegenerative disease', 'Health data'],
     blurb: 'SB 1133 brings nutrition, sleep, and physical activity into California health education, and SB 1047 makes California the second state to track frontotemporal degeneration.' },
