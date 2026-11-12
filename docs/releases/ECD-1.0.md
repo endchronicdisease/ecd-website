@@ -2,11 +2,13 @@
 
 The End Chronic Disease website as it stood on 9 November 2026, the first version recorded as a numbered release.
 
+**Superseded by ECD 1.0.1 (12 November 2026).** This version contains a News page fault: a tag error in the card template shows every story a second time below the grid. It was fixed on 10 November and is not present in 1.0.1. See `ECD-1.0.1.md`.
+
 | | |
 |---|---|
 | Live site | https://www.endchronicdisease.org |
 | Git tag | `v1.0` on commit `f1b28c5` (committed 6 November 2026) |
-| GitHub release | https://github.com/endchronicdisease/ecd-website/releases/tag/v1.0 |
+| GitHub tag page | https://github.com/endchronicdisease/ecd-website/releases/tag/v1.0 |
 | Hosting | Netlify, built automatically from the `main` branch |
 | Framework | Astro 5 static site, no CMS, vanilla JavaScript |
 | Pages in the sitemap | 32 |
@@ -14,7 +16,7 @@ The End Chronic Disease website as it stood on 9 November 2026, the first versio
 
 ## How to get back to this exact version
 
-- **In GitHub**: open the `v1.0` tag or release. The source code zip there is the site at this point.
+- **In GitHub**: open the `v1.0` tag. The source code zip there is the site at this point.
 - **On a computer with the repo**: `git checkout v1.0` shows the files as they were. `git checkout main` returns to the current site.
 - **Offline copy**: the `ECD 1.0` folder in the website build project holds a zip of the built site (what Netlify serves), a zip of the source code, and full-page captures of every main page at desktop and phone widths. The built site zip can be opened locally or uploaded to any static host without a build step.
 
