@@ -58,6 +58,10 @@
     button.disabled = true;
     var original = button.textContent;
     button.textContent = 'Sending…';
+    // Netlify uses the "subject" field as the notification email's subject line, so each
+    // message arrives under the sender's name instead of threading under one shared subject.
+    var who = (first.value + ' ' + last.value).replace(/\s+/g, ' ').trim().slice(0, 120);
+    if (form.elements.subject) form.elements.subject.value = 'Website Contact Form: ' + who;
     var data = new FormData(form);
     var wantsNewsletter = !!form.elements.newsletter && form.elements.newsletter.checked;
 
