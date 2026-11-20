@@ -2,6 +2,12 @@
   command = "npm run build"
   publish = "dist"
 
+# Insights article removed 2026-11-20; send old links to the Insights hub
+[[redirects]]
+  from = "/insights/champions-for-youth-summit-2026"
+  to = "/insights/"
+  status = 301
+
 # Redirects from the old Webflow site so search rankings and inbound links survive
 [[redirects]]
   from = "/coalition"

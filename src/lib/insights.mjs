@@ -89,10 +89,6 @@ export const INSIGHTS = [
     url: '/insights/texas-rural-health-initiative/', image: '/assets/photos/news/explainer-farmers-market-tomatoes.webp',
     date: '2026-05-25', month: 'May 2026', topics: ['Access to care', 'Nutrition', 'Policy'],
     blurb: 'Wellness centers, farmers markets, free screenings, and after-hours clinics for rural hospital districts, the first of about $1.4 billion in federal rural health funding over five years.' },
-  { title: 'Kelly McKenna introduces Arthur Brooks at national youth health summit sponsored by End Chronic Disease',
-    url: '/insights/champions-for-youth-summit-2026/', image: '/assets/photos/news/explainer-cfy-stage.webp',
-    date: '2026-05-25', month: 'May 2026', topics: ['Mental health', 'Health education', 'Screen use'],
-    blurb: 'At the Champions for Youth Summit, a reminder that meaningful lives are built in small daily moments of presence, joy, beauty, and connection, and that those moments shape our biology.' },
 ];
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 export function card(it) {

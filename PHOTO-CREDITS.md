@@ -137,22 +137,12 @@ Every image has a recorded source and licence as of 2026-11-04. Mark any future 
 
 - `explainer-farmers-market-tomatoes.webp` (card and hero): Getty Images via Unsplash+, ID V-DCbF4bLRs
 
-### Kelly McKenna introduces Arthur Brooks at national youth health summit sponsored by End Chronic Disease
-`/insights/champions-for-youth-summit-2026/`
-
-- `explainer-cfy-stage.webp` (card and hero): ECD’s own photo from the 2026 Champions for Youth Summit
-- `explainer-cfy-brooks.webp` (in article): ECD’s own photo from the 2026 Champions for Youth Summit
-- `explainer-cfy-booth.webp` (in article): ECD’s own photo from the 2026 Champions for Youth Summit
-
 ## News page
 
 Card images on `/news/`, one per story, in page order. Broadcast stills and publisher page screenshots show coverage ECD appeared in; they are used only as small link-preview cards pointing to the source.
 
-- `bewell-kelly-podcast.webp`: Why childhood chronic disease is on the rise and what we can do about it (Be Well by Kelly, Nov 2026). Podcast episode photo supplied by Tara, source Be Well by Kelly; used as a link preview to the episode.
 - `washington-post-ripple-recess-hopscotch.webp`: Why recess matters (The Washington Post, Sep 2026). Getty Images via Unsplash+, ID tg5Dt3CpeYA (same photo as the Insights recess momentum hero)
 - `city-journal-in-defense-of-recess.webp`: In defense of recess (City Journal, Sep 2026). Screenshot of the City Journal article page, used as a link preview to the op-ed
-- `nbc-palm-springs-ab-2244.webp`: California moves to label foods that are not ultra-processed (NBC Palm Springs, Sep 2026). NBC Palm Springs broadcast still of ECD’s segment
-- `kqed-kelly-mckenna-headshot.webp`: A perspective on living with chronic disease (KQED, Sep 2026). ECD’s own headshot of Kelly McKenna
 - `wapo-dementia-gap-crowd.webp`: Close the dementia gap (The Washington Post, Sep 2026). cppzone, Adobe Stock 163503746, photo (not AI), Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-11-04. Replaced the Post’s own thumbnail on 2026-11-04.
 - `examiner-football-helmets-sideline.webp`: One in four dead football players had CTE. Why are we still flying bli (Washington Examiner, Sep 2026). Dani Adkins, Unsplash ID civXaE08gKE (free licence) (see Insights section)
 - `6aa1dff5d1e7abfd63bdae07-img-6055.webp`: U.S. Surgeon General forum on children’s screen time (FOX 5 DC, Sep 2026). FOX 5 DC broadcast still (Webflow media library), used as the click-to-play video poster (see Insights section)
@@ -167,10 +157,8 @@ Card images on `/news/`, one per story, in page order. Broadcast stills and publ
 - `6a7628b22d330f9ec6f392b0-fox40-webflow.webp`: California SB 1047 would add FTD to the state’s disease registry (FOX40, Jul 2026). FOX40 Sacramento broadcast still (Webflow media library), used as the click-to-play video poster (see Insights section)
 - `gold-mountain-straws.webp`: Strengthening California’s neurodegenerative disease registry (Gold Mountain California News, Jul 2026). Alex Shuper, Unsplash ID cctG3qY1MbA (free licence)
 - `6a682bd475b10031e70f7ad4-wsj-lte-edit-zoom.webp`: Never doubt the importance of a jungle gym (Wall Street Journal, Jul 2026). Screenshot of Kelly McKenna’s letter in the Wall Street Journal (Webflow media library)
-- `6a67ae033420187bc27b4152-martha-kelly-fox.webp`: America’s next 250 years begin on the playground (Fox News, Jul 2026). Fox News photo of Kelly McKenna with Martha MacCallum (Webflow media library), used as a link preview (see Insights section)
+- `explainer-recess-slide.webp`: America’s next 250 years begin on the playground (Fox News, Jul 2026). Getty Images via Unsplash+, ID S7XH0cDwNp0 (same photo as the Insights Kansas recess veto hero). Replaced the Fox News photo on 2026-11-20.
 - `6a5ed7762ade0877ee53f1fd-picture1.webp`: Screen time impacts in and out of the classroom (Good Day Alabama, Jul 2026). FOX 6 Good Day Alabama broadcast still (Webflow media library)
-- `6a510d9b336d1d68fa6c3ba8-untoldstory-martha.webp`: Saving kids from screens, bad lunches, and chronic illness (The Untold Story, Jun 2026). The Untold Story with Martha MacCallum episode artwork, Fox News Radio (Webflow media library)
-- `6a37f694274bb2917b8ee78a-picture1.webp`: Turning prevention into action through education, policy, and partners (Champions for Youth, Jun 2026). Champions for Youth podcast episode artwork (Webflow media library)
 - `6a37f7fe62107ddfa9f79912-picture3.webp`: Pediatricians declared recess a health necessity; states should treat  (Washington Examiner, Jun 2026). Screenshot of Kelly McKenna’s Washington Examiner op-ed (Webflow media library)
 - `6a37f740907d3c6af16ace74-picture2.webp`: How a student health bill got tangled in Kansas politics (The 74, Jun 2026). Screenshot of Kara Jones’s op-ed in The 74 (Webflow media library)
 - `6a28772f178b355c59a80dfd-wusa9.webp`: Sharing screen time tips for summer break (WUSA 9, May 2026). WUSA9 broadcast still (Webflow media library)
@@ -180,30 +168,19 @@ Card images on `/news/`, one per story, in page order. Broadcast stills and publ
 - `6a2874fc72951659b2a0f7d0-vecteezy-children-jumping-on-hopscotch-game-on-school-playground-79029065.webp`: The debate over mandating recess (Ballotpedia, Apr 2026). Vecteezy 79029065, Pro Standard licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2026-06-09
 - `6a033384a09895ee9cc54b98-img-1770.webp`: How screen time limits protect students against chronic disease (KTLA 5, Mar 2026). KTLA 5 broadcast still (Webflow media library)
 - `6a8282459d6c4574bf484d8e-vecteezy-a-man-stands-in-a-green-field-with-trees-as-he-uses-a-83986436.webp`: Exploring the links between harmful chemicals and Parkinson’s disease (KABC, Mar 2026). Vecteezy image carried over from the Webflow media library (newsletter asset) (see Insights section)
-- `69fd406a43bab32dcbe9daec-img-8687.webp`: Illinois lawmakers push to remove ultra-processed foods from schools (WAND News, Mar 2026). WAND News broadcast still of ECD’s segment (Webflow media library)
 - `69dadc398cd9759404e56422-adobestock-104937055-jpg.webp`: Recess should be mandatory at elementary schools (New York Post, Mar 2026). Monkey Business, Adobe Stock 104937055, Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-08-19 (verified 2026-11-04)
 - `explainer-recess-play.webp`: Talking recess in Utah with The Rod and Greg Show (The Rod and Greg Show, Mar 2026). JackF, Adobe Stock 537656463, photo (not AI), Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-11-04
-- `69dada58469118b3811280a2-img-9974.webp`: Nevada sees highest increase in obesity of any U.S. state (KTNV, Feb 2026). state (KTNV, Feb 2026). KTNV broadcast still of ECD’s segment (Webflow media library)
-- `69dad7aa3609d99766607ffa-img-0061.webp`: Indiana signs bill to ban cellphones from bell to bell (WHAS 11, Feb 2026). WHAS 11 broadcast still (Webflow media library)
-- `69b9e08e4a40547038cbdd20-lifelong-podcast-screenshot.webp`: End Chronic Disease joins the Ethan Suplee podcast (LifeLONG with Ethan Suplee, Feb 2026). LifeLONG with Ethan Suplee podcast screenshot (Webflow media library)
-- `69a3a70485be85fb320225fd-img-7795.webp`: Autoimmune disease symptoms, pathology, and prevention (FOX 5 DC, Feb 2026). FOX 5 DC broadcast still (Webflow media library)
 - `69a3a513c372519655c2bad0-recess.webp`: New York’s K–5 recess bill “ought to be mandatory” (CBS 6 Albany, Feb 2026). CBS 6 Albany broadcast still (Webflow media library)
 - `cityandstate-recess-page.webp`: New York needs to require recess (City & State New York, Feb 2026). Screenshot of the City & State New York article (headline, standfirst, and lead photo), supplied by Tara, used as a link preview, same treatment as the City Journal and Sacramento Bee cards. Replaced the bare Governor’s office photo (Mike Groll, All rights reserved) on 2026-11-04.
-- `699ba8d949317009548c9d63-img-8713.webp`: Testimony at the Arizona State House on PE and health education (Arizona State House, Feb 2026). ECD’s own photo from the Arizona State House testimony (Webflow media library)
-- `699babed50829d8c7c554288-picture4.webp`: Discussing the new federal Dietary Guidelines (Spectrum News, Jan 2026). ECD’s own photo from the Arizona State House testimony (Webflow media library)
 - `examiner-glp1-equity-open-door.webp`: “Health is not a luxury”: why GLP-1 equity is essential (Washington Examiner, Nov 2025). Getty Images via Unsplash+, ID 4k9RObQQ-Zc
 - `examiner-lock-the-clock-sundial.webp`: “Lock the clock” efforts gain momentum (Washington Examiner, Nov 2025). Irvin Aloise, Unsplash ID qgrcu8CHEEs (free licence)
 - `6923994796bf689ce27f1004-image-11-23-25-at-6-31-pm.webp`: Kelly McKenna and California Assemblymember Jesse Gabriel discuss AB 1 (KRON, Nov 2025). KRON 4 broadcast still of ECD’s segment (Webflow media library)
-- `68f2fd9222e0827f308ad43d-img-2554.webp`: Recapping Governor Newsom’s AB 1264 signing (FOX 11 Los Angeles, Oct 2025). FOX 11 Los Angeles broadcast still (Webflow media library)
 - `68f2f84b3b74d5a9a7aef129-vecteezy-agricultural-field-with-rows-of-leafy-green-vegetable-crops-70870810.webp`: Sweetgreen co-founder Nic Jammet reflects on the California bill win (RealClearHealth, Oct 2025). Vecteezy 70870810, Pro licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2025-10-17
-- `68d165b8e924b1a308cde176-img-2058.webp`: An update on the California school lunch bill (FOX LA, Sep 2025). FOX 11 Los Angeles broadcast still (Webflow media library)
 - `68b468eb1a2476a7931d1f7d-vecteezy-healthy-snack-boxes-with-fresh-fruits-crackers-nuts-and-60117147-2.webp`: Health is wealth: why California must lead on children’s nutrition (Los Angeles Daily News, Aug 2025). Vecteezy 60117147, Pro licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2025-08-31
-- `68b466c5a30c0622e7248f00-img-1488.webp`: Kelly McKenna on AB 1264 and ultra-processed school food (FOX 11 Los Angeles, Aug 2025). FOX 11 Los Angeles broadcast still (Webflow media library)
 - `68b4637e81d1117304dd18fd-vecteezy-map-of-the-united-states-with-a-yellow-pushpin-location-66631989.webp`: State policy efforts to combat chronic disease are "just beginning" (Axios, Aug 2025). Vecteezy 66631989, Pro licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2025-08-31
 - `68b464b02a632268648c5794-vecteezy-magnifying-glass-on-graph-paper-financial-development-39371536.webp`: STAT News covers our Summer 2025 preventive health poll (STAT News, Aug 2025). Vecteezy 39371536, Pro licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2025-08-31
 - `68964f02dd0a6981af617b73-vecteezy-photo-of-girl-kids-running-race-sport-at-school-generative-ai-28124147.webp`: Poll shows most voters agree on health and food reforms (POLITICO, Aug 2025). Vecteezy 28124147, Pro licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2025-08-08. Labelled AI-generated by Vecteezy. **REVIEW: AI image**
 - `6892af05407ba8bbe811693c-img-0952.webp`: Keeping children’s health in focus (Fox News, Aug 2025). Fox News broadcast still (Webflow media library)
 - `68929ed4bf49e746889a49a8-vecteezy-a-group-of-diverse-students-eagerly-raise-their-hands-in-a-28142210.webp`: National Review highlights state wins on nutrition and education (National Review, Aug 2025). Vecteezy 28142210, Pro licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2025-08-05
-- `6892be46eca362b9c61ef64c-picture15.webp`: Kelly McKenna on diet and autoimmune disease (Bruce Cook Show, Aug 2025). Bruce Cook Show podcast artwork (Webflow media library)
 - `690d499f678201a48725b77f-vecteezy-eight-colored-pencils-on-teal-wood-background-69646987.webp`: Americans overwhelmingly support preventive health policy concepts (End Chronic Disease, Aug 2025). Vecteezy 69646987, Pro licence in ECD’s Vecteezy Pro account (verified 2026-11-04), 2025-11-06
 - `nypost-keto-mental-health.webp`: How the ketogenic diet can improve mental health (New York Post, Dec 2024). master1305, Adobe Stock 1658226912, photo (not AI), Enhanced licence in Kelly McKenna’s Adobe Stock account, 2026-11-04. Replaced a delisted, unlicensed AI illustration (Vecteezy 22907001) on 2026-11-04.
